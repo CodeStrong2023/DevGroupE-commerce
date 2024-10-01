@@ -45,5 +45,45 @@ public class GameService {
 
     }
 
-
+    public GameDTO createGame(GameDTO gameDTO) {
+        // Convertimos el DTO a entidad
+        Game gameEntity = convertToEntity(gameDTO);
+        // Guardamos la nueva entidad en la base de datos
+        Game savedGame = gameRepository.save(gameEntity);
+        // Retornamos el DTO de la entidad guardada
+        return convertToDTO(savedGame);
+    }
+    public List<GameDTO> findAll() {
+        // Obtenemos la lista de juegos desde la base de datos
+        List<Game> games = gameRepository.findAll();
+        // Convertimos cada entidad Game a su  DTO
+        return games.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+    public GameDTO findById(Long id) {
+        // Buscamos la entidad por su ID
+        Game game = gameRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Game not found"));
+        // Convertimos la entidad a DTO y la retornamos
+        return convertToDTO(game);
+    }
+    public GameDTO updateGame(Long id, GameDTO gameDTO) {
+        // Buscar el juego existente por ID
+        Game existingGame = gameRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Game not found"));
+        // Actualizamos los campos con los datos del DTO
+        existingGame.setTitle(gameDTO.getTitle());
+        existingGame.setDescription(gameDTO.getDescription());
+        existingGame.setReleaseDate(gameDTO.getReleaseDate());
+        // Guardamos la entidad actualizada en la base de datos
+        Game updatedGame = gameRepository.save(existingGame);
+        // Retornamos el DTO de la entidad actualizada
+        return convertToDTO(updatedGame);
+    }
+    public void deleteGame(Long id) {
+        // Buscamos el juego por ID y lo eliminamos
+        Game existingGame = gameRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Game not found"));
+        // Eliminamos el juego de la base de datos
+        gameRepository.delete(existingGame);
+    }
 }
