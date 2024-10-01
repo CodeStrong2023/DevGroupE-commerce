@@ -11,10 +11,11 @@ public class GameDTO {
     private String description;
 
     private LocalDate releaseDate;
-    public GameDTO() {
-    }
+
     private Long id;
 
+    public GameDTO() {
+    }
     public GameDTO(String title, String description, LocalDate releaseDate, Long id) {
         this.title = title;
         this.description = description;
