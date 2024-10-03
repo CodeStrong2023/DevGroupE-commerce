@@ -28,6 +28,11 @@ public class GameReview {
     // el valor predeterminado será la fecha y hora actuales
     private LocalDateTime createdAt; //representa la fecha y hora en que el objeto fue creado, junto con su zona horaria.
 
+    @ManyToOne
+    @JoinColumn(name = "guest_id")
+    private User guest;
+
+
     public long getId() {
         return id;
     }

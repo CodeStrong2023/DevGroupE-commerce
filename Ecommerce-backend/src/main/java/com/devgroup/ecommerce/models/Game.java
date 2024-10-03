@@ -23,6 +23,18 @@ public class Game {
     private LocalDate releaseDate;
 
     @ManyToOne
+    @JoinColumn(name = "owner_id") // Cambia esto si tu columna se llama diferente
+    private User owner;
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    @ManyToOne
     @JoinColumn(name = "category_id")
     @OnDelete(action = OnDeleteAction.SET_NULL) //Se elimina la categoria pero los juegos se siguen conservando en la BD
     private Category category; //establece que cada juego tiene una única categoría.
