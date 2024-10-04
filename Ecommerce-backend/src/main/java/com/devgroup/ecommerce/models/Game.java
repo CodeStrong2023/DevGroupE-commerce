@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import com.devgroup.ecommerce.models.User;
 
 import java.time.LocalDate;
 
@@ -23,6 +24,8 @@ public class Game {
     private LocalDate releaseDate;
 
     @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
     @JoinColumn(name = "category_id")
     @OnDelete(action = OnDeleteAction.SET_NULL) //Se elimina la categoria pero los juegos se siguen conservando en la BD
     private Category category; //establece que cada juego tiene una única categoría.

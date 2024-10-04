@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
 public class GameReview {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne //Relacion muchos a uno ya que para un juego podemos tener varias reseñas
     @JoinColumn(name = "game_id", nullable = false)
@@ -28,11 +28,16 @@ public class GameReview {
     // el valor predeterminado será la fecha y hora actuales
     private LocalDateTime createdAt; //representa la fecha y hora en que el objeto fue creado, junto con su zona horaria.
 
-    public long getId() {
+    @ManyToOne
+    @JoinColumn(name = "guest_id")
+    private User guest;
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
