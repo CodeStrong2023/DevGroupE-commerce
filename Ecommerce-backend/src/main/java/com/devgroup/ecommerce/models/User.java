@@ -42,8 +42,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "owner")
     private List<Game> games;
     
-    @OneToMany(mappedBy = "guest")
-    private List<GameReview> gameReviews;
+    // @OneToMany(mappedBy = "guest")
+    // private List<GameReview> gameReviews;
 
     // Implementación de métodos de UserDetails
     @Override

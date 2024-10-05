@@ -15,6 +15,8 @@ public class Category {
     @Column(name = "description")
     private String description;
 
+    public Category(){}
+
     //Getters and Setters
     public Long getId() {
         return id;

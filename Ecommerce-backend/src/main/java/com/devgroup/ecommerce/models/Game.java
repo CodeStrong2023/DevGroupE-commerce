@@ -1,8 +1,6 @@
 package com.devgroup.ecommerce.models;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -23,12 +21,15 @@ public class Game {
     private LocalDate releaseDate;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    @OnDelete(action = OnDeleteAction.SET_NULL) //Se elimina la categoria pero los juegos se siguen conservando en la BD
-    private Category category; //establece que cada juego tiene una única categoría.
+    @JoinColumn(name = "owner_id")
+    private User owner;
 
-    //Getters and Setters
+    @ManyToOne // Agregamos la anotación para la relación con Category
+    @JoinColumn(name = "category_id", nullable = true) // Puede ser nullable ya que puede ser null si se elimina la categoría
+    @OnDelete(action = OnDeleteAction.SET_NULL) // Se elimina la categoría pero los juegos se conservan
+    private Category category; // Cada juego tiene una única categoría.
 
+    // Getters y Setters
 
     public Long getId() {
         return id;
@@ -60,6 +61,14 @@ public class Game {
 
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public Category getCategory() {

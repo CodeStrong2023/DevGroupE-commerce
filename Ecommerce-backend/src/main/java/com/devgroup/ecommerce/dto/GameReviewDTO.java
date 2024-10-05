@@ -2,8 +2,11 @@ package com.devgroup.ecommerce.dto;
 
 import com.devgroup.ecommerce.models.Game;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 public class GameReviewDTO {
     private Long id;
     private Game game;
@@ -22,11 +25,11 @@ public class GameReviewDTO {
         this.createdAt = createdAt;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

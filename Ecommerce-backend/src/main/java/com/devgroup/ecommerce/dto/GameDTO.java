@@ -2,7 +2,9 @@ package com.devgroup.ecommerce.dto;
 
 import java.time.LocalDate;
 
-    // ESTA CLASE GameDTO contiene solo los campos necesarios para transferir.
+import lombok.Data;
+
+@Data
 public class GameDTO {
 
     //REVISAR SI ES NECESARIO EL ID TAMBIÉN CON LA FECHA
