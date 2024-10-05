@@ -2,8 +2,11 @@ package com.devgroup.ecommerce.dto;
 
 import com.devgroup.ecommerce.models.Game;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 public class GameReviewDTO {
     private Long id;
     private Game game;
