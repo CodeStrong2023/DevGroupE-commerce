@@ -95,3 +95,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.header_logo {
+  display: grid;
+  text-align:left;
+  width: 25%;
+}
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr; 
+    align-items:center; 
+}
+    
+
