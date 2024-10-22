@@ -1,8 +1,8 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Group ECommerce de Videojuegos</title>
     <link rel="stylesheet" 
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -10,40 +10,58 @@
           href="./src/style.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Graduate">
-  </head>
-  <body>
-    <div class="wrapper">
-      <aside>
-        <header class="header"> 
-          <img class="header_logo" src="./images/devgroup-icon.jpg">
-          <h1 class="logo">DevGroup Games</h1>
-        </header> <!--Fin header-->
-        <nav>
-          <ul>
-            <li><button class="boton-categoria">Todos los productos</button></li>
-            <li><button class="boton-categoria">Aventura</button></li>
-            <li><button class="boton-categoria">Deporte</button></li>
-            <li><button class="boton-categoria">Arcade</button></li>
-            <li><button class="boton-categoria">Estrategia</button></li>
-            <li><button class="boton-categoria">Combate</button></li>
-            <li><a class="boton-carrito" href="./carrito.html">Carrito <span class="numero">0</span></a></li>
-          </ul>
+    <link rel="stylesheet" href="./src/style2.css">
+</head>
+<body>
+
+    
+    <div class="container">
+        
+        <header class="header-inicio">
+            <h1>DevGroup Games</h1>
+        </header>
+
+        <nav class="navegacion">
+            <ul>
+                <li><button class="boton-categoria">Todos los productos</button></li>
+                <li><button class="boton-categoria">Aventura</button></li>
+                <li><button class="boton-categoria">Deporte</button></li>
+                <li><button class="boton-categoria">Arcade</button></li>
+                <li><button class="boton-categoria">Estrategia</button></li>
+                <li><button class="boton-categoria">Combate</button></li>
+                <li><a class="boton-carrito" href="./carrito.html">Carrito <span class="numero">0</span></a></li>
+            </ul>
         </nav>
 
-        <section class="juegos-semana">
-          <h2>Juegos de la semana</h2>
-        </section>
+        <h2>Juegos de la semana</h2>
+        <p>Estos juegos son los más buscados de la semana. Probalos, haceme caso.</p>
 
-        <footer>
-          <p class="footer">© 2024 DevGroup</p>
-        </footer>  <!--Fin footer-->
-      </aside> <!--Fin Aside-->
+        <div class="games">
+            <div class="game">
+                <h3>Juego 1</h3>
+                <p>Precio: 20.000$</p>
+            </div>
+            <div class="game">
+                <h3>Juego 2</h3>
+                <p>Precio: 20.000$</p>
+            </div>
+            <div class="game">
+                <h3>Juego 3</h3>
+                <p>Precio: 20.000$</p>
+            </div>
+            <div class="game">
+                <h3>Juego 4</h3>
+                <p>Precio: 20.000$</p>
+            </div>
+        </div>
 
-      <main>
-        <div id="app"></div>
-        <script type="module" src="/main.js"></script>
-      </main>
-      
+        <div class="contact">
+            <h2>Contactanos</h2>
+            <p>Blablabla</p>
+            <a href="#" class="btn">Enviar</a>
+        </div>
+
+        
     </div>
-  </body>
+</body>
 </html>
