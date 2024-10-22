@@ -1,0 +1,85 @@
+body {
+    font-family: 'Graduate', sans-serif;
+    background-color: #79089f;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none; /* Quitar los puntos de la lista */
+    padding: 0; /* Eliminar el padding */
+    margin: 0; /* Eliminar el margen */
+  }
+  
+  nav ul li {
+    margin-right: auto; /* Espacio entre los botones, ajusta según prefieras */
+  }
+  
+  nav .boton-categoria,
+  nav .boton-carrito {
+    padding: 10px 15px; /* Ajusta el espacio dentro del botón */
+    background-color: #030303; /* Color de fondo de ejemplo */
+    border: none; /* Quita el borde si es necesario */
+    cursor: pointer;
+    text-decoration: none; /* Eliminar subrayado del enlace del carrito */
+  }
+  
+  nav .boton-carrito {
+    display: flex;
+    align-items: center; /* Alinear el contenido verticalmente */
+    
+  }
+
+
+h1, h2 {
+    text-align: center;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.game {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.contact, .products {
+    margin-top: 30px;
+}
+
+.products table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.products table, .products th, .products td {
+    border: 1px solid black;
+}
+
+.products th, .products td {
+    padding: 10px;
+    text-align: center;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.boton-index {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
