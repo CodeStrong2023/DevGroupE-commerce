@@ -1,6 +1,27 @@
+:root {
+    --primario: #79089f;
+    --secundario: #434343;
+    --btn-color: #007BFF;
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrincipal: 'Graduate', sans-serif;
+}
+
 body {
-    font-family: 'Graduate', sans-serif;
-    background-color: #79089f;
+    font-family: var(--fuentePrincipal);
+    color: rgb(251, 251, 251);
+    background-color: var(--primario);
+    margin: 0;
+    padding: 0;
+}
+
+.header-inicio {
+    background-color: var(--negro);
+    width: 100%;  
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;    
 }
 
 .container {
@@ -11,8 +32,9 @@ body {
 nav ul {
     display: flex;
     list-style-type: none; /* Quitar los puntos de la lista */
-    padding: 0; /* Eliminar el padding */
+    padding: 10px;
     margin: 0; /* Eliminar el margen */
+    align-items: center;
   }
   
   nav ul li {
@@ -22,7 +44,9 @@ nav ul {
   nav .boton-categoria,
   nav .boton-carrito {
     padding: 10px 15px; /* Ajusta el espacio dentro del botón */
-    background-color: #030303; /* Color de fondo de ejemplo */
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    background-color: var(--negro); /* Color de fondo de ejemplo */
     border: none; /* Quita el borde si es necesario */
     cursor: pointer;
     text-decoration: none; /* Eliminar subrayado del enlace del carrito */
@@ -31,7 +55,7 @@ nav ul {
   nav .boton-carrito {
     display: flex;
     align-items: center; /* Alinear el contenido verticalmente */
-    
+    background-color:var(--btn-color);
   }
 
 
@@ -41,7 +65,7 @@ h1, h2 {
 
 .games {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -70,16 +94,19 @@ h1, h2 {
 }
 
 .btn {
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--btn-color);
+    color: var(--blanco);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
 }
 .boton-index {
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--btn-color);
+    color: var(--blanco);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+}
+.footer {
+    text-align: center;
 }
