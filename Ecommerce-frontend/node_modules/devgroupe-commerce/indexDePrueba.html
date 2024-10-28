@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Group ECommerce de Videojuegos</title>
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" 
+          href="./src/style.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Graduate">
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside>
+        <header class="header"> 
+          <img class="header_logo" src="./images/devgroup-icon.jpg">
+          <h1 class="logo">DevGroup Games</h1>
+        </header> <!--Fin header-->
+        <nav>
+          <ul>
+            <li><button class="boton-categoria">Todos los productos</button></li>
+            <li><button class="boton-categoria">Aventura</button></li>
+            <li><button class="boton-categoria">Deporte</button></li>
+            <li><button class="boton-categoria">Arcade</button></li>
+            <li><button class="boton-categoria">Estrategia</button></li>
+            <li><button class="boton-categoria">Combate</button></li>
+            <li><a class="boton-carrito" href="./carrito.html">Carrito <span class="numero">0</span></a></li>
+          </ul>
+        </nav>
+
+        <section class="juegos-semana">
+          <h2>Juegos de la semana</h2>
+        </section>
+
+        <footer>
+          <p class="footer">© 2024 DevGroup</p>
+        </footer>  <!--Fin footer-->
+      </aside> <!--Fin Aside-->
+
+      <main>
+        <div id="app"></div>
+        <script type="module" src="/main.js"></script>
+      </main>
+      
+    </div>
+  </body>
+</html>
