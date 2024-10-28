@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -26,6 +27,7 @@ public class Game {
     private String description;
 
     private LocalDate releaseDate;
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
