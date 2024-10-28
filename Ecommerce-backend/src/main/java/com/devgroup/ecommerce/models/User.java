@@ -21,7 +21,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
-// esta entidad representa a los usuarios del sistema, que pueden ser administradores, propietarios o huéspedes.
+// esta entidad representa a los usuarios del sistema, que pueden ser: "ADMIN", "OWNER", "GUEST".
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
