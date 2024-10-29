@@ -19,6 +19,7 @@ public class UserDTO {
     @NonNull
     private String email;
     private String password;
+    private String resetToken;
     private Role role;
 
     public UserDTO(User user) {
