@@ -15,6 +15,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -31,13 +32,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Habilitar CORS
                 .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF para permitir autenticación basada en tokens
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/**").permitAll() // Permitir acceso público a login y registro
+                        .requestMatchers("/users/login", "/users/register").permitAll() // Permitir acceso público a login y registro
                         .anyRequest().authenticated() // Proteger cualquier otro endpoint, se requiere autenticación
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // No usar sesiones
-                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class) // Añadir el filtro JWT antes del filtro de autenticación
+                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class) // Añadir el filtro JWT
                 .build();
     }
 
@@ -57,11 +59,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:5173");
-        configuration.addAllowedMethod("*"); // Permitir todos los métodos
-        configuration.addAllowedHeader("*"); // Permitir todos los headers
-        configuration.setAllowCredentials(true);
-    
+        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Permitir el origen del frontend
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Permitir métodos específicos
+        configuration.setAllowedHeaders(List.of("*")); // Permitir todos los headers
+        configuration.setAllowCredentials(true); // Permitir credenciales
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
