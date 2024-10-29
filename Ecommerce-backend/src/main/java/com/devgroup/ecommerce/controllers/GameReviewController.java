@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("gameReview")
+@RequestMapping("/gameReview")
 public class GameReviewController {
     @Autowired
     private GameReviewService gameReviewService;

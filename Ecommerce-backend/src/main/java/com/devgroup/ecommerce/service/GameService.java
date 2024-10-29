@@ -40,7 +40,7 @@ public class GameService {
     public List<GameDTO> getAllGames(){
         List<Game> games = gameRepository.findAll();
         return games.stream()
-                .map(game -> new GameDTO(game.getTitle(),game.getDescription(),game.getReleaseDate(),game.getId()))
+                .map(game -> new GameDTO(game.getId(), game.getTitle(), game.getDescription(), game.getReleaseDate(), game.getPrice()))
                 .collect(Collectors.toList());
 
     }

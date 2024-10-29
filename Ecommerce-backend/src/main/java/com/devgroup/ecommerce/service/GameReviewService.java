@@ -1,36 +1,66 @@
 package com.devgroup.ecommerce.service;
 import com.devgroup.ecommerce.dto.GameReviewDTO;
+import com.devgroup.ecommerce.models.Game;
 import com.devgroup.ecommerce.models.GameReview;
+import com.devgroup.ecommerce.repository.GameRepository;
 import com.devgroup.ecommerce.repository.GameReviewRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class GameReviewService {
+    @Autowired
     private GameReviewRepository gameReviewRepository;
 
-    //Método para convertir ENTITY GAMEREVIEW a DTO
-    private GameReviewDTO convertToDTO(GameReview gameReview) {
-        GameReviewDTO gameRevDto1 = new GameReviewDTO();
-        gameRevDto1.setId(gameReview.getId());
+    @Autowired
+    private GameRepository gameRepository;
+
+    // Inyectar la clave secreta desde el archivo de configuración
+    @Value("${jwt.secret}")
+    private String secretKeyString;
+
+// Método para convertir ENTITY GAMEREVIEW a DTO
+private GameReviewDTO convertToDTO(GameReview gameReview) {
+    GameReviewDTO gameRevDto1 = new GameReviewDTO();
+    gameRevDto1.setId(gameReview.getId());
+
+    // No es necesario hacer otra consulta si ya tenemos el objeto "Game" en la entidad
+    if (gameReview.getGame() != null) {
         gameRevDto1.setGame(gameReview.getGame());
-        gameRevDto1.setReviewText(gameReview.getReviewText());
-        gameRevDto1.setRating(gameReview.getRating());
-        gameRevDto1.setCreatedAt(gameReview.getCreatedAt());
-        return gameRevDto1;
     }
 
-    //Método para convertir de GameReviewDTO a ENTITY
-    private GameReview convertToEntity(GameReviewDTO gameReviewDTO) {
-        GameReview gameReview1 = new GameReview();
-        gameReview1.setId(gameReviewDTO.getId());
-        gameReview1.setGame(gameReviewDTO.getGame());
-        gameReview1.setReviewText(gameReviewDTO.getReviewText());
-        gameReview1.setRating(gameReviewDTO.getRating());
-        gameReview1.setCreatedAt(gameReviewDTO.getCreatedAt());
-        return gameReview1;
+    gameRevDto1.setReviewText(gameReview.getReviewText());
+    gameRevDto1.setRating(gameReview.getRating());
+    gameRevDto1.setCreatedAt(gameReview.getCreatedAt());
+    
+    return gameRevDto1;
+}
+
+// Método para convertir de GameReviewDTO a ENTITY
+private GameReview convertToEntity(GameReviewDTO gameReviewDTO) {
+    GameReview gameReview1 = new GameReview();
+
+    gameReview1.setId(gameReviewDTO.getId());
+
+    // Buscar el Game en la base de datos para asegurarnos de que es válido
+    if (gameReviewDTO.getGame() != null && gameReviewDTO.getGame().getId() != null) {
+        Game game = gameRepository.findById(gameReviewDTO.getGame().getId())
+                .orElseThrow(() -> new RuntimeException("Game not found"));
+        gameReview1.setGame(game);
+    } else {
+        throw new RuntimeException("Game information is missing or invalid");
     }
+
+    gameReview1.setReviewText(gameReviewDTO.getReviewText());
+    gameReview1.setRating(gameReviewDTO.getRating());
+    gameReview1.setCreatedAt(gameReviewDTO.getCreatedAt());
+    
+    return gameReview1;
+}
 
     public GameReviewDTO createGameReview(GameReviewDTO gameReviewDTO) {
         GameReview newReview = convertToEntity(gameReviewDTO);
