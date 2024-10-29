@@ -35,6 +35,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String email;
     
+    private String resetToken;
+    
     @Enumerated(EnumType.STRING)
     private Role role; // ADMIN, OWNER, GUEST.
 
