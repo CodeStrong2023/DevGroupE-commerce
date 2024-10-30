@@ -9,60 +9,65 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Cambiado para que el contenido empuje hacia arriba */
   font-family: var(--fuentePrincipal);
   color: rgb(251, 251, 251);
   background-color: var(--primario);
   margin: 0;
   padding: 0;
+  min-height: 100vh; /* Asegura que el body ocupe al menos toda la ventana */
+  line-height: 1.5;
 }
 
 .header-inicio {
   background-color: var(--negro);
   width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 1rem; /* Espaciado del header */
   text-align: center;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
+  flex: 1; /* Permite que el contenedor principal ocupe el espacio restante */
+  padding: 1rem; /* Espacio interno para el contenedor */
+  overflow: auto; /* Permite el desplazamiento si el contenido excede el tamaño */
+  display: flex; /* Usar flexbox para el contenido interno */
+  flex-direction: column; /* Asegura que los elementos se alineen verticalmente */
+  min-height: calc(100vh - 10rem); /* Ajusta el tamaño para empujar el footer fuera de la vista */
 }
 
-nav ul {
+.navegacion {
   display: flex;
-  list-style-type: none;
-  /* Quitar los puntos de la lista */
-  padding: 10px;
-  margin: 0;
-  /* Eliminar el margen */
-  align-items: center;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  padding: 1rem 0; /* Añade un poco de espacio alrededor */
 }
 
-nav ul li {
-  margin-right: auto;
-  /* Espacio entre los botones, ajusta según prefieras */
+.navegacion ul {
+  display: flex;
+  list-style-type: none; /* Quitar los puntos de la lista */
+  padding: 0; /* Eliminar el padding predeterminado */
+  margin: 0; /* Eliminar el margen */
 }
 
+.navegacion ul li {
+  margin: 0 1rem; /* Espacio entre los botones, ajusta según prefieras */
+}
 nav .boton-categoria,
 nav .boton-carrito {
-  padding: 10px 15px;
-  /* Ajusta el espacio dentro del botón */
+  padding: 0.5rem 1rem; /* Ajuste de padding */
   font-family: var(--fuentePrincipal);
   color: var(--blanco);
   background-color: var(--negro);
-  /* Color de fondo de ejemplo */
   border: none;
-  /* Quita el borde si es necesario */
   cursor: pointer;
   text-decoration: none;
-  /* Eliminar subrayado del enlace del carrito */
 }
 
 nav .boton-carrito {
   display: flex;
   align-items: center;
-  /* Alinear el contenido verticalmente */
   background-color: var(--btn-color);
 }
 
@@ -71,31 +76,78 @@ nav .boton-carrito {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  padding: 2rem 0; /* Espacio interno del contenedor de inicio de sesión */
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+label {
+  display: block;
+  width: 100%;
+  margin: 0.625rem 0; /* Espaciado entre los elementos */
+  text-align: left;
+  color: white;
+  font-weight: bold;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.9375rem; /* Espacio entre campos */
+  padding: 0.625rem; /* Espacio interno */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 0.3125rem; /* Bordes redondeados */
+}
+
+button {
+  padding: 0.9375rem; /* Espacio interno */
+  border-radius: 0.625rem; /* Bordes redondeados */
+  margin: 0.9375rem 0; /* Espaciado superior e inferior */
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: var(--btn-color);
+  width: 100%;
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-form {
-  background-color: rgb(255, 255, 255);
-  color: #000;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 25rem; /* Limitar ancho máximo */
+  margin: 2rem auto; /* Centrar el formulario */
+  padding: 2rem 1.5rem; /* Espaciado interno */
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  border-radius: 0.5rem; /* Bordes redondeados */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3); /* Sombra */
 }
 
 .close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
+  width: 18%; /* Ocupa todo el ancho del contenedor */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Esquinas redondeadas */
+  color: var(--blanco); /* Color del texto */
+  background-color: var(--btn-color); /* Color de fondo */
+  cursor: pointer; /* Cursor de mano al pasar por encima */
+  font-family: var(--fuentePrincipal); /* Fuente principal */
+  font-size: 16px; /* Tamaño de la fuente */
+  transition: background-color 0.3s; /* Transición suave para el color de fondo */
 }
+
+/* Efecto al pasar el mouse */
+.close-button:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
 
 .login-options button {
   background: none;
@@ -105,7 +157,6 @@ nav .boton-carrito {
   text-decoration: underline;
 }
 
-
 h1,
 h2 {
   text-align: center;
@@ -114,23 +165,23 @@ h2 {
 .games {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 1.25rem; /* Espaciado entre elementos del grid */
 }
 
 .game {
   border: 1px solid #000;
-  padding: 10px;
+  padding: 0.625rem; /* Espaciado interno */
   text-align: center;
 }
 
 .contact,
 .products {
-  margin-top: 30px;
+  margin-top: 1.875rem; /* Espaciado superior */
 }
 
 .products table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* Colapsar bordes */
 }
 
 .products table,
@@ -141,47 +192,36 @@ h2 {
 
 .products th,
 .products td {
-  padding: 10px;
+  padding: 0.625rem; /* Espaciado interno en celdas */
   text-align: center;
 }
 
-.btn {
-  background-color: var(--btn-color);
-  color: var(--blanco);
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
+.btn,
 .boton-index {
   background-color: var(--btn-color);
   color: var(--blanco);
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem; /* Espaciado */
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem; /* Bordes redondeados */
 }
 
 .footer {
-  position: relative;
   width: 100%;
   background-color: black;
-  min-height: 100px;
-  padding: 20px 50px;
+  min-height: 10rem; /* Altura mínima del footer */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-
 .social-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 10px 5px;
-  flex-wrap: wrap;
-
+  margin: 0.625rem 0.3125rem; /* Espaciado */
+  flex-wrap: wrap; /* Ajustar en múltiples líneas */
 }
 
 .icon-elemento {
@@ -190,26 +230,25 @@ h2 {
 
 .icono {
   color: white;
-  font-size: 32px;
+  font-size: 2rem; /* Tamaño de los iconos */
   display: inline-block;
-  margin: 0 10px;
-  transition: 0.5s;
-  opacity: 0.5;
+  margin: 0 0.625rem; /* Espaciado */
+  transition: 0.5s; /* Transición suave */
+  opacity: 0.5; /* Opacidad inicial */
 }
 
 /* Añadir una pequeña animación al pasar el mouse */
 .icono:hover {
-  opacity: 1;
-  transform: translateY(-5px);
+  opacity: 1; /* Cambiar opacidad */
+  transform: translateY(-0.3125rem); /* Efecto de desplazamiento */
 }
 
 .menu {
   display: flex;
   justify-content: center;
-  position: relative;
   align-items: center;
-  margin: 10px 0;
-  flex-wrap: wrap;
+  margin: 0.625rem 0; /* Espaciado */
+  flex-wrap: wrap; /* Ajustar en múltiples líneas */
 }
 
 .menu-elementos {
@@ -218,16 +257,19 @@ h2 {
 
 .menu-icono {
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem; /* Tamaño de los iconos de menú */
   display: inline-block;
   text-decoration: none;
-  margin: 5px 10px;
-  opacity: 0.5;
-  transition: 0.3s;
+  margin: 0.3125rem 0.625rem; /* Espaciado */
+  opacity: 0.5; /* Opacidad inicial */
+  transition: 0.3s; /* Transición suave */
 }
 
 /* Añadir una pequeña animación al pasar el mouse */
 .menu-icono:hover {
-  opacity: 1;
+  opacity: 1; /* Cambiar opacidad */
+}
 
+#forgotPasswordButton, #registerButton{
+  color: white;
 }
