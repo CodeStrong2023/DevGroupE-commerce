@@ -271,5 +271,6 @@ h2 {
 }
 
 #forgotPasswordButton, #registerButton{
+  display: block;
   color: white;
 }
