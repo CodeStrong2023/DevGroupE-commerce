@@ -1,3 +1,5 @@
+import { renderRegisterForm, handleRegister } from './registro.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const loginContainer = document.getElementById('loginContainer');
     const closeButton = document.getElementById('closeButton');
@@ -73,36 +75,42 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   
     const renderContent = () => {
+      formContent.replaceChildren(); // Limpia el contenido sin perder eventos.
+    
+      let newContent;
       switch (currentView) {
         case 'forgotPassword':
-          formContent.innerHTML = renderForgotPassword();
-          document.getElementById('backButton').onclick = () => {
-            currentView = 'login';
-            renderContent();
-          };
+          newContent = document.createElement('div');
+          newContent.innerHTML = renderForgotPassword();
           break;
         case 'register':
-          formContent.innerHTML = renderRegisterForm();
-          document.getElementById('backButton').onclick = () => {
+          newContent = document.createElement('div');
+          newContent.innerHTML = renderRegisterForm();
+          newContent.querySelector('#registerForm').onsubmit = handleRegister;
+          newContent.querySelector('#backButton').onclick = () => {
             currentView = 'login';
             renderContent();
           };
           break;
         case 'login':
         default:
-          formContent.innerHTML = renderLoginForm();
-          document.getElementById('loginForm').onsubmit = handleLogin;
-          document.getElementById('forgotPasswordButton').onclick = () => {
+          newContent = document.createElement('div');
+          newContent.innerHTML = renderLoginForm();
+          newContent.querySelector('#loginForm').onsubmit = handleLogin;
+          newContent.querySelector('#forgotPasswordButton').onclick = () => {
             currentView = 'forgotPassword';
             renderContent();
           };
-          document.getElementById('registerButton').onclick = () => {
+          newContent.querySelector('#registerButton').onclick = () => {
             currentView = 'register';
             renderContent();
           };
           break;
       }
+    
+      formContent.appendChild(newContent);
     };
+    
   
     // Manejar cierre con la tecla "Esc"
     document.addEventListener('keydown', (event) => {

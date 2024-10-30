@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Group ECommerce de Videojuegos</title>
-    <link rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Graduate">
-    <link rel="stylesheet" href="./src/style2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate">
+    <link rel="stylesheet" href="./src/styles/styles.css">
+
 </head>
 <body>
 
@@ -20,18 +19,20 @@
 
         <nav class="navegacion">
             <ul>
+                <button onclick="window.location.href='./src/pages/login.html'">Iniciar Sesión</button>
+                <button onclick="window.location.href='./src/pages/registro.html'">Registrarse</button>
                 <li><button class="boton-categoria">Todos los productos</button></li>
                 <li><button class="boton-categoria">Aventura</button></li>
                 <li><button class="boton-categoria">Deporte</button></li>
                 <li><button class="boton-categoria">Arcade</button></li>
                 <li><button class="boton-categoria">Estrategia</button></li>
                 <li><button class="boton-categoria">Combate</button></li>
-                <li><a class="boton-carrito" href="./login.html">Carrito <span class="numero">0</span></a></li>
+                <li><a class="boton-carrito" href="./src/pages/carrito.html">Carrito <span class="numero">0</span></a></li>
             </ul>
         </nav>
 
         <h2>Juegos de la semana</h2>
-        <p>Estos juegos son los más buscados de la semana. Probalos, haceme caso.</p>
+        <p>Estos juegos son los más buscados de la semana. Prúebalos, hazme caso.</p>
 
         <div class="games">
             <div class="game">
@@ -61,14 +62,12 @@
         </div>
 
         <div class="contact">
-            <h2>Contactanos</h2>
+            <h2>Contáctanos</h2>
             <p>Blablabla</p>
             <a href="#" class="btn">Enviar</a>
         </div>
-
         
     </div>
-
     <footer class="footer">
         <ul class="social-icon">
             <li class="icon-elemento">
@@ -92,8 +91,7 @@
                 </a>
             </li>
         </ul>
-
-
+      
         <ul class="menu">
             <li class="menu-elementos">
                 <a href="" class="menu-icono"> Inicio </a>
@@ -104,12 +102,12 @@
             <li class="menu-elementos">
                 <a href="" class="menu-icono"> Contacto </a>
             </li>
-            
         </ul>
         <p class="text">© 2024 DevGroup | Todos los derechos reservados</p>
-    </footer>
-    <!-- para usar los iconos de esta pagina -->
+      </footer>
+      
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
 </body>
 </html>
