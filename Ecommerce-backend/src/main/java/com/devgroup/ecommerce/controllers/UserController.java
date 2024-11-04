@@ -1,6 +1,6 @@
 package com.devgroup.ecommerce.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +24,7 @@ public class UserController {
     @Value("${jwt.secret}")
     private String secretKey;
 
-    @Autowired
+    //@Autowired
     public UserController(UserService userService, JwtUtil jwtUtil) {
         this.userService = userService;
         this.jwtUtil = jwtUtil; // Inicialización en el constructor
