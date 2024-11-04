@@ -29,6 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   backButton.onclick = () => {
-    window.location.href = './login.html'; // Volver al login
+    window.location.href = './'; // Volver al login
   };
 });

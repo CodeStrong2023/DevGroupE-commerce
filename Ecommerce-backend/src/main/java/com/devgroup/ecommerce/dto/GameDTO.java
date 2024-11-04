@@ -33,5 +33,14 @@ public class GameDTO {
         this.price = game.getPrice();
         this.categoryId = game.getCategory().getId();
     }
+    public GameDTO(String title, String description, Integer ownerId, List<String> images, LocalDate releaseDate, BigDecimal price, Long categoryId){
+        this.title = title;
+        this.description = description;
+        this.ownerId = ownerId;
+        this.images = images;
+        this.releaseDate = releaseDate;
+        this.price = price;
+        this.categoryId = categoryId;
+    }
 
 }
