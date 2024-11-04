@@ -2,15 +2,10 @@ package com.devgroup.ecommerce.service;
 
 import com.devgroup.ecommerce.dto.LoginDTO;
 import com.devgroup.ecommerce.dto.UserDTO;
-import com.devgroup.ecommerce.dto.UserRoleDTO;
 import com.devgroup.ecommerce.exceptions.InvalidCredentialsException;
 import com.devgroup.ecommerce.exceptions.UserNotFoundException;
-import com.devgroup.ecommerce.models.Role;
 import com.devgroup.ecommerce.models.User;
 import com.devgroup.ecommerce.repository.UserRepository;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,8 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import javax.crypto.SecretKey;
-import java.util.Date;
 import java.util.UUID;
 
 
@@ -37,24 +30,6 @@ public class UserService {
 
     @Autowired
     private JavaMailSender emailSender; // Para enviar correos
-
-    public void assignRole(UserRoleDTO userRoleDTO) {
-        String username = userRoleDTO.getUsername();
-        if (username == null || username.isEmpty()) {
-            throw new RuntimeException("Username must not be null or empty");
-        }
-
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("User not found"));
-
-        try {
-            Role role = Role.valueOf(userRoleDTO.getRole());
-            user.setRole(role);
-            userRepository.save(user);
-        } catch (IllegalArgumentException e) {
-            throw new RuntimeException("Invalid role specified: " + userRoleDTO.getRole());
-        }
-    }
 
     // Método para registrar un nuevo usuario
     public User register(UserDTO userDTO) {

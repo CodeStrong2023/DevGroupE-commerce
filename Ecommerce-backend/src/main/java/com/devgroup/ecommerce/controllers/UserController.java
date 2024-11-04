@@ -1,12 +1,7 @@
 package com.devgroup.ecommerce.controllers;
 
-import java.util.Date;
-
-import javax.crypto.SecretKey;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,13 +9,9 @@ import com.devgroup.ecommerce.dto.UserDTO;
 import com.devgroup.ecommerce.dto.ForgotPasswordRequest;
 import com.devgroup.ecommerce.dto.ResetPasswordRequest;
 import com.devgroup.ecommerce.dto.LoginDTO;
-import com.devgroup.ecommerce.dto.TokenDTO;
 import com.devgroup.ecommerce.models.User;
 import com.devgroup.ecommerce.security.JwtUtil;
 import com.devgroup.ecommerce.service.UserService;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 
 @RestController
 @RequestMapping("/users")

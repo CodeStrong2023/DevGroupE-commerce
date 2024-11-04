@@ -1,133 +1,150 @@
+/* GENERAL */
+
 :root {
   --primario: #79089f;
   --secundario: #434343;
-  --btn-color: #007BFF;
-  --blanco: #FFF;
+  --btn-color: #007bff;
+  --blanco: #fff;
   --negro: #000;
 
-  --fuentePrincipal: 'Graduate', sans-serif;
+  --navbar: #171717;
+  --fondo: #242424;
+  --seccion: #464646;
+  --lila: #9b86f4;
+
+  --fuentePrincipal: "Graduate", sans-serif;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Cambiado para que el contenido empuje hacia arriba */
   font-family: var(--fuentePrincipal);
   color: rgb(251, 251, 251);
-  background-color: var(--primario);
+  background-color: var(--fondo);
   margin: 0;
   padding: 0;
-  min-height: 100vh; /* Asegura que el body ocupe al menos toda la ventana */
-  line-height: 1.5;
 }
 
+/* HEADER */
+
+/* Estilos generales para el encabezado */
 .header-inicio {
-  background-color: var(--negro);
-  width: 100%;
-  padding: 1rem; /* Espaciado del header */
-  text-align: center;
+  display: flex;
+  justify-content: space-between; /* Espacio entre el título y el botón */
+  align-items: center; /* Centra verticalmente los elementos */
+  background-color: #171717; /* Color de fondo */
+  color: #fff; /* Color del texto */
+  padding: 1rem 3rem; /* Espaciado interno */
+  min-height: 5vh;
 }
+
+/* Estilos para el título */
+.header-inicio h1 {
+  font-size: 1.4rem; /* Tamaño del texto */
+  font-family: "Graduate", sans-serif; /* Fuente personalizada */
+  color: var(--lila);
+}
+
+/* Estilos para la navegación */
+.navegacion ul {
+  display: flex; /* Muestra los elementos en fila */
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding de la lista */
+  margin: 0; /* Elimina el margen de la lista */
+}
+
+/* Estilos para los elementos de la lista */
+.navegacion li {
+  margin: 0 1rem; /* Espaciado entre los botones */
+}
+
+/* Media Queries para hacer el encabezado responsivo */
+@media (max-width: 768px) {
+  .header-inicio {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+  }
+
+  .navegacion {
+    width: 100%; /* Toma todo el ancho disponible */
+    margin-top: 10px; /* Espacio entre el título y el menú */
+  }
+
+  .navegacion ul {
+    flex-direction: column; /* Cambia a columna para el menú */
+    align-items: center; /* Centra los elementos del menú */
+  }
+
+  .navegacion li {
+    margin: 5px 0; /* Espacio vertical entre las categorías */
+  }
+
+  .header-inicio h1 {
+    font-size: 1.5em; /* Tamaño de fuente más pequeño */
+  }
+
+  .cart-button {
+    width: 100%; /* Botón ocupa todo el ancho en móviles */
+    margin-top: 10px; /* Espacio entre el botón y el menú */
+  }
+}
+
+/* MAIN */
 
 .container {
-  flex: 1; /* Permite que el contenedor principal ocupe el espacio restante */
-  padding: 1rem; /* Espacio interno para el contenedor */
-  overflow: auto; /* Permite el desplazamiento si el contenido excede el tamaño */
-  display: flex; /* Usar flexbox para el contenido interno */
-  flex-direction: column; /* Asegura que los elementos se alineen verticalmente */
-  min-height: calc(100vh - 10rem); /* Ajusta el tamaño para empujar el footer fuera de la vista */
+  margin: 2rem;
 }
 
-.navegacion {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  padding: 1rem 0; /* Añade un poco de espacio alrededor */
+.section-info {
+  background-color: var(--seccion);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  min-height: 50vh;
 }
 
-.navegacion ul {
-  display: flex;
-  list-style-type: none; /* Quitar los puntos de la lista */
-  padding: 0; /* Eliminar el padding predeterminado */
-  margin: 0; /* Eliminar el margen */
+/* Estilos generales para la sección */
+.section-info {
+  display: flex; /* Usar flexbox para organizar los elementos en fila */
+  justify-content: space-between; /* Espaciado entre los divs */
+  align-items: center; /* Centra verticalmente los elementos */
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+  gap: 20px; /* Espaciado entre elementos */
 }
 
-.navegacion ul li {
-  margin: 0 1rem; /* Espacio entre los botones, ajusta según prefieras */
-}
-nav .boton-categoria,
-nav .boton-carrito {
-  padding: 0.5rem 1rem; /* Ajuste de padding */
-  font-family: var(--fuentePrincipal);
-  color: var(--blanco);
-  background-color: var(--negro);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-nav .boton-carrito {
-  display: flex;
-  align-items: center;
-  background-color: var(--btn-color);
-}
-
-.login-container {
+/* Estilos para el div de texto */
+.info-text {
+  flex: 1; /* Permite que este div tome el espacio disponible */
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  position: relative;
-  width: 100%;
-  padding: 2rem 0; /* Espacio interno del contenedor de inicio de sesión */
-  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
 }
 
-label {
-  display: block;
-  width: 100%;
-  margin: 0.625rem 0; /* Espaciado entre los elementos */
-  text-align: left;
-  color: white;
-  font-weight: bold;
-}
-
-input {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.9375rem; /* Espacio entre campos */
-  padding: 0.625rem; /* Espacio interno */
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 0.3125rem; /* Bordes redondeados */
-}
-
-button {
-  padding: 0.9375rem; /* Espacio interno */
-  border-radius: 0.625rem; /* Bordes redondeados */
-  margin: 0.9375rem 0; /* Espaciado superior e inferior */
-  border: none;
-  color: white;
-  cursor: pointer;
-  background-color: var(--btn-color);
-  width: 100%;
-  font-size: 1rem; /* Tamaño de fuente */
-}
-
-.wrap {
+/* Estilos para el div de imagen */
+.info-image {
+  flex: 1; /* Permite que este div tome el espacio disponible */
+  min-width: 300px; /* Ancho mínimo para el div de imagen */
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.login-form {
-  width: 90%;
-  max-width: 25rem; /* Limitar ancho máximo */
-  margin: 2rem auto; /* Centrar el formulario */
-  padding: 2rem 1.5rem; /* Espaciado interno */
-  background-color: rgb(0, 0, 0);
-  color: #ffffff;
-  border-radius: 0.5rem; /* Bordes redondeados */
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3); /* Sombra */
+/* Titulo */
+.titulo-info {
+  font-size: 2.3rem;
+  color: var(--navbar);
+  text-shadow: 0.2rem 0.2rem var(--lila);
+}
+
+/* Texto */
+.texto-info {
+  margin: 4rem;
+}
+
+/* Estilos para la imagen */
+.info-image img {
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 50%; /* La imagen no excederá el 100% del ancho de su contenedor */
 }
 
 .close-button {
@@ -205,15 +222,69 @@ h2 {
   border-radius: 0.3125rem; /* Bordes redondeados */
 }
 
-.footer {
+#footerContainer {
   width: 100%;
-  background-color: black;
+  background-color: #171717;
   min-height: 10rem; /* Altura mínima del footer */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+/* Menú desplegable */
+#loginDropdown {
+  position: absolute; /* Posición absoluta para que se superponga */
+  top: 50px; /* Ajusta la posición según tu diseño */
+  right: 20px; /* Ajusta según la posición deseada */
+  background-color: #434343; /* Color de fondo para que sea visible */
+  border: 1px solid #ddd; /* Borde para visualizar el contenedor */
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras para mejor visibilidad */
+  z-index: 1000; /* Asegura que esté al frente */
+}
+/* Estilos para los inputs */
+.login-form input {
+  font-family: "Graduate", sans-serif;
+  width: 100%; /* Ancho completo del contenedor */
+  padding: 10px; /* Espaciado interno */
+  margin: 8px 0; /* Espaciado vertical */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 4px; /* Bordes redondeados */
+  box-sizing: border-box; /* Para incluir padding y border en el ancho total */
+  font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilos para el botón */
+.login-form button {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  font-family: "Graduate", sans-serif;
+  background-color: #79089f; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+}
+
+/* Efecto hover para el botón */
+.login-form button:hover {
+  background-color: #4f0568; /* Color más oscuro al pasar el mouse */
+}
+
+/* Efecto focus para los inputs */
+.login-form input:focus {
+  border-color: #79089f; /* Cambia el color del borde al enfocarse */
+  outline: none; /* Sin borde adicional */
+}
+
+
+/* Estilo para hacer el botón más llamativo */
+#loginButton {
+  cursor: pointer;
+}
+
 
 .social-icon {
   display: flex;
@@ -255,22 +326,16 @@ h2 {
   list-style: none;
 }
 
-.menu-icono {
-  color: white;
-  font-size: 1.25rem; /* Tamaño de los iconos de menú */
-  display: inline-block;
-  text-decoration: none;
-  margin: 0.3125rem 0.625rem; /* Espaciado */
-  opacity: 0.5; /* Opacidad inicial */
-  transition: 0.3s; /* Transición suave */
-}
+/* Media Queries para hacer la sección responsiva */
+@media (max-width: 768px) {
+  .section-info {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+  }
 
-/* Añadir una pequeña animación al pasar el mouse */
-.menu-icono:hover {
-  opacity: 1; /* Cambiar opacidad */
-}
-
-#forgotPasswordButton, #registerButton{
-  display: block;
-  color: white;
+  .info-text,
+  .info-image {
+    width: 100%; /* Ambos divs ocupan el 100% en pantallas pequeñas */
+    min-width: 100%; /* Evita el ancho mínimo en pantallas pequeñas */
+  }
 }

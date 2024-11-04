@@ -28,7 +28,7 @@ public class GamesController {
         public ResponseEntity<GameDTO> getGameById(@PathVariable Long id) {
             try {
                 GameDTO game = gameService.findById(id);
-                return new ResponseEntity<>(game, HttpStatus.OK); // Retornamos el juego si es encontrado
+                return ResponseEntity.ok(game); // Retornamos el juego si es encontrado
             } catch (GameNotFoundException e) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Si no es encontrado, retornamos 404
             }
@@ -38,7 +38,7 @@ public class GamesController {
         @PostMapping
         public ResponseEntity<GameDTO> createGame(@RequestBody GameDTO gameDTO) {
             GameDTO newGame = gameService.createGame(gameDTO);
-            return new ResponseEntity<>(newGame, HttpStatus.CREATED); // Retornamos el juego creado con un 201
+            return ResponseEntity.ok(newGame); // Retornamos el juego creado con un 201
         }
 
         // Actualizar un juego existente
@@ -46,7 +46,7 @@ public class GamesController {
         public ResponseEntity<GameDTO> updateGame(@PathVariable Long id, @RequestBody GameDTO gameDTO) {
             try {
                 GameDTO updatedGame = gameService.updateGame(id, gameDTO);
-                return new ResponseEntity<>(updatedGame, HttpStatus.OK); // Retornamos el juego actualizado
+                return ResponseEntity.ok(updatedGame); // Retornamos el juego actualizado
             } catch (GameNotFoundException e) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Retornamos 404 si el juego no existe
             }
@@ -61,5 +61,10 @@ public class GamesController {
             } catch (GameNotFoundException e) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Retornamos 404 si no existe el juego
             }
+        }
+
+        @GetMapping("/games/category/{categoryId}") // Endpoint para obtener los juegos por id de categoría
+        public List<GameDTO> getGamesByCategoryId(@PathVariable Long categoryId) {
+            return gameService.getElementByCategoryId(categoryId);
         }
 }
