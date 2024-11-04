@@ -339,3 +339,77 @@ h2 {
     min-width: 100%; /* Evita el ancho mínimo en pantallas pequeñas */
   }
 }
+/* Estilos generales para contenedores de formulario */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--fondo);
+}
+
+#formContent {
+  background-color: var(--seccion);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-family: var(--fuentePrincipal);
+  font-size: 2rem;
+  color: var(--lila);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Estilo del enlace de regreso al inicio */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--btn-color);
+  text-decoration: underline;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}
+
+/* Estilos para los inputs y botones */
+.login-form input,
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: var(--fuentePrincipal);
+  box-sizing: border-box;
+}
+
+.login-form input {
+  border: 1px solid #ccc;
+}
+
+.login-form input:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+.login-form button {
+  background-color: var(--btn-color);
+  color: var(--blanco);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+
