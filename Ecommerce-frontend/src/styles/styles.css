@@ -22,6 +22,81 @@ body {
   margin: 0;
   padding: 0;
 }
+/* Estilos generales para contenedores de formulario */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--fondo);
+}
+
+#formContent {
+  background-color: var(--seccion);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-family: var(--fuentePrincipal);
+  font-size: 2rem;
+  color: var(--lila);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Estilo del enlace de regreso al inicio */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--btn-color);
+  text-decoration: underline;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}
+
+/* Estilos para los inputs y botones */
+.login-form input,
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: var(--fuentePrincipal);
+  box-sizing: border-box;
+}
+
+.login-form input {
+  border: 1px solid #ccc;
+}
+
+.login-form input:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+.login-form button {
+  background-color: var(--btn-color);
+  color: var(--blanco);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+
+  
 
 /* HEADER */
 
@@ -268,6 +343,60 @@ h2 {
   transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
 }
 
+.admin-dashboard {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.admin-dashboard input {
+  font-family: "Graduate", sans-serif;
+  width: 150px; /* Ancho completo del contenedor */
+  height: auto;
+  padding: 10px; /* Espaciado interno */
+  margin: 8px 0; /* Espaciado vertical */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 4px; /* Bordes redondeados */
+  box-sizing: border-box; /* Para incluir padding y border en el ancho total */
+  font-size: 16px; /* Tamaño de fuente */
+}
+.admin-dashboard h3{
+  text-align: center;
+}
+.admin-dashboard label{
+  font-family: "Graduate", sans-serif;
+  font-size: 16px;
+}
+.admin-dashboard h1{
+  color: var(--lila);
+  text-shadow: 0.4rem 0.4rem var(--negro);
+}
+
+
+.gameForm-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Asegura que el contenido se centre verticalmente */
+  border: 2px solid #fff; /* Cambia border-color a border para que se muestre el borde */
+  border-radius: 20px;
+  width: 500px;
+  height: 500px; /* Define una altura para crear un cuadrado */
+  background-color: rgba(255, 255, 255, 0.1); /* Color de fondo para ver el cuadrado */
+  margin: auto; /* Asegura que el contenedor esté centrado en su padre */
+}
+.gameForm-container input{
+  
+}
+#gameForm-button{
+  color: #fff;
+  width: 150px;
+  height: 30px;
+  margin-left: 150px;
+  font-family: "Graduate", sans-serif;
+  background-color: #4f0568;
+}
+#gameForm-button::hover {
+  background-color: #79089f;
+}
 /* Efecto hover para el botón */
 .login-form button:hover {
   background-color: #4f0568; /* Color más oscuro al pasar el mouse */
@@ -339,77 +468,3 @@ h2 {
     min-width: 100%; /* Evita el ancho mínimo en pantallas pequeñas */
   }
 }
-/* Estilos generales para contenedores de formulario */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: var(--fondo);
-}
-
-#formContent {
-  background-color: var(--seccion);
-  border-radius: 8px;
-  padding: 2rem;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-h1 {
-  font-family: var(--fuentePrincipal);
-  font-size: 2rem;
-  color: var(--lila);
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-/* Estilo del enlace de regreso al inicio */
-.back-link {
-  display: block;
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--btn-color);
-  text-decoration: underline;
-}
-
-.back-link:hover {
-  color: #0056b3;
-}
-
-/* Estilos para los inputs y botones */
-.login-form input,
-.login-form button {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-family: var(--fuentePrincipal);
-  box-sizing: border-box;
-}
-
-.login-form input {
-  border: 1px solid #ccc;
-}
-
-.login-form input:focus {
-  border-color: var(--btn-color);
-  outline: none;
-}
-
-.login-form button {
-  background-color: var(--btn-color);
-  color: var(--blanco);
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-form button:hover {
-  background-color: #0056b3;
-}
-
-
