@@ -394,7 +394,7 @@ h2 {
 }
 
 /* Estilos para el botón */
-.login-form button {
+.login-form button{
   width: 100%;
   /* Ancho completo */
   padding: 10px;
@@ -412,6 +412,26 @@ h2 {
   cursor: pointer; /* Cambia el cursor al pasar el mouse */
   transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
 }
+
+.login-button {
+  width: 15%;
+  /* Ancho completo */
+  padding: 10px;
+  /* Espaciado interno */
+  font-family: "Graduate", sans-serif;
+  background-color: #79089f;
+  /* Color de fondo */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+}
+
 
 .admin-dashboard {
   display: flex;
@@ -657,3 +677,48 @@ h2 {
     /* Evita el ancho mínimo en pantallas pequeñas */
   }
 }
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff; 
+}
+
+.dropdown-menu {
+  position: absolute; /* Posición absoluta para que se despliegue debajo del botón */
+  right: 40px;
+  top: 65px;
+  background-color: white; /* Fondo blanco para el menú */
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  z-index: 99; /* Para que esté por encima de otros elementos */
+}
+
+.dropdown-menu ul {
+  list-style: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+  margin: 0; /* Sin margen */
+}
+
+.dropdown-menu li {
+  padding: 10px; /* Espaciado interno */
+}
+
+.dropdown-menu li a {
+  text-decoration: none; /* Sin subrayado */
+  color: #333; /* Color del texto */
+  display: block; /* Ocupa todo el ancho */
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ccc; /* Color al pasar el ratón */
+}
+
+
+

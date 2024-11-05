@@ -12,24 +12,27 @@
 <body>
   <div class="login-container show" id="loginContainer">
     <div id="formContent">
-      <div class="main">
-        <h1>Iniciar Sesión</h1>    
-        <a href="index.html" class="back-link">Volver al Inicio</a>
-        <form class="login-form" id="loginForm">
-          <label for="username">Usuario:</label>
-          <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
-          <label for="password">Contraseña:</label>
-          <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-          <div class="wrap">
-            <button type="submit">Iniciar Sesión</button>
-          </div>
-        </form>
-      </div>
+        <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
+        <div class="main">
+            <h1>Iniciar Sesión</h1>    
+            <a href="index.html" class="back-link">Volver al Inicio</a>
+            <form class="login-form" id="loginForm">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                <div class="wrap">
+                    <button type="submit">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
+
   <div id="footerContainer"></div>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
 
