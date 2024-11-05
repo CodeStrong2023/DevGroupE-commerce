@@ -14,11 +14,11 @@
         <nav class="navegacion" role="navigation" aria-label="Categorías de Juegos">
             <ul>
                 <li><a href="">Todos</a></li>
-                <li><a href="">Aventura</a></li>
+                <li><a href="./src/pages/Aventura.html">Aventura</a></li>
                 <li><a href="./src/pages/deportes.html">Deporte</a></li>
-                <li><a href="">Arcade</a></li>
-                <li><a href="">Estrategia</a></li>
-                <li><a href="">Combate</a></li>
+                <li><a href="./src/pages/Arcade.html">Arcade</a></li>
+                <li><a href="./src/pages/Estrategia.html">Estrategia</a></li>
+                <li><a href="./src/pages/Combate.html">Combate</a></li>
             </ul>
         </nav>
 
@@ -44,7 +44,10 @@
           </div>
       </div>
       
-
+      <!-- Ícono del carrito -->
+      <a href="#" aria-label="Carrito de compras" id="cartIcon">
+          <ion-icon name="cart-outline"></ion-icon>
+      </a>
     </header>
 
     <main class="container">
@@ -94,9 +97,8 @@
             <p>Precio: $30.00 USD</p>
             <button class="add-to-cart-btn">Añadir al carrito</button>
           </div>
-
         </section>
-      </main>
+    </main>
       
     <div id="footerContainer">
       <footer class="footer">
@@ -137,7 +139,16 @@
         <p class="text">© 2024 DevGroup | Todos los derechos reservados</p>
       </footer>      
     </div>
+
+    <!-- Popup del carrito -->
+    <div id="cartPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border: 1px solid #ccc; padding: 20px; z-index: 1000;">
+        <h2>Tu Carrito</h2>
+        <button class="close-button" onclick="closeCartPopup()">Cerrar</button>
+        <button class="go-to-cart-button" onclick="goToCart()">Ir al Carrito</button>
+    </div>
+
     <script type="module" src="./src/components/login.js"></script>
+    <script type="module" src="./src/components/carrito.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>
