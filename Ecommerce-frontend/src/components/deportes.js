@@ -23,7 +23,7 @@ function displayGames(games) {
 
     games.forEach(game => {
         const gameElement = document.createElement("div");
-        gameElement.classList.add("game-item");
+        gameElement.classList.add("game-card");
 
         gameElement.innerHTML = `
             <h2>${game.name}</h2>
