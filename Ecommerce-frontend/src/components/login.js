@@ -14,10 +14,17 @@ export async function authenticateUser(username, password) {
             localStorage.setItem("userRole", userData.role);
             localStorage.setItem("username", userData.username);
 
-            // Oculta el botón de inicio de sesión
+            // Oculta el formulario de inicio de sesión
+            const loginContainer = document.getElementById("loginDropdown");
+            const closeButton = document.getElementById('close-button');
+            if (loginContainer) {
+                loginContainer.style.display = "none";
+            }
+
+            // Oculta el botón de inicio de sesión (si existe en la página principal)
             const loginButton = document.getElementById("loginButton");
             if (loginButton) {
-                loginButton.style.display = "none"; // Oculta el botón de login
+                loginButton.style.display = "none";
             }
 
             // Muestra el nombre de usuario o un mensaje de bienvenida
@@ -31,17 +38,24 @@ export async function authenticateUser(username, password) {
     }
 }
 
-function showWelcomeMessage(username, role) {
-    // Crea el botón de bienvenida
-    const welcomeButton = document.createElement("button");
-    welcomeButton.textContent = username; // Usa el nombre de usuario logueado
-    welcomeButton.className = "welcome-message"; // Clase para estilizar
-    document.body.insertBefore(welcomeButton, document.body.firstChild); // Muestra el mensaje al inicio del body
 
-    // Crea el menú desplegable
+function showWelcomeMessage(username, role) {
+    // Selecciona el contenedor donde se encontraba el botón de inicio de sesión
+    const loginButton = document.getElementById("loginButton");
+
+    // Crea el botón de bienvenida y usa la misma clase para mantener el estilo
+    const welcomeButton = document.createElement("button");
+    welcomeButton.textContent = username;
+    welcomeButton.className = loginButton.className; // Mismo estilo
+    welcomeButton.id = "welcomeButton"; // Nuevo ID para el botón de bienvenida
+
+    // Reemplaza el botón de inicio de sesión por el de bienvenida
+    loginButton.replaceWith(welcomeButton);
+
+    // Crea el menú desplegable 
     const dropdownMenu = document.createElement("div");
     dropdownMenu.className = "dropdown-menu";
-    dropdownMenu.style.display = "none"; // Oculto por defecto
+    dropdownMenu.style.display = "none";
     dropdownMenu.innerHTML = `
         <ul>
             <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
@@ -49,21 +63,27 @@ function showWelcomeMessage(username, role) {
             <li><a href="/src/pages/${role.toLowerCase()}-dashboard.html">Ir al Dashboard</a></li>
         </ul>
     `;
-    document.body.appendChild(dropdownMenu);
+    welcomeButton.insertAdjacentElement("afterend", dropdownMenu);
 
-    // Muestra/oculta el menú al hacer clic en el botón
+    // Muestra/oculta el menú desplegable al hacer clic en el botón de bienvenida
     welcomeButton.addEventListener("click", () => {
         dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
     });
 
     // Manejo del cierre de sesión
     document.getElementById("logoutButton").addEventListener("click", () => {
+        const confirmLogout = confirm("¿Está seguro que desea cerrar sesión?");
+        if (confirmLogout) {
         localStorage.removeItem("userRole");
         localStorage.removeItem("username");
-        alert("Has cerrado sesión.");
-        window.location.href = "/"; // Redirige al inicio de sesión
+        alert("Has cerrado sesión");
+        window.location.href = "/";
+    } else {
+        console.log("La sesión se mantiene activa");
+    }
     });
 }
+
 
 export function initializeLoginForm() {
     const loginDropdown = document.getElementById("loginDropdown");
@@ -75,39 +95,67 @@ export function initializeLoginForm() {
         return;
     }
 
-    // Alternar visibilidad del menú desplegable al hacer clic en el botón de inicio de sesión
     loginButton.addEventListener("click", (event) => {
         event.preventDefault();
-        loginDropdown.style.display =
-            loginDropdown.style.display === "block" ? "none" : "block";
+        loginDropdown.style.display = loginDropdown.style.display === "block" ? "none" : "block";
     });
 
-    // Maneja el envío del formulario de inicio de sesión
     loginForm.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Evita el envío estándar del formulario
+        event.preventDefault();
 
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
 
-        // Llama a la función de autenticación con los valores ingresados
         await authenticateUser(username, password);
     });
 }
 
-// Inicializa el formulario de inicio de sesión cuando el DOM esté cargado
 document.addEventListener("DOMContentLoaded", () => {
     initializeLoginForm();
-    
+
     // Verifica si el usuario ya está autenticado
     const userRole = localStorage.getItem("userRole");
-    const username = localStorage.getItem("username"); // Recupera el nombre de usuario
+    const username = localStorage.getItem("username");
 
     if (userRole && username) {
         // Si el usuario ya está autenticado, muestra el mensaje de bienvenida
         showWelcomeMessage(username, userRole);
+
+        function onLoginSuccess(username) {
+            // Oculta el botón de inicio de sesión
+            document.getElementById('loginButton').style.display = 'none';
+        
+            // Muestra el botón con el nombre del usuario
+            const userButton = document.getElementById('userButton');
+            userButton.style.display = 'block';
+            userButton.textContent = username; // Cambia el texto al nombre del usuario
+        }
+
+        // Oculta el formulario de inicio de sesión
+        const loginContainer = document.getElementById("loginDropdown");
+        if (loginContainer) {
+            loginContainer.style.display = "none";
+        }
+
+        // Oculta el botón de inicio de sesión
         const loginButton = document.getElementById("loginButton");
         if (loginButton) {
-            loginButton.style.display = "none"; // Oculta el botón de login
+            loginButton.style.display = "none";
         }
+
+        // Crea el menú desplegable
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+
+    
+    }
+});
+
+const closeButton = document.getElementById('close-button');
+
+document.getElementById('closeButton').addEventListener('click', () => {
+    const loginDropdown = document.getElementById('loginDropdown');
+    if (loginDropdown) {
+        loginDropdown.style.display = 'none';
     }
 });
