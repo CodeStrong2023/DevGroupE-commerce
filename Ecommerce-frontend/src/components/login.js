@@ -52,7 +52,7 @@ function showWelcomeMessage(username, role) {
     // Reemplaza el botón de inicio de sesión por el de bienvenida
     loginButton.replaceWith(welcomeButton);
 
-    // Crea el menú desplegable (opcional, si ya lo tienes implementado)
+    // Crea el menú desplegable 
     const dropdownMenu = document.createElement("div");
     dropdownMenu.className = "dropdown-menu";
     dropdownMenu.style.display = "none";

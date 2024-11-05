@@ -348,11 +348,19 @@ h2 {
   width: 100%;
   background-color: #171717;
   min-height: 10rem;
-  /* Altura mínima del footer */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+#footerContainer a {
+  margin: 0 1rem; /* Añade espacio entre los enlaces */
+  color: var(--blanco); /* Asegura que los enlaces sean blancos */
+  text-decoration: none; /* Remueve el subrayado */
+  font-family: var(--fuentePrincipal); /* Aplica la fuente principal */
+}
+#footerContainer a:hover {
+  color: var(--lila); /* Cambia de color al pasar el mouse */
 }
 
 /* Menú desplegable */
@@ -479,9 +487,7 @@ h2 {
   background-color: rgba(255, 255, 255, 0.1); /* Color de fondo para ver el cuadrado */
   margin: auto; /* Asegura que el contenedor esté centrado en su padre */
 }
-.gameForm-container input{
-  
-}
+
 #gameForm-button{
   color: #fff;
   width: 150px;
@@ -690,34 +696,34 @@ h2 {
 }
 
 .dropdown-menu {
-  position: absolute; /* Posición absoluta para que se despliegue debajo del botón */
+  position: absolute; 
   right: 40px;
   top: 65px;
-  background-color: white; /* Fondo blanco para el menú */
-  border: 1px solid #ccc; /* Borde gris */
-  border-radius: 5px; /* Bordes redondeados */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
-  z-index: 99; /* Para que esté por encima de otros elementos */
+  background-color: white; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  z-index: 99; 
 }
 
 .dropdown-menu ul {
-  list-style: none; /* Sin viñetas */
-  padding: 0; /* Sin padding */
-  margin: 0; /* Sin margen */
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
 }
 
 .dropdown-menu li {
-  padding: 10px; /* Espaciado interno */
+  padding: 10px; 
 }
 
 .dropdown-menu li a {
-  text-decoration: none; /* Sin subrayado */
-  color: #333; /* Color del texto */
-  display: block; /* Ocupa todo el ancho */
+  text-decoration: none; 
+  color: #333; 
+  display: block; 
 }
 
 .dropdown-menu li a:hover {
-  background-color: #ccc; /* Color al pasar el ratón */
+  background-color: #ccc; 
 }
 
 
