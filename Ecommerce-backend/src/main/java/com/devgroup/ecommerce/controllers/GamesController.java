@@ -74,7 +74,7 @@ public class GamesController {
             }
         }
 
-        @GetMapping("/games/category/{categoryId}") // Endpoint para obtener los juegos por id de categoría
+        @GetMapping("/category/{categoryId}") // Endpoint para obtener los juegos por id de categoría
         public List<GameDTO> getGamesByCategoryId(@PathVariable Long categoryId) {
             return gameService.getElementByCategoryId(categoryId);
         }
