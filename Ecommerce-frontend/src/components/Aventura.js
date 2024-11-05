@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function fetchAdventureGames() {
     try {
-        const response = await fetch('http://localhost:8080/games/category/2');
+        const response = await fetch('http://localhost:8080/games/category/3');
         if (!response.ok) {
             throw new Error("Error al obtener los juegos de aventura.");
         }
