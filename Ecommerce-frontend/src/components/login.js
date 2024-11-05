@@ -38,6 +38,9 @@ export async function authenticateUser(username, password) {
     }
 }
 
+document.getElementById("menuToggle").addEventListener("click", function() {
+    document.getElementById("navMenu").classList.toggle("active");
+});
 
 function showWelcomeMessage(username, role) {
     // Selecciona el contenedor donde se encontraba el botón de inicio de sesión
