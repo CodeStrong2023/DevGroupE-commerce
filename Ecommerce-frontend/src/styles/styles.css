@@ -392,6 +392,28 @@ h2 {
   font-size: 16px;
   /* Tamaño de fuente */
 }
+#footerContainer {
+  width: 100%;
+  background-color: #171717;
+  min-height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Añadir espaciado y estilos para los enlaces dentro del footer */
+#footerContainer a {
+  margin: 0 1rem; /* Añade espacio entre los enlaces */
+  color: var(--blanco); /* Asegura que los enlaces sean blancos */
+  text-decoration: none; /* Remueve el subrayado */
+  font-family: var(--fuentePrincipal); /* Aplica la fuente principal */
+}
+
+#footerContainer a:hover {
+  color: var(--lila); /* Cambia de color al pasar el mouse */
+}
+
 
 /* Estilos para el botón */
 .login-form button {
