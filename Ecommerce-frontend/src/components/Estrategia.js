@@ -26,7 +26,7 @@ function displayGames(games) {
         gameElement.classList.add("game-card");
 
         gameElement.innerHTML = `
-            <h2>${game.name}</h2>
+            <h2>${game.title}</h2>
             <p>${game.description}</p>
             <p><strong>Precio:</strong> ${game.price} USD</p>
             <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>
