@@ -205,7 +205,7 @@
 "devgroupe-commerce@file:.":
   version "0.0.0"
   dependencies:
-    devgroupe-commerce "file:../../Library/Caches/Yarn/v6/npm-devgroupe-commerce-0.0.0-85b46cee-da80-4b39-b9e9-f5508be91004-1730735288168/node_modules/devgroupe-commerce"
+    devgroupe-commerce "file:../../../AppData/Local/Yarn/Cache/v6/npm-devgroupe-commerce-0.0.0-2d0f860b-e32c-44e8-8d65-cc453b863473-1730765284173/node_modules/devgroupe-commerce"
 
 esbuild@^0.21.3:
   version "0.21.5"
