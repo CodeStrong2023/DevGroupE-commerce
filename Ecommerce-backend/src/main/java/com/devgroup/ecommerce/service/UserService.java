@@ -8,10 +8,12 @@ import com.devgroup.ecommerce.models.User;
 import com.devgroup.ecommerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
 
@@ -101,4 +103,14 @@ public class UserService {
         
         System.out.println("Contraseña actualizada con éxito.");
     }
+
+    public void changePassword(Integer userId, String currentPassword, String newPassword) {
+        User user = getUser(userId);
+        if (!passwordEncoder.matches(currentPassword, user.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La contraseña actual no es correcta.");
+        }
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+    }
+
 }
