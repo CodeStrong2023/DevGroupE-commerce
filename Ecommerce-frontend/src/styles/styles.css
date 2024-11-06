@@ -832,3 +832,32 @@ th {
   background-color: #28a745;
   color: white;
 }
+.cart-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3a3636;
+  box-shadow: 0px 4px 8px rgba(12, 12, 12, 0.2);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  z-index: 1000;
+  padding: 20px;
+  color: #79089f;
+}
+
+.cart-popup .popup-content {
+  position: relative;
+}
+
+.cart-popup .close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
