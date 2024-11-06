@@ -62,7 +62,7 @@ function showWelcomeMessage(username, role) {
     dropdownMenu.innerHTML = `
         <ul>
             <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
-            <li><a href="./change-password.html">Cambiar Contraseña</a></li>
+            <li><a href="">Cambiar Contraseña</a></li>
             <li><a href="/src/pages/${role.toLowerCase()}-dashboard.html" class="panel">Ir al Dashboard</a></li>
         </ul>
     `;
