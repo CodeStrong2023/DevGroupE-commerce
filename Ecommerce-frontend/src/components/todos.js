@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetchSportsGames();
+    fetchGamesFromAllCategories();
 });
 async function fetchGamesFromAllCategories() {
     const categoryIds = [1, 2, 3, 4, 5];
@@ -42,7 +42,7 @@ function displayGames(games) {
             <p><strong>Precio:</strong> ${game.price} USD</p>
             <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>
             ${game.images && Array.isArray(game.images) 
-                ? game.images.map(url => `<img src="${url}" alt="${game.name}">`).join('') 
+                ? game.images.map(url => `<img src="${url}" alt="${game.title}">`).join('') 
                 : `<img src="ruta/placeholder.jpg" alt="Imagen no disponible">`
             }
         `;
