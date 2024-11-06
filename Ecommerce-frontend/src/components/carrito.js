@@ -61,20 +61,21 @@ function addToCart(event) {
 // Función para actualizar el carrito en la vista
 function updateCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartTableBody = document.querySelector('#cartPopup .cart-items tbody');
-    const totalPriceElement = document.querySelector('#cartPopup .total-price');
-    const payButton = document.querySelector('#cartPopup .pay-button');  // Botón de pagar
+    const cartTableBody = document.getElementById('cartTableBody');
+    const totalPriceElement = document.getElementById('totalPriceElement');
+    const payButton = document.querySelector('.pay-button');
 
-    // Limpiar los productos en el carrito
+    // Limpiar los productos actuales del carrito en la vista
     cartTableBody.innerHTML = '';
 
-    // Agregar los productos al carrito
+    // Agregar productos al carrito en la vista
     cart.forEach(product => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${product.name}</td>
             <td>$${product.price.toFixed(2)}</td>
             <td><input type="number" value="${product.quantity}" min="1" data-product-id="${product.id}" class="product-quantity"></td>
+            <td>$${(product.price * product.quantity).toFixed(2)}</td>
             <td><button class="btn remove-from-cart" data-product-id="${product.id}">Eliminar</button></td>
         `;
         cartTableBody.appendChild(row);
@@ -86,10 +87,18 @@ function updateCart() {
 
     // Mostrar el botón de pago solo si hay productos en el carrito
     if (cart.length > 0) {
-        payButton.style.display = 'block';  // Muestra el botón de pagar
+        payButton.style.display = 'block';
     } else {
-        payButton.style.display = 'none';  // Oculta el botón de pagar si el carrito está vacío
+        payButton.style.display = 'none';
     }
+
+    // Agregar eventos a los botones de eliminar y campos de cantidad
+    cartTableBody.querySelectorAll('.remove-from-cart').forEach(button => {
+        button.addEventListener('click', removeFromCart);
+    });
+    cartTableBody.querySelectorAll('.product-quantity').forEach(input => {
+        input.addEventListener('change', updateQuantity);
+    });
 }
 
 // Función para eliminar productos del carrito
@@ -169,4 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (goToCartButton) {
         goToCartButton.addEventListener('click', goToCart);
     }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
 });
