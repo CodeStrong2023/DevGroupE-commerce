@@ -1,14 +1,11 @@
 package com.devgroup.ecommerce.controllers;
 
 //import org.springframework.beans.factory.annotation.Autowired;
+import com.devgroup.ecommerce.dto.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.devgroup.ecommerce.dto.UserDTO;
-import com.devgroup.ecommerce.dto.ForgotPasswordRequest;
-import com.devgroup.ecommerce.dto.ResetPasswordRequest;
-import com.devgroup.ecommerce.dto.LoginDTO;
 import com.devgroup.ecommerce.models.User;
 import com.devgroup.ecommerce.security.JwtUtil;
 import com.devgroup.ecommerce.service.UserService;
@@ -68,5 +65,13 @@ public class UserController {
     public ResponseEntity<String> resetPassword(@RequestBody ResetPasswordRequest request) {
         userService.resetPassword(request.getToken(), request.getNewPassword());
         return ResponseEntity.ok("Contraseña restablecida exitosamente.");
+    }
+
+
+    // Cambio de contraseña
+    @PutMapping("/{id}/change-password")
+    public ResponseEntity<String> changePassword(@PathVariable Integer id, @RequestBody ChangePasswordDTO request) {
+        userService.changePassword(id, request.getCurrentPassword(), request.getNewPassword());
+        return ResponseEntity.ok("Contraseña cambiada exitosamente.");
     }
 }
