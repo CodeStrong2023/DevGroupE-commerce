@@ -68,10 +68,4 @@ public class UserController {
     }
 
 
-    // Cambio de contraseña
-    @PutMapping("/{id}/change-password")
-    public ResponseEntity<String> changePassword(@PathVariable Integer id, @RequestBody ChangePasswordDTO request) {
-        userService.changePassword(id, request.getCurrentPassword(), request.getNewPassword());
-        return ResponseEntity.ok("Contraseña cambiada exitosamente.");
-    }
 }
