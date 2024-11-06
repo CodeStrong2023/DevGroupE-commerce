@@ -1,3 +1,4 @@
+import { crearCarrusel } from './carousel.js';
 document.addEventListener("DOMContentLoaded", () => {
     fetchSportsGames();
 });
@@ -30,11 +31,11 @@ function displayGames(games) {
             <p>${game.description}</p>
             <p><strong>Precio:</strong> ${game.price} USD</p>
             <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>
-            ${game.images && Array.isArray(game.images) 
-                ? game.images.map(url => `<img src="${url}" alt="${game.name}">`).join('') 
-                : ""
+            `;
+            if (game.images && Array.isArray(game.images) && game.images.length > 0) {
+                const carousel = crearCarrusel(game.images);
+                gameElement.appendChild(carousel);
             }
-        `;
 
         container.appendChild(gameElement);
     });
