@@ -179,8 +179,4 @@ document.addEventListener('DOMContentLoaded', function() {
         goToCartButton.addEventListener('click', goToCart);
     }
 });
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-        button.addEventListener('click', addToCart);
-    });
-});
+
