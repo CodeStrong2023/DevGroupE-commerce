@@ -11,7 +11,20 @@
 </head>
 <header class="header-inicio">
     <h1>DevGroup Games</h1>
-    <a href="#" id="loginButton">Iniciar Sesión</a>
+
+    <!-- Botón de Iniciar Sesión -->
+    <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
+
+    <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
+    <button id="userButton" class="login-button" style="display: none;"></button>
+    <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+        <ul>
+            <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
+            <li><a href="./change-password.html">Cambiar Contraseña</a></li>
+            <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
+        </ul>
+    </div>
+
     <div class="login-container" id="loginDropdown" style="display: none;">
         <div id="formContent">
             <div class="main">
@@ -55,4 +68,5 @@
     
 </body>
 <script src="../components/admin-dashboard.js"></script>
+<script type="module" src="../components/login.js"></script>
 </html>

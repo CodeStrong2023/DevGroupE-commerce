@@ -12,7 +12,7 @@ document.getElementById("changePasswordForm").addEventListener("submit", async f
 
 
     try {
-        // Enviar la solicitud POST al backend
+        // Enviar la solicitud PUT al backend
         const response = await fetch(`http://localhost:8080/users/change-password`, {
             method: "PUT",
             headers: {
@@ -23,14 +23,14 @@ document.getElementById("changePasswordForm").addEventListener("submit", async f
 
         // Verificar si la solicitud fue exitosa
         if (response.ok) {
-            alert("Contraseña restablecida con éxito.");
+            alert("Contraseña restablecida con éxito");
             window.location.href = "/"; // Redirige al inicio
         } else {
             const errorData = await response.json();
-            alert(`Error: ${errorData.message || "No se pudo restablecer la contraseña."}`);
+            alert(`Error: ${errorData.message || "No se pudo restablecer la contraseña"}`);
         }
     } catch (error) {
         console.error("Error en la solicitud:", error);
-        alert("Hubo un error al intentar restablecer la contraseña. Inténtalo de nuevo más tarde.");
+        alert("Hubo un error al intentar restablecer la contraseña. Inténtalo de nuevo más tardes");
     }
 });
