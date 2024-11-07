@@ -18,11 +18,6 @@ function closeCartPopup() {
     }
 }
 
-// Función para redirigir a la página del carrito
-function goToCart() {
-    window.location.href = '../../carrito.html';  // Asegúrate de que esta ruta sea correcta
-}
-
 // Función para agregar productos al carrito
 function addToCart(event) {
     const button = event.target;
@@ -61,9 +56,8 @@ function addToCart(event) {
 // Función para actualizar el carrito en la vista
 function updateCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartTableBody = document.getElementById('cartTableBody');
-    const totalPriceElement = document.getElementById('totalPriceElement');
-    const payButton = document.querySelector('.pay-button');
+    const cartTableBody = document.getElementById('cartItems');
+    const totalPriceElement = document.getElementById('totalPrice');
 
     // Limpiar los productos actuales del carrito en la vista
     cartTableBody.innerHTML = '';
@@ -83,14 +77,7 @@ function updateCart() {
 
     // Actualizar el total
     const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
-    totalPriceElement.textContent = `Total: $${total.toFixed(2)}`;
-
-    // Mostrar el botón de pago solo si hay productos en el carrito
-    if (cart.length > 0) {
-        payButton.style.display = 'block';
-    } else {
-        payButton.style.display = 'none';
-    }
+    totalPriceElement.textContent = `$${total.toFixed(2)}`;
 
     // Agregar eventos a los botones de eliminar y campos de cantidad
     cartTableBody.querySelectorAll('.remove-from-cart').forEach(button => {
@@ -136,47 +123,20 @@ function updateQuantity(event) {
     updateCart();
 }
 
-// Función de pago (puede redirigir o mostrar un mensaje)
-function pay() {
-    alert("Proceso de pago en desarrollo...");
-    // Aquí podrías redirigir a una página de pago, o mostrar más opciones.
-}
-
-// Agregar el evento de clic a los botones "Añadir al carrito"
-document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-    button.addEventListener('click', addToCart);
-});
-
-// Agregar el evento de eliminar producto del carrito
-document.querySelectorAll('.remove-from-cart').forEach(button => {
-    button.addEventListener('click', removeFromCart);
-});
-
-// Agregar el evento de cambiar la cantidad de producto
-document.querySelectorAll('.product-quantity').forEach(input => {
-    input.addEventListener('change', updateQuantity);
-});
-
-// Agregar eventos al ícono del carrito y al botón de cerrar
+// Agregar el evento de clic a los botones "Añadir al carrito" cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Ícono del carrito en la esquina superior derecha
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+
+    // Agregar eventos al ícono del carrito y al botón de cerrar
     const cartIcon = document.querySelector('[aria-label="Carrito de compras"]');
     if (cartIcon) {
         cartIcon.addEventListener('click', openCartPopup);
-    } else {
-        console.warn('Ícono de carrito no encontrado.');
     }
 
-    // Botón para cerrar el popup
-    const closeButton = document.querySelector('#cartPopup .close-button');  // Asegúrate de tener un botón con clase "close-button" en el popup
+    const closeButton = document.querySelector('#cartPopup .close-button');
     if (closeButton) {
         closeButton.addEventListener('click', closeCartPopup);
     }
-
-    // Botón para ir al carrito en el popup
-    const goToCartButton = document.querySelector('#cartPopup .go-to-cart-button');  // Asegúrate de tener un botón con clase "go-to-cart-button" en el popup
-    if (goToCartButton) {
-        goToCartButton.addEventListener('click', goToCart);
-    }
 });
-
