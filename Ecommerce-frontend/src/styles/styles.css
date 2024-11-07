@@ -899,3 +899,17 @@ th {
   padding: 20px;
   color: #79089f;
 }
+.add-to-cart-button {
+  background-color: #79089f; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.add-to-cart-button:hover {
+  background-color:#79089f; /* Color al pasar el cursor */
+}
