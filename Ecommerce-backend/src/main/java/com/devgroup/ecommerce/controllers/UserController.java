@@ -42,7 +42,7 @@ public class UserController {
         // Generar el token JWT usando la clave secreta definida en application.properties
         String token = jwtUtil.generateToken(user);
 
-        LoginDTO response = new LoginDTO(user.getId(),user.getUsername(), token, user.getRole());
+        LoginDTO response = new LoginDTO(user.getId(),user.getUsername(), user.getEmail(), token, user.getRole());
         return ResponseEntity.ok(response);
     }
     
@@ -69,9 +69,9 @@ public class UserController {
 
 
     // Cambio de contraseña
-    @PutMapping("/{id}")
-    public ResponseEntity<String> changePassword(@PathVariable Integer id, @RequestBody ChangePasswordDTO request) {
-        userService.changePassword(id, request.getCurrentPassword(), request.getNewPassword());
+    @PutMapping("/change-password")
+    public ResponseEntity<String> changePassword(@RequestBody ChangePasswordDTO request) {
+        userService.changePassword(request.getEmail(), request.getCurrentPassword(), request.getNewPassword());
         return ResponseEntity.ok("Contraseña cambiada exitosamente.");
     }
 }
