@@ -77,7 +77,7 @@ public class UserService {
 
         // Generar un token único para el restablecimiento de contraseña
         String token = UUID.randomUUID().toString();
-        user.setResetToken(token); // Asegúrate de tener este campo en tu modelo User
+        user.setResetToken(token); 
         userRepository.save(user);
 
         // Enviar el correo con el token
@@ -104,13 +104,23 @@ public class UserService {
         System.out.println("Contraseña actualizada con éxito.");
     }
 
-    public void changePassword(Integer userId, String currentPassword, String newPassword) {
-        User user = getUser(userId);
+    public void changePassword(String email, String currentPassword, String newPassword) {
+        // Buscar al usuario por su correo electrónico
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("No se encontró un usuario con ese correo."));
+    
+        // Verificar si la contraseña actual coincide
         if (!passwordEncoder.matches(currentPassword, user.getPassword())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La contraseña actual no es correcta.");
         }
+    
+        // Actualizar la contraseña y limpiar cualquier token de restablecimiento existente
         user.setPassword(passwordEncoder.encode(newPassword));
+        user.setResetToken(null); // Asegurarse de que el token de restablecimiento esté vacío
         userRepository.save(user);
+    
+        System.out.println("Contraseña cambiada con éxito para el usuario: " + email);
     }
+    
 
 }
