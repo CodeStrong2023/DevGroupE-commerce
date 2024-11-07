@@ -832,6 +832,58 @@ th {
   background-color: #28a745;
   color: white;
 }
+
+
+.cart-popup .popup-content {
+  position: relative;
+}
+
+.cart-popup .close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
 .cart-popup {
   display: none;
   position: fixed;
@@ -846,18 +898,4 @@ th {
   z-index: 1000;
   padding: 20px;
   color: #79089f;
-}
-
-.cart-popup .popup-content {
-  position: relative;
-}
-
-.cart-popup .close-button {
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
 }

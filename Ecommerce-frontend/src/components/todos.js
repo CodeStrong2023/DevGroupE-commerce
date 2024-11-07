@@ -1,3 +1,5 @@
+import { crearCarrusel } from './carousel.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchGamesFromAllCategories();
 });
@@ -41,11 +43,11 @@ function displayGames(games) {
             <p>${game.description}</p>
             <p><strong>Precio:</strong> ${game.price} USD</p>
             <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>
-            ${game.images && Array.isArray(game.images) 
-                ? game.images.map(url => `<img src="${url}" alt="${game.title}">`).join('') 
-                : `<img src="ruta/placeholder.jpg" alt="Imagen no disponible">`
-            }
         `;
+        if (game.images && Array.isArray(game.images) && game.images.length > 0) {
+            const carousel = crearCarrusel(game.images);
+            gameElement.appendChild(carousel);
+        }
 
         container.appendChild(gameElement);
     });
