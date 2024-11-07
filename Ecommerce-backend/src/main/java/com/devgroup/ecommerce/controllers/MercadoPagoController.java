@@ -23,20 +23,14 @@ public class MercadoPagoController {
     @Value("${codigo.mercadoLibre}")
     private String mercadoLibreToken;
 
-    @Autowired
-    private PreferenceClient preferenceClient;
-
-
-    @PostMapping
-    public ResponseEntity<String> gestList(@RequestBody UserBuyer userBuyer) {
-        if (userBuyer == null || userBuyer.getTitle() == null || userBuyer.getUnit_price() == null || userBuyer.getQuantity() <= 0) {
-            return ResponseEntity.badRequest().body("Datos inválidos en el JSON.");
+    @RequestMapping(value= "api/mp", method = RequestMethod.POST)
+    public String gestList (@RequestBody UserBuyer userBuyer){
+        if(userBuyer == null){
+            return "error jsons :/";
         }
-
         String title = userBuyer.getTitle();
         int quantity = userBuyer.getQuantity();
         BigDecimal price = userBuyer.getUnit_price();
-
         try {
             MercadoPagoConfig.setAccessToken(mercadoLibreToken);
 
@@ -66,15 +60,14 @@ public class MercadoPagoController {
                     .backUrls(backUrls)
                     .build();
 
+            //Creamos un objeto del tipo cliente para comunicarse con MP
+            PreferenceClient client = new PreferenceClient();
 
-            // Creamos la preferencia
-            Preference preference = preferenceClient.create(preferenceRequest);
+            Preference preference = client.create(preferenceRequest);
 
             //Retornamos la referencia
-            return ResponseEntity.ok(preference.getInitPoint());
-        } catch (MPException | MPApiException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear la preferencia de pago.");
-        }
-
+            return preference.getId();
+        }catch (MPException | MPApiException e){return e.toString();}
     }
+
 }
