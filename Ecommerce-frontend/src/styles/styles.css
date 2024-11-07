@@ -95,6 +95,78 @@ h1 {
   background-color: #0056b3;
 }
 
+/* Estilos generales para los botones */
+.login-button, .cart-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+/* Estilos para el botón */
+.login-form button{
+  width: 100%;
+  /* Ancho completo */
+  padding: 10px;
+  /* Espaciado interno */
+  font-family: "Graduate", sans-serif;
+  background-color: #79089f;
+  /* Color de fondo */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+}
+
+.login-button {
+  width: 15%;
+  /* Ancho completo */
+  padding: 10px;
+  /* Espaciado interno */
+  font-family: "Graduate", sans-serif;
+  background-color: var(--primario);
+  /* Color de fondo */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+}
+
+/* Botón del carrito */
+.cart-button {
+  background-color: var(--primario);
+  color: var(--blanco);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Espacio entre icono y texto (si deseas añadir texto) */
+}
+
+/* Hacer los botones responsivos */
+@media (max-width: 768px) {
+  /* Alinear botones verticalmente y hacerlos ocupar todo el ancho */
+  .login-button, .cart-button {
+    width: 100%;
+    margin: 5px 0; /* Espaciado entre los botones */
+    font-size: 1.2rem; /* Aumentar el tamaño de fuente para mejor visibilidad en móviles */
+    padding: 12px; /* Ajuste de padding para pantallas más pequeñas */
+  }
+}
+
+
 /* HEADER */
 
 /* Estilos generales para el encabezado */
@@ -122,17 +194,17 @@ h1 {
   color: var(--lila);
 }
 
-/* Estilos para la navegación */
+/* Estilos para la navegación
 .navegacion ul {
   display: flex;
   /* Muestra los elementos en fila */
-  list-style: none;
+  /*list-style: none;
   /* Elimina los puntos de la lista */
-  padding: 0;
+  /*padding: 0;
   /* Elimina el padding de la lista */
-  margin: 0;
+  /*margin: 0;
   /* Elimina el margen de la lista */
-}
+/*} 
 
 /* Estilos para los elementos de la lista */
 .navegacion li {
@@ -140,46 +212,48 @@ h1 {
   /* Espaciado entre los botones */
 }
 
-/* Media Queries para hacer el encabezado responsivo */
+/* Botón de menú hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navegacion ul {
+  display: flex;
+}
+
 @media (max-width: 768px) {
-  .header-inicio {
-    flex-direction: column;
-    /* Cambia a columna en pantallas pequeñas */
-    align-items: flex-start;
-    /* Alinea los elementos al inicio */
+  /* Mostrar el botón de menú hamburguesa */
+  .menu-toggle {
+    display: block;
   }
 
-  .navegacion {
-    width: 100%;
-    /* Toma todo el ancho disponible */
-    margin-top: 10px;
-    /* Espacio entre el título y el menú */
-  }
-
+  /* Ocultar el menú de navegación inicialmente */
   .navegacion ul {
+    display: none;
     flex-direction: column;
-    /* Cambia a columna para el menú */
-    align-items: center;
-    /* Centra los elementos del menú */
-  }
-
-  .navegacion li {
-    margin: 5px 0;
-    /* Espacio vertical entre las categorías */
-  }
-
-  .header-inicio h1 {
-    font-size: 1.5em;
-    /* Tamaño de fuente más pequeño */
-  }
-
-  .cart-button {
     width: 100%;
-    /* Botón ocupa todo el ancho en móviles */
+    background-color: var(--navbar);
+    padding: 0;
     margin-top: 10px;
-    /* Espacio entre el botón y el menú */
+  }
+
+  /* Mostrar el menú cuando se active */
+  .navegacion ul.active {
+    display: flex;
+  }
+
+  /* Centrar los elementos del menú en pantallas pequeñas */
+  .navegacion li {
+    text-align: center;
+    margin: 10px 0;
   }
 }
+
 
 /* MAIN */
 
@@ -422,45 +496,6 @@ h2 {
   color: var(--lila); /* Cambia de color al pasar el mouse */
 }
 
-
-/* Estilos para el botón */
-.login-form button{
-  width: 100%;
-  /* Ancho completo */
-  padding: 10px;
-  /* Espaciado interno */
-  font-family: "Graduate", sans-serif;
-  background-color: #79089f;
-  /* Color de fondo */
-  color: white;
-  /* Color del texto */
-  border: none;
-  /* Sin borde */
-  border-radius: 4px;
-  /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
-}
-
-.login-button {
-  width: 15%;
-  /* Ancho completo */
-  padding: 10px;
-  /* Espaciado interno */
-  font-family: "Graduate", sans-serif;
-  background-color: #79089f;
-  /* Color de fondo */
-  color: white;
-  /* Color del texto */
-  border: none;
-  /* Sin borde */
-  border-radius: 4px;
-  /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
-}
 
 
 .admin-dashboard {
@@ -798,6 +833,22 @@ th {
   color: white;
 }
 
+
+.cart-popup .popup-content {
+  position: relative;
+}
+
+.cart-popup .close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
 .carousel {
   position: relative;
   width: 100%;
@@ -832,4 +883,19 @@ th {
 
 .next-btn {
   right: 10px;
+}
+.cart-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3a3636;
+  box-shadow: 0px 4px 8px rgba(12, 12, 12, 0.2);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  z-index: 1000;
+  padding: 20px;
+  color: #79089f;
 }

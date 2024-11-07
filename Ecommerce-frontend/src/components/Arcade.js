@@ -32,6 +32,7 @@ function displayGames(games) {
             <p>${game.description}</p>
             <p><strong>Precio:</strong> ${game.price} USD</p>
             <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>
+
         `;
 
         if (game.images && Array.isArray(game.images) && game.images.length > 0) {

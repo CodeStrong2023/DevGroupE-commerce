@@ -9,69 +9,89 @@
     <link rel="stylesheet" href="./src/styles/styles.css" />
 </head>
 <body>
-    <header class="header-inicio">
-        <h1><a href="/" style="text-decoration: none;">DevGroup Games</a></h1>
-        <nav class="navegacion" role="navigation" aria-label="Categorías de Juegos">
-            <ul>
-                <li><a href="" style="text-decoration: none;">Todos</a></li>
-                <li><a href="./src/pages/Aventura.html" style="text-decoration: none;">Aventura</a></li>
-                <li><a href="./src/pages/deportes.html" style="text-decoration: none;">Deporte</a></li>
-                <li><a href="./src/pages/Arcade.html" style="text-decoration: none;">Arcade</a></li>
-                <li><a href="./src/pages/Estrategia.html" style="text-decoration: none;">Estrategia</a></li>
-                <li><a href="./src/pages/Combate.html" style="text-decoration: none;">Combate</a></li>
-            </ul>
-        </nav>
+  <header class="header-inicio">
+    <h1><a href="/" style="text-decoration: none;">DevGroup Games</a></h1>
+    
+    <!-- Botón de menú hamburguesa para pantallas pequeñas -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
 
-        <!-- Botón de Iniciar Sesión -->
-        <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
+    <nav class="navegacion" role="navigation" aria-label="Categorías de Juegos">
+        <ul id="navMenu">
+            <li><a href="./src/pages/todos.html" style="text-decoration: none;">Todos</a></li>
+            <li><a href="./src/pages/Aventura.html" style="text-decoration: none;">Aventura</a></li>
+            <li><a href="./src/pages/deportes.html" style="text-decoration: none;">Deporte</a></li>
+            <li><a href="./src/pages/Arcade.html" style="text-decoration: none;">Arcade</a></li>
+            <li><a href="./src/pages/Estrategia.html" style="text-decoration: none;">Estrategia</a></li>
+            <li><a href="./src/pages/Combate.html" style="text-decoration: none;">Combate</a></li>
+        </ul>
+    </nav>
 
-        <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
-        <button id="userButton" class="login-button" style="display: none;"></button>
-        <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
-            <ul>
-                <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
-                <li><a href="./change-password.html">Cambiar Contraseña</a></li>
-                <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
-            </ul>
-        </div>
-        
-        <div class="login-container" id="loginDropdown" style="display: none;">
-            <div id="formContent">
-                <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
-                <div class="main">
-                    <h1>Iniciar Sesión</h1>
-                    <form class="login-form" id="loginForm">
-                        <label for="username">Usuario:</label>
-                        <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-                        <div class="wrap">
-                            <button type="submit">Iniciar Sesión</button>
-                        </div>
-                    </form>
-                    <div class="options">
-                        <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
-                        <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Icono del carrito de compras -->
-        <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
-            <i class="bi bi-cart"></i> <!-- Asegúrate de usar un ícono de carrito de Bootstrap Icons -->
-        </button>
+    <!-- Botón de Iniciar Sesión y el resto de tus botones de usuario/carrito aquí -->
+     <!-- Botón de Iniciar Sesión -->
+     <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
 
-        <!-- Popup del carrito -->
-        <div id="cartPopup" class="cart-popup" style="display: none;">
-            <div class="popup-content">
-                <button class="close-button" onclick="closeCartPopup()">&times;</button>
-                <h2>Carrito de Compras</h2>
-                <p>Aquí verás los artículos que has agregado.</p>
-                <button class="go-to-cart-button" onclick="goToCart()">Ir al Carrito</button>
-            </div>
-        </div>
-    </header>
+     <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
+     <button id="userButton" class="login-button" style="display: none;"></button>
+     <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+         <ul>
+             <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
+             <li><a href="./src/pages/reset-password.html">Cambiar Contraseña</a></li>
+             <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
+         </ul>
+     </div>
+     
+     <div class="login-container" id="loginDropdown" style="display: none;">
+         <div id="formContent">
+             <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
+             <div class="main">
+                 <h1>Iniciar Sesión</h1>
+                 <form class="login-form" id="loginForm">
+                     <label for="username">Usuario:</label>
+                     <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+                     <label for="password">Contraseña:</label>
+                     <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                     <div class="wrap">
+                         <button type="submit">Iniciar Sesión</button>
+                     </div>
+                 </form>
+                 <div class="options">
+                     <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
+                     <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Icono del carrito de compras -->
+     <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
+         <i class="bi bi-cart"></i> <!-- Asegúrate de usar un ícono de carrito de Bootstrap Icons -->
+     </button>
+
+     <!-- Popup del carrito -->
+     <div id="cartPopup" class="cart-popup" style="display: none;">
+         <div class="popup-content">
+             <button class="close-button" onclick="closeCartPopup()">&times;</button>
+             <h2>Carrito de Compras</h2>
+             <table class="cart-items">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>SubTotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los productos se agregarán aquí dinámicamente -->
+                </tbody>
+            </table>
+            <p class="total-price">Total: $0.00</p>
+            <button class="go-to-cart-button" onclick="pay()">Finalizar compra</button>
+         </div>
+     </div>
+     
+  </header>
+
 
     <main class="container">
         <section class="section-info">
@@ -168,4 +188,3 @@
     <script src="./src/components/carrito.js"></script>
 </body>
 </html>
-

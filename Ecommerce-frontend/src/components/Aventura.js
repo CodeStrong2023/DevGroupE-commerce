@@ -37,6 +37,7 @@ function displayGames(games) {
             gameElement.appendChild(carousel);
         }
 
+
         container.appendChild(gameElement);
     });
 }

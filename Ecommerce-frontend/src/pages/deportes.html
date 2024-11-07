@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juegos de Deportes</title>
+    <title>Juegos de Deporte</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
     <link rel="stylesheet" href="../styles/styles.css">
+    <script defer src="../components/footer.js"></script>
 </head>
 <body>
     <header class="header-inicio">
         <h1 style="text-decoration: none;">DevGroup Games</h1>
         <nav class="navegacion" role="navigation" aria-label="Categorías de Juegos">
             <ul>
-                <li><a href="" style="text-decoration: none;">Todos</a></li>
+                <li><a href="./todos.html" style="text-decoration: none;">Todos</a></li>
                 <li><a href="./Aventura.html" style="text-decoration: none;">Aventura</a></li>
                 <li><a href="./deportes.html" style="text-decoration: none;">Deporte</a></li>
                 <li><a href="./Arcade.html" style="text-decoration: none;">Arcade</a></li>
@@ -35,27 +36,7 @@
             </ul>
         </div>
         
-        <div class="login-container" id="loginDropdown" style="display: none;">
-            <div id="formContent">
-                <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
-                <div class="main">
-                    <h1>Iniciar Sesión</h1>
-                    <form class="login-form" id="loginForm">
-                        <label for="username">Usuario:</label>
-                        <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-                        <div class="wrap">
-                            <button type="submit">Iniciar Sesión</button>
-                        </div>
-                    </form>
-                    <div class="options">
-                        <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
-                        <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         
         <!-- Icono del carrito de compras -->
         <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
@@ -75,8 +56,14 @@
     <main>
         <section class="games-grid" id="games-container">
             <!-- Aquí se cargarán los juegos de deportes desde el JavaScript -->
+        </div>
         </section>
     </main>
     <script type="module" src="../components/deportes.js"></script>
 </body>
+<div id="footerContainer"></div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="../components/login.js"></script>
 </html>

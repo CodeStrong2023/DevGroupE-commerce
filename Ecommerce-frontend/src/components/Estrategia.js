@@ -35,6 +35,7 @@ function displayGames(games) {
             if (game.images && Array.isArray(game.images) && game.images.length > 0) {
                 const carousel = crearCarrusel(game.images);
                 gameElement.appendChild(carousel);
+
             }
     
 

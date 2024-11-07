@@ -7,52 +7,43 @@
     <link rel="stylesheet" href="../styles/styles.css"> <!-- Verifica que la ruta sea correcta -->
 </head>
 <body>
-    <div class="products">
-        <h2>Productos en el Carrito</h2>
+    <!-- Icono del carrito para abrir el popup -->
+    <button aria-label="Carrito de compras" onclick="openCartPopup(event)">Abrir Carrito</button>
+
+    <!-- Popup del carrito -->
+    <div id="cartPopup" style="display: none;">
+        <button class="close-button" onclick="closeCartPopup()">Cerrar</button>
+        <h2>Carrito de Compras</h2>
         <table>
             <thead>
                 <tr>
                     <th>Producto</th>
                     <th>Precio</th>
-                    <th>Descripción</th>
                     <th>Cantidad</th>
-                    <th>Acción</th>
+                    <th>SubTotal</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Ejemplo de producto, puedes duplicar según sea necesario -->
-                <tr>
-                    <td>Ejemplo de Producto 1</td>
-                    <td>$120.00</td>
-                    <td>Descripción del producto 1.</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td><button class="btn">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>Ejemplo de Producto 2</td>
-                    <td>$80.00</td>
-                    <td>Descripción del producto 2.</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td><button class="btn">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>Ejemplo de Producto 3</td>
-                    <td>$150.00</td>
-                    <td>Descripción del producto 3.</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td><button class="btn">Eliminar</button></td>
-                </tr>
+            <tbody id="cartTableBody">
+                <!-- Los productos se agregarán aquí dinámicamente con JavaScript -->
             </tbody>
         </table>
+        <p class="total-price" id="totalPriceElement">Total: $0.00</p>
+        <button class="pay-button" style="display: none;" onclick="pay()">Pagar</button>
     </div>
 
-    <div class="action-buttons">
-        <button class="boton-index" onclick="window.location.href='../../index.html'">Volver al Inicio</button>
-        <button class="boton-checkout" onclick="window.location.href='../../checkout.html'">Proceder al Pago</button>
+    <!-- Productos de prueba con botones para añadir al carrito -->
+    <div class="product">
+        <p>Producto 1</p>
+        <p>Precio: $10.00</p>
+        <button class="add-to-cart-btn" data-product-id="1" data-product-name="Producto 1" data-product-price="10.00">Añadir al carrito</button>
+    </div>
+    <div class="product">
+        <p>Producto 2</p>
+        <p>Precio: $20.00</p>
+        <button class="add-to-cart-btn" data-product-id="2" data-product-name="Producto 2" data-product-price="20.00">Añadir al carrito</button>
     </div>
 
+    <!-- Enlace al archivo JavaScript -->
     <script src="../src/components/carrito.js"></script> <!-- Verifica que la ruta sea correcta -->
 </body>
 </html>
-
-
