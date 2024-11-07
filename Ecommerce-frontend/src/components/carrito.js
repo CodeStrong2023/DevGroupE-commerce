@@ -1,10 +1,10 @@
 // Función para abrir el popup del carrito
 function openCartPopup(event) {
-    event.preventDefault();  // Evita la redirección inmediata
+    event.preventDefault();
     const popup = document.getElementById('cartPopup');
     if (popup) {
         popup.style.display = 'block';
-        updateCart();  // Llama a la función para actualizar el carrito cuando se abre el popup
+        updateCart();  // Llama a la función para actualizar el carrito
     } else {
         console.warn('El popup de carrito no está definido en el HTML.');
     }
@@ -16,11 +16,6 @@ function closeCartPopup() {
     if (popup) {
         popup.style.display = 'none';
     }
-}
-
-// Función para redirigir a la página del carrito
-function goToCart() {
-    window.location.href = '../../carrito.html';  // Asegúrate de que esta ruta sea correcta
 }
 
 // Función para agregar productos al carrito
@@ -38,7 +33,7 @@ function addToCart(event) {
         id: productId,
         name: productName,
         price: parseFloat(productPrice),
-        quantity: 1,  // Inicia con una cantidad de 1
+        quantity: 1,
     };
 
     // Verificar si el producto ya está en el carrito
@@ -61,9 +56,8 @@ function addToCart(event) {
 // Función para actualizar el carrito en la vista
 function updateCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartTableBody = document.getElementById('cartTableBody');
-    const totalPriceElement = document.getElementById('totalPriceElement');
-    const payButton = document.querySelector('.pay-button');
+    const cartTableBody = document.getElementById('cartItems');  // Cambiado a 'cartItems' según el HTML
+    const totalPriceElement = document.getElementById('totalPrice');  // Cambiado a 'totalPrice' según el HTML
 
     // Limpiar los productos actuales del carrito en la vista
     cartTableBody.innerHTML = '';
@@ -83,22 +77,7 @@ function updateCart() {
 
     // Actualizar el total
     const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
-    totalPriceElement.textContent = `Total: $${total.toFixed(2)}`;
-
-    // Mostrar el botón de pago solo si hay productos en el carrito
-    if (cart.length > 0) {
-        payButton.style.display = 'block';
-    } else {
-        payButton.style.display = 'none';
-    }
-
-    // Agregar eventos a los botones de eliminar y campos de cantidad
-    cartTableBody.querySelectorAll('.remove-from-cart').forEach(button => {
-        button.addEventListener('click', removeFromCart);
-    });
-    cartTableBody.querySelectorAll('.product-quantity').forEach(input => {
-        input.addEventListener('change', updateQuantity);
-    });
+    totalPriceElement.textContent = `$${total.toFixed(2)}`;
 }
 
 // Función para eliminar productos del carrito
@@ -136,47 +115,7 @@ function updateQuantity(event) {
     updateCart();
 }
 
-// Función de pago (puede redirigir o mostrar un mensaje)
-function pay() {
-    alert("Proceso de pago en desarrollo...");
-    // Aquí podrías redirigir a una página de pago, o mostrar más opciones.
-}
-
 // Agregar el evento de clic a los botones "Añadir al carrito"
 document.querySelectorAll('.add-to-cart-btn').forEach(button => {
     button.addEventListener('click', addToCart);
 });
-
-// Agregar el evento de eliminar producto del carrito
-document.querySelectorAll('.remove-from-cart').forEach(button => {
-    button.addEventListener('click', removeFromCart);
-});
-
-// Agregar el evento de cambiar la cantidad de producto
-document.querySelectorAll('.product-quantity').forEach(input => {
-    input.addEventListener('change', updateQuantity);
-});
-
-// Agregar eventos al ícono del carrito y al botón de cerrar
-document.addEventListener('DOMContentLoaded', function() {
-    // Ícono del carrito en la esquina superior derecha
-    const cartIcon = document.querySelector('[aria-label="Carrito de compras"]');
-    if (cartIcon) {
-        cartIcon.addEventListener('click', openCartPopup);
-    } else {
-        console.warn('Ícono de carrito no encontrado.');
-    }
-
-    // Botón para cerrar el popup
-    const closeButton = document.querySelector('#cartPopup .close-button');  // Asegúrate de tener un botón con clase "close-button" en el popup
-    if (closeButton) {
-        closeButton.addEventListener('click', closeCartPopup);
-    }
-
-    // Botón para ir al carrito en el popup
-    const goToCartButton = document.querySelector('#cartPopup .go-to-cart-button');  // Asegúrate de tener un botón con clase "go-to-cart-button" en el popup
-    if (goToCartButton) {
-        goToCartButton.addEventListener('click', goToCart);
-    }
-});
-
