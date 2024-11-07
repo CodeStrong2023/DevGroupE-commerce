@@ -927,7 +927,7 @@ th {
   color: var(--blanco);
 }
 
-.change-password-container h1 {
+.change-password-container h2 {
   font-size: 2rem;
   color: var(--primario);
   font-family: var(--fuentePrincipal);
@@ -947,6 +947,7 @@ th {
 .change-password-form label {
   display: block;
   margin-bottom: 0.5rem;
+  padding-top: 1rem;
   font-size: 1rem;
 }
 
@@ -995,4 +996,98 @@ th {
 .back-link:hover {
   color: var(--lila);
 }
+
+/* RESET-PASSWORD */
+
+.reset-password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--fondo);
+  color: var(--blanco);
+}
+
+.section-reset {
+  background-color: var(--seccion);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.reset-password-container h2 {
+  font-size: 2rem;
+  color: var(--primario);
+  font-family: var(--fuentePrincipal);
+  margin-bottom: 1rem;
+}
+
+.section-reset p {
+  font-size: 1rem;
+  color: var(--blanco);
+  margin-bottom: 1.5rem;
+}
+
+#resetPasswordForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+#resetPasswordForm input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: var(--fuentePrincipal);
+}
+
+#resetPasswordForm input:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+#resetPasswordForm button {
+  width: 100%;
+  background-color: var(--primario);
+  color: var(--blanco);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#resetPasswordForm button:hover {
+  background-color: var(--lila);
+}
+
+/* Estilo del enlace de regreso al inicio */
+.section-reset p a {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--primario);
+  text-decoration: underline;
+}
+
+.section-reset p a:hover {
+  color: var(--lila);
+}
+
+
+
+
+
+
 
