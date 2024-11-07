@@ -63,13 +63,26 @@
             <i class="bi bi-cart"></i> <!-- Asegúrate de usar un ícono de carrito de Bootstrap Icons -->
         </button>
 
-        <!-- Popup del carrito -->
+             <!-- Popup del carrito -->
         <div id="cartPopup" class="cart-popup" style="display: none;">
             <div class="popup-content">
                 <button class="close-button" onclick="closeCartPopup()">&times;</button>
                 <h2>Carrito de Compras</h2>
-                <p>Aquí verás los artículos que has agregado.</p>
-                <button class="go-to-cart-button" onclick="goToCart()">Ir al Carrito</button>
+                <table class="cart-items">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>SubTotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los productos se agregarán aquí dinámicamente -->
+                </tbody>
+            </table>
+            <p class="total-price">Total: $0.00</p>
+            <button class="go-to-cart-button" onclick="pay()">Finalizar compra</button>
             </div>
         </div>
     </header>
@@ -79,10 +92,11 @@
         </div>
         </section>
     </main>
-    <script src="../components/Combate.js"></script>
+    <script type="module" src="../components/Combate.js"></script>
 </body>
 <div id="footerContainer"></div>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="../components/login.js"></script>
 </html>

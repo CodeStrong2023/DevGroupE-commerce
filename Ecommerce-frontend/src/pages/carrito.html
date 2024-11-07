@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="../styles/styles.css"> <!-- Verifica que la ruta sea correcta -->
 </head>
 <body>
-    <div class="products">
-        <h2>Productos en el Carrito</h2>
+    <!-- Icono del carrito para abrir el popup -->
+    <button aria-label="Carrito de compras" onclick="openCartPopup(event)">Abrir Carrito</button>
+
+    <!-- Popup del carrito -->
+    <div id="cartPopup" style="display: none;">
+        <button class="close-button" onclick="closeCartPopup()">Cerrar</button>
+        <h2>Carrito de Compras</h2>
         <table>
             <thead>
                 <tr>
@@ -23,11 +28,19 @@
             </tbody>
         </table>
         <p class="total-price" id="totalPriceElement">Total: $0.00</p>
+        <button class="pay-button" style="display: none;" onclick="pay()">Pagar</button>
     </div>
 
-    <div class="action-buttons">
-        <button class="boton-index" onclick="window.location.href='../../index.html'">Volver al Inicio</button>
-        <button class="boton-checkout" onclick="pay()">Proceder al Pago</button>
+    <!-- Productos de prueba con botones para añadir al carrito -->
+    <div class="product">
+        <p>Producto 1</p>
+        <p>Precio: $10.00</p>
+        <button class="add-to-cart-btn" data-product-id="1" data-product-name="Producto 1" data-product-price="10.00">Añadir al carrito</button>
+    </div>
+    <div class="product">
+        <p>Producto 2</p>
+        <p>Precio: $20.00</p>
+        <button class="add-to-cart-btn" data-product-id="2" data-product-name="Producto 2" data-product-price="20.00">Añadir al carrito</button>
     </div>
 
     <!-- Enlace al archivo JavaScript -->
