@@ -10,26 +10,36 @@
     <!-- Icono del carrito para abrir el popup -->
     <button aria-label="Carrito de compras" onclick="openCartPopup(event)">Abrir Carrito</button>
 
-    <!-- Popup del carrito -->
-    <div id="cartPopup" style="display: none;">
-        <button class="close-button" onclick="closeCartPopup()">Cerrar</button>
+<!-- Popup del carrito -->
+<div id="cartPopup" class="cart-popup" style="display: none;">
+    <div class="popup-content">
+        <button class="close-button" onclick="closeCartPopup()">&times;</button>
         <h2>Carrito de Compras</h2>
-        <table>
+        
+        <!-- Tabla del carrito de compras -->
+        <table class="cart-table">
             <thead>
                 <tr>
                     <th>Producto</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
-                    <th>SubTotal</th>
+                    <th>Subtotal</th>
                 </tr>
             </thead>
-            <tbody id="cartTableBody">
-                <!-- Los productos se agregarán aquí dinámicamente con JavaScript -->
+            <tbody id="cartItems">
+                <!-- Los elementos del carrito se añadirán aquí dinámicamente -->
             </tbody>
         </table>
-        <p class="total-price" id="totalPriceElement">Total: $0.00</p>
-        <button class="pay-button" style="display: none;" onclick="pay()">Pagar</button>
+
+        <!-- Total y botón de finalizar compra -->
+        <div class="cart-total">
+            <p>Total: <span id="totalPrice">$0.00</span></p>
+            <button class="finalize-purchase-button" onclick="finalizePurchase()">Finalizar compra</button>
+        </div>
     </div>
+</div>
+
+
 
     <!-- Productos de prueba con botones para añadir al carrito -->
     <div class="product">

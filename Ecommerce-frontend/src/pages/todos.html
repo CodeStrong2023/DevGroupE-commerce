@@ -12,7 +12,7 @@
 </head>
 <body>
     <header class="header-inicio">
-        <h1 style="text-decoration: none;">DevGroup Games</h1>
+        <h1><a href="/" style="text-decoration: none; color: inherit;">DevGroup Games</a></h1>
         <nav class="navegacion" role="navigation" aria-label="Categorías de Juegos">
             <ul>
                 <li><a href="./todos.html" style="text-decoration: none;">Todos</a></li>
@@ -31,7 +31,7 @@
         <button id="userButton" class="login-button" style="display: none;"></button>
         <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
             <ul>
-                <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
+                <li><a href="#" id="logoutButton" onclick="logout()">Cerrar Sesión</a></li>
                 <li><a href="./change-password.html">Cambiar Contraseña</a></li>
                 <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
             </ul>
@@ -76,10 +76,24 @@
     </header>
     <main>
         <section class="games-grid" id="games-container">
-            <!-- Aquí se cargarán los juegos de deportes desde el JavaScript -->
+            <!-- Aquí se cargarán los juegos de todos desde el JavaScript -->
         </section>
     </main>
     <script type="module" src="../components/todos.js"></script>
+    <script>
+        // Lógica para el popup del carrito
+        function openCartPopup() {
+            document.getElementById('cartPopup').style.display = 'block';
+        }
+
+        function closeCartPopup() {
+            document.getElementById('cartPopup').style.display = 'none';
+        }
+
+        function goToCart() {
+            window.location.href = 'carrito.html'; // Aquí redirige a la página del carrito
+        }
+    </script>
 </body>
 <div id="footerContainer"></div>
 
