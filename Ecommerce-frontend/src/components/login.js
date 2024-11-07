@@ -13,6 +13,10 @@ export async function authenticateUser(username, password) {
             // Guarda el rol y el nombre en el localStorage
             localStorage.setItem("userRole", userData.role);
             localStorage.setItem("username", userData.username);
+            // Ejemplo de cómo guardar el ID en sessionStorage
+            localStorage.setItem("email", userData.email);  // 'userId' es el valor recibido del backend
+
+            console.log(localStorage.getItem("email"));
 
             // Oculta el formulario de inicio de sesión
             const loginContainer = document.getElementById("loginDropdown");
@@ -38,9 +42,6 @@ export async function authenticateUser(username, password) {
     }
 }
 
-document.getElementById("menuToggle").addEventListener("click", function() {
-    document.getElementById("navMenu").classList.toggle("active");
-});
 
 function showWelcomeMessage(username, role) {
     // Selecciona el contenedor donde se encontraba el botón de inicio de sesión
@@ -62,7 +63,7 @@ function showWelcomeMessage(username, role) {
     dropdownMenu.innerHTML = `
         <ul>
             <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
-            <li><a href="">Cambiar Contraseña</a></li>
+            <li><a href="/src/pages/change-password.html">Cambiar Contraseña</a></li>
             <li><a href="/src/pages/${role.toLowerCase()}-dashboard.html" class="panel">Ir al Dashboard</a></li>
         </ul>
     `;

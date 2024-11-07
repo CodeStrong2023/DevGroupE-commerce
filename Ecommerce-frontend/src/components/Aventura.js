@@ -1,3 +1,4 @@
+import { crearCarrusel } from './carousel';
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdventureGames();
 });
@@ -30,11 +31,12 @@ function displayGames(games) {
             <p>${game.description}</p>
             <p><strong>Precio:</strong> ${game.price} USD</p>
             <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>
-            ${game.images && Array.isArray(game.images) 
-                ? game.images.map(url => `<img src="${url}" alt="${game.name}">`).join('') 
-                : ""
-            }
-        `;
+           `;
+           if (game.images && Array.isArray(game.images) && game.images.length > 0) {
+            const carousel = crearCarrusel(game.images);
+            gameElement.appendChild(carousel);
+        }
+
 
         container.appendChild(gameElement);
     });

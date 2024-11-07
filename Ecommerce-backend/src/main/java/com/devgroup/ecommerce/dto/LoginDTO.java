@@ -13,12 +13,14 @@ public class LoginDTO {
     private Integer id;
     private String username;
     private String password;
+    private String email;
     private String token;
     private Role role;
 
-    public LoginDTO(Integer id, String username, String token, Role role){
+    public LoginDTO(Integer id, String username, String email, String token, Role role){
         this.id = id;
         this.username = username;
+        this.email = email;
         this.token = token;
         this.role = role;
     }

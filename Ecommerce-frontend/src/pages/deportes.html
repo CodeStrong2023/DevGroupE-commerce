@@ -36,27 +36,7 @@
             </ul>
         </div>
         
-        <div class="login-container" id="loginDropdown" style="display: none;">
-            <div id="formContent">
-                <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
-                <div class="main">
-                    <h1>Iniciar Sesión</h1>
-                    <form class="login-form" id="loginForm">
-                        <label for="username">Usuario:</label>
-                        <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-                        <div class="wrap">
-                            <button type="submit">Iniciar Sesión</button>
-                        </div>
-                    </form>
-                    <div class="options">
-                        <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
-                        <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         
         <!-- Icono del carrito de compras -->
         <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
@@ -79,10 +59,11 @@
         </div>
         </section>
     </main>
-    <script src="../components/deportes.js"></script>
+    <script type="module" src="../components/deportes.js"></script>
 </body>
 <div id="footerContainer"></div>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="../components/login.js"></script>
 </html>
