@@ -2,7 +2,18 @@ import { crearCarrusel } from './carousel.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchGamesFromAllCategories();
+    // Verificar si hay usuario en sesión y actualizar los botones
+    const usuario = localStorage.getItem('usuario');
+    if (usuario) {
+        document.getElementById("userButton").style.display = 'block'; // Mostrar el botón del usuario
+        document.getElementById("userButton").textContent = usuario; // Mostrar el nombre del usuario
+        document.getElementById("loginButton").style.display = 'none'; // Ocultar el botón de login
+    } else {
+        document.getElementById("loginButton").style.display = 'block'; // Mostrar el botón de login
+        document.getElementById("userButton").style.display = 'none'; // Ocultar el botón del usuario
+    }
 });
+
 async function fetchGamesFromAllCategories() {
     const categoryIds = [1, 2, 3, 4, 5];
     const gamePromises = categoryIds.map(id =>
@@ -49,10 +60,43 @@ function displayGames(games) {
             gameElement.appendChild(carousel);
         }
 
+        // Agregar el botón de "Agregar al carrito"
+        const addToCartButton = document.createElement("button");
+        addToCartButton.textContent = "Agregar al carrito";
+        addToCartButton.classList.add("add-to-cart-btn");  // Añadir clase CSS para estilos
+        addToCartButton.addEventListener("click", () => addToCart(game));
+        gameElement.appendChild(addToCartButton);
+
         container.appendChild(gameElement);
     });
 }
 
-// Llama a la función para cargar y mostrar los juegos de todas las categorías
-fetchGamesFromAllCategories();
+function addToCart(game) {
+    const cartItem = {
+        id: game.id,
+        title: game.title,
+        price: game.price,
+        quantity: 1,
+    };
 
+    // Obtener el carrito actual de localStorage o crear uno nuevo si no existe
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Verificar si el juego ya está en el carrito
+    const existingItem = cart.find(item => item.id === cartItem.id);
+    if (existingItem) {
+        existingItem.quantity += 1; // Incrementar la cantidad si el juego ya está en el carrito
+    } else {
+        cart.push(cartItem); // Agregar el nuevo juego al carrito
+    }
+
+    // Guardar el carrito actualizado en localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${game.title} ha sido agregado al carrito.`);
+}
+
+function logout() {
+    localStorage.removeItem('usuario');
+    location.reload();  // Recarga la página para reflejar el cambio
+}
