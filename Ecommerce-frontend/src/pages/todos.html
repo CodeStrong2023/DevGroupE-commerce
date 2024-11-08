@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevGroup Games</title>
+    <script src="../components/todos.js" rel="preload"></script>
+    <script src="../components/carrito.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+    <script defer src="../components/footer.js"></script>
+</head>
+<body>
+    <header class="header-inicio">
+        <h1><a href="/" style="text-decoration: none; color: inherit;">DevGroup Games</a></h1>
+        <nav class="navegacion" role="navigation" aria-label="Categorías de Juegos">
+            <ul>
+                <li><a href="./todos.html" style="text-decoration: none;">Todos</a></li>
+                <li><a href="./Aventura.html" style="text-decoration: none;">Aventura</a></li>
+                <li><a href="./deportes.html" style="text-decoration: none;">Deporte</a></li>
+                <li><a href="./Arcade.html" style="text-decoration: none;">Arcade</a></li>
+                <li><a href="./Estrategia.html" style="text-decoration: none;">Estrategia</a></li>
+                <li><a href="./Combate.html" style="text-decoration: none;">Combate</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botón de Iniciar Sesión -->
+        <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
+
+        <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
+        <button id="userButton" class="login-button" style="display: none;"></button>
+        <div id="dropdownMenu" class="dropdown-menu">
+            <ul>
+                <li><a href="#" id="logoutButton" onclick="logout()">Cerrar Sesión</a></li>
+                <li><a href="./change-password.html">Cambiar Contraseña</a></li>
+                <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
+            </ul>
+        </div>
+        
+        <div class="login-container" id="loginDropdown" style="display: none;">
+            <div id="formContent">
+                <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
+                <div class="main">
+                    <h1>Iniciar Sesión</h1>
+                    <form class="login-form" id="loginForm">
+                        <label for="username">Usuario:</label>
+                        <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                        <div class="wrap">
+                            <button type="submit">Iniciar Sesión</button>
+                        </div>
+                    </form>
+                    <div class="options">
+                        <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
+                        <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Icono del carrito de compras -->
+        <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
+            <i class="bi bi-cart"></i> <!-- Asegúrate de usar un ícono de carrito de Bootstrap Icons -->
+        </button>
+
+        <!-- Popup del carrito -->
+        <div id="cartPopup" class="cart-popup" style="display: none;">
+            <div class="popup-content">
+                <button class="close-button" onclick="closeCartPopup()">&times;</button>
+                <h2>Carrito de Compras</h2>
+                <table class="cart-items">
+                   <thead>
+                       <tr>
+                           <th>Producto</th>
+                           <th>Precio</th>
+                       </tr>
+                   </thead>
+                   <tbody id="cartItems">
+                       <!-- Los productos se agregarán aquí dinámicamente -->
+                   </tbody>
+               </table>
+               <p id="totalPrice"></p>
+               <button class="go-to-cart-button" onclick="pay()">Finalizar compra</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="games-grid" id="games-container">
+            <!-- Aquí se cargarán los juegos de todos desde el JavaScript -->
+        </section>
+    </main>
+    <script type="module" src="../components/todos.js"></script>
+</body>
+<div id="footerContainer"></div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="../components/login.js"></script>
+</html>

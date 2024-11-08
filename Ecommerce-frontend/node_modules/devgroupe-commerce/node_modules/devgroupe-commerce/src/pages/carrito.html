@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="../styles/styles.css"> <!-- Verifica que la ruta sea correcta -->
+</head>
+<body>
+    <!-- Icono del carrito para abrir el popup -->
+    <button aria-label="Carrito de compras" onclick="openCartPopup(event)">Abrir Carrito</button>
+
+<!-- Popup del carrito -->
+<div id="cartPopup" class="cart-popup" style="display: none;">
+    <div class="popup-content">
+        <button class="close-button" onclick="closeCartPopup()">&times;</button>
+        <h2>Carrito de Compras</h2>
+        
+        <!-- Tabla del carrito de compras -->
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <!-- Los elementos del carrito se añadirán aquí dinámicamente -->
+            </tbody>
+        </table>
+
+        <!-- Total y botón de finalizar compra -->
+        <div class="cart-total">
+            <p>Total: <span id="totalPrice">$0.00</span></p>
+            <button class="finalize-purchase-button" onclick="finalizePurchase()">Finalizar compra</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Productos de prueba con botones para añadir al carrito -->
+    <div class="product">
+        <p>Producto 1</p>
+        <p>Precio: $10.00</p>
+        <button class="add-to-cart-btn" data-product-id="1" data-product-name="Producto 1" data-product-price="10.00">Añadir al carrito</button>
+    </div>
+    <div class="product">
+        <p>Producto 2</p>
+        <p>Precio: $20.00</p>
+        <button class="add-to-cart-btn" data-product-id="2" data-product-name="Producto 2" data-product-price="20.00">Añadir al carrito</button>
+    </div>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="../src/components/carrito.js"></script> <!-- Verifica que la ruta sea correcta -->
+</body>
+</html>

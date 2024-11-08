@@ -10,6 +10,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,6 +27,8 @@ public class Game {
 
     private String description;
 
+    @ElementCollection
+    private List<String> images;
     private LocalDate releaseDate;
     private BigDecimal price;
 
@@ -37,6 +40,4 @@ public class Game {
     @JoinColumn(name = "category_id", nullable = true) // Puede ser nullable ya que puede ser null si se elimina la categoría
     @OnDelete(action = OnDeleteAction.SET_NULL) // Se elimina la categoría pero los juegos se conservan
     private Category category; // Cada juego tiene una única categoría.
-
-
 }
