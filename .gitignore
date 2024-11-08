@@ -1,6 +1,7 @@
 # Ignorar node_modules
 node_modules/
 Ecommerce-frontend/node_modules/
+Ecommerce-backend/node_modules/
 
 # Ignorar archivos .log
 *.log
