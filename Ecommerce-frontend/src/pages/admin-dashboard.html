@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script defer src="../components/footer.js"></script>
+    <title>Dashboard de Administración</title>
+</head>
+<header class="header-inicio">
+    <h1>DevGroup Games</h1>
+
+    <!-- Botón de Iniciar Sesión -->
+    <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
+
+    <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
+    <button id="userButton" class="login-button" style="display: none;"></button>
+    <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+        <ul>
+            <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
+            <li><a href="./change-password.html">Cambiar Contraseña</a></li>
+            <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
+        </ul>
+    </div>
+
+    <div class="login-container" id="loginDropdown" style="display: none;">
+        <div id="formContent">
+            <div class="main">
+                <h1>Iniciar Sesión</h1>
+                <form class="login-form" id="loginForm">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    <div class="wrap">
+                        <button type="submit">Iniciar Sesión</button>
+                    </div>
+                </form>
+                <div class="options">
+                    <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
+                    <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<body class="admin-dashboard">
+    <h1>Panel de Administración</h1>
+    <div class="gameForm-container">
+        <form id="gameForm" enctype="multipart/form-data">
+            <h3>Ingrese datos del juego</h3>
+            <label>Nombre: <input type="text" id="title" required></label><br>
+            <label>Descripción: <textarea id="description" required></textarea></label><br>
+            <label>Precio: <input type="number" id="price" step="0.01" required></label><br>
+            <label>Categoría: <input type="number" id="categoryId" required></label><br>
+            <label>Propietario: <input type="number" id="ownerId" required></label><br>
+            <label>Fecha de Publicación: <input type="date" id="releaseDate" required></label><br>
+            <label>Imágenes (separados por coma): <input type="text" id="images"></label><br>
+            <button type="submit" id="gameForm-button">Guardar Juego</button>
+        </form> 
+    </div>
+    <div id="footerContainer"></div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</body>
+<script src="../components/admin-dashboard.js"></script>
+<script type="module" src="../components/login.js"></script>
+</html>

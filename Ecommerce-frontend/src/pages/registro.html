@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrarse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <script defer src="../components/registro.js"></script>
+</head>
+<body>
+  <div class="login-container show" id="loginContainer">
+    <div id="formContent">
+      <div class="main">
+        <h1>Registrarse</h1>
+        <a href="/" class="back-link">Volver al Inicio</a>
+        <form class="login-form" id="registerForm">
+          <label for="regUsername">Nombre de Usuario:</label>
+          <input type="text" id="regUsername" placeholder="Ingresa tu usuario" required />
+          <label for="regEmail">Email:</label>
+          <input type="email" id="regEmail" placeholder="Ingresa tu email" required />
+          <label for="regPassword">Contraseña:</label>
+          <input type="password" id="regPassword" placeholder="Ingresa tu contraseña" required />
+          <div class="wrap">
+            <button type="submit">Registrar</button>
+          </div>
+        </form>
+        <p id="registerMessage"></p>
+      </div>
+    </div>
+  </div>
+  <div id="footerContainer"></div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script defer src="../components/footer.js"></script>
+</body>
+</html>
+
