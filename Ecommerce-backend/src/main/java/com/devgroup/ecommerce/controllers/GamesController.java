@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
     // LA CLASE GameController expone los endpoints para interactuar con los juegos.
@@ -35,10 +37,23 @@ public class GamesController {
         }
 
         // Crear un nuevo juego
-        @PostMapping
-        public ResponseEntity<GameDTO> createGame(@RequestBody GameDTO gameDTO) {
+
+        @PostMapping(consumes = "multipart/form-data")
+        public ResponseEntity<GameDTO> createGame(
+                @RequestParam String title,
+                @RequestParam String description,
+                @RequestParam Integer ownerId,
+                @RequestParam List<String> images,
+                @RequestParam LocalDate releaseDate,
+                @RequestParam BigDecimal price,
+                @RequestParam Long categoryId) {
+            GameDTO gameDTO = new GameDTO(title, description, ownerId, images, releaseDate, price, categoryId);
             GameDTO newGame = gameService.createGame(gameDTO);
+<<<<<<< HEAD
             return ResponseEntity.ok(newGame); // Retornamos el juego creado con un 201
+=======
+            return ResponseEntity.status(HttpStatus.CREATED).body(newGame);
+>>>>>>> 9e94f3e9de86d7cb4eaf505270123e53a6b4106c
         }
 
         // Actualizar un juego existente
@@ -63,7 +78,11 @@ public class GamesController {
             }
         }
 
+<<<<<<< HEAD
         @GetMapping("/games/category/{categoryId}") // Endpoint para obtener los juegos por id de categoría
+=======
+        @GetMapping("/category/{categoryId}") // Endpoint para obtener los juegos por id de categoría
+>>>>>>> 9e94f3e9de86d7cb4eaf505270123e53a6b4106c
         public List<GameDTO> getGamesByCategoryId(@PathVariable Long categoryId) {
             return gameService.getElementByCategoryId(categoryId);
         }

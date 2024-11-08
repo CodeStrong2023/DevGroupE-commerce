@@ -1,14 +1,22 @@
 package com.devgroup.ecommerce.controllers;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+//import org.springframework.beans.factory.annotation.Autowired;
+import com.devgroup.ecommerce.dto.*;
+>>>>>>> 9e94f3e9de86d7cb4eaf505270123e53a6b4106c
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+<<<<<<< HEAD
 import com.devgroup.ecommerce.dto.UserDTO;
 import com.devgroup.ecommerce.dto.ForgotPasswordRequest;
 import com.devgroup.ecommerce.dto.ResetPasswordRequest;
 import com.devgroup.ecommerce.dto.LoginDTO;
+=======
+>>>>>>> 9e94f3e9de86d7cb4eaf505270123e53a6b4106c
 import com.devgroup.ecommerce.models.User;
 import com.devgroup.ecommerce.security.JwtUtil;
 import com.devgroup.ecommerce.service.UserService;
@@ -24,7 +32,7 @@ public class UserController {
     @Value("${jwt.secret}")
     private String secretKey;
 
-    @Autowired
+    //@Autowired
     public UserController(UserService userService, JwtUtil jwtUtil) {
         this.userService = userService;
         this.jwtUtil = jwtUtil; // Inicialización en el constructor
@@ -45,7 +53,7 @@ public class UserController {
         // Generar el token JWT usando la clave secreta definida en application.properties
         String token = jwtUtil.generateToken(user);
 
-        LoginDTO response = new LoginDTO(user.getId(),user.getUsername(), token, user.getRole());
+        LoginDTO response = new LoginDTO(user.getId(),user.getUsername(), user.getEmail(), token, user.getRole());
         return ResponseEntity.ok(response);
     }
     
@@ -68,5 +76,13 @@ public class UserController {
     public ResponseEntity<String> resetPassword(@RequestBody ResetPasswordRequest request) {
         userService.resetPassword(request.getToken(), request.getNewPassword());
         return ResponseEntity.ok("Contraseña restablecida exitosamente.");
+    }
+
+
+    // Cambio de contraseña
+    @PutMapping("/change-password")
+    public ResponseEntity<String> changePassword(@RequestBody ChangePasswordDTO request) {
+        userService.changePassword(request.getEmail(), request.getCurrentPassword(), request.getNewPassword());
+        return ResponseEntity.ok("Contraseña cambiada exitosamente.");
     }
 }
