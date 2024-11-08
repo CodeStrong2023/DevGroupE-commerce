@@ -9,6 +9,7 @@ export async function authenticateUser(username, password) {
         if (response.ok) {
             const userData = await response.json();
             alert(`Bienvenido, ${userData.username}`);
+            localStorage.clear();
 
             // Guarda el rol y el nombre en el localStorage
             localStorage.setItem("userRole", userData.role);
@@ -60,11 +61,12 @@ function showWelcomeMessage(username, role) {
     const dropdownMenu = document.createElement("div");
     dropdownMenu.className = "dropdown-menu";
     dropdownMenu.style.display = "none";
+    dropdownMenu.style.backgroundColor = "#242424";
     dropdownMenu.innerHTML = `
         <ul>
-            <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
-            <li><a href="/src/pages/change-password.html">Cambiar Contraseña</a></li>
-            <li><a href="/src/pages/${role.toLowerCase()}-dashboard.html" class="panel">Ir al Dashboard</a></li>
+            <li><a href="#" id="logoutButton" style='color: #9b86f4;'>Cerrar Sesión</a></li>
+            <li><a href="/src/pages/change-password.html" style='color: #9b86f4;'>Cambiar Contraseña</a></li>
+            <li><a href="/src/pages/${role.toLowerCase()}-dashboard.html" class="panel" style='color: #9b86f4;'>Ir al Dashboard</a></li>
         </ul>
     `;
     welcomeButton.insertAdjacentElement("afterend", dropdownMenu);
