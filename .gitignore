@@ -1,1 +1,10 @@
-Ecommerce-frontend/node_modules
+# Ignorar node_modules
+node_modules/
+Ecommerce-frontend/node_modules/
+
+# Ignorar archivos .log
+*.log
+
+# Ignorar carpetas de compilación
+dist/
+build/
