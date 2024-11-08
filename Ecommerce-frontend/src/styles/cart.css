@@ -1,0 +1,88 @@
+:root {
+    --primario: #79089f;
+    --secundario: #434343;
+    --btn-color: #007bff;
+    --blanco: #fff;
+    --negro: #000;
+  
+    --navbar: #171717;
+    --fondo: #242424;
+    --seccion: #464646;
+    --lila: #9b86f4;
+  
+    --fuentePrincipal: "Graduate", sans-serif;
+  }
+/* Botón del carrito */
+.cart-button {
+    background-color: var(--primario);
+    color: var(--blanco);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Espacio entre icono y texto (si deseas añadir texto) */
+  }
+
+  #cartItems, #totalPrice {
+    color: var(--lila);
+  }
+
+  .add-to-cart-btn {
+    background-color: var(--primario);
+    color: var(--blanco);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #0056b3;
+  }
+  .cart-popup .popup-content {
+    position: relative;
+  }
+  
+  .cart-popup .close-button {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  
+  }
+  .cart-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--navbar);
+    box-shadow: 0px 4px 8px rgba(12, 12, 12, 0.2);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    z-index: 1000;
+    padding: 20px;
+    color: #79089f;
+  }
+  .add-to-cart-button {
+    background-color: #79089f; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: var(--fuentePrincipal);
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color:#79089f; /* Color al pasar el cursor */
+  }

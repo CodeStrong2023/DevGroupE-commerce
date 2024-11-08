@@ -1,0 +1,1026 @@
+/* GENERAL */
+
+:root {
+  --primario: #79089f;
+  --secundario: #434343;
+  --btn-color: #007bff;
+  --blanco: #fff;
+  --negro: #000;
+
+  --navbar: #171717;
+  --fondo: #242424;
+  --seccion: #464646;
+  --lila: #9b86f4;
+
+  --fuentePrincipal: "Graduate", sans-serif;
+}
+
+
+
+body {
+  font-family: var(--fuentePrincipal);
+  color: rgb(251, 251, 251);
+  background-color: var(--fondo);
+  margin: 0;
+  padding: 0;
+}
+/* Estilos generales para contenedores de formulario */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--fondo);
+}
+
+#formContent {
+  background-color: var(--seccion);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-family: var(--fuentePrincipal);
+  font-size: 2rem;
+  color: var(--lila);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Estilo del enlace de regreso al inicio */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--btn-color);
+  text-decoration: underline;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}
+
+/* Estilos para los inputs y botones */
+.login-form input,
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: var(--fuentePrincipal);
+  box-sizing: border-box;
+}
+
+.login-form input {
+  border: 1px solid #ccc;
+}
+
+.login-form input:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+.login-form button {
+  background-color: var(--btn-color);
+  color: var(--blanco);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos generales para los botones */
+.login-button, .cart-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+/* Estilos para el botón */
+.login-form button{
+  width: 100%;
+  /* Ancho completo */
+  padding: 10px;
+  /* Espaciado interno */
+  font-family: "Graduate", sans-serif;
+  background-color: #79089f;
+  /* Color de fondo */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+}
+
+.login-button {
+  width: 15%;
+  /* Ancho completo */
+  padding: 10px;
+  /* Espaciado interno */
+  font-family: "Graduate", sans-serif;
+  background-color: var(--primario);
+  /* Color de fondo */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+}
+
+
+
+/* Hacer los botones responsivos */
+@media (max-width: 768px) {
+  /* Alinear botones verticalmente y hacerlos ocupar todo el ancho */
+  .login-button, .cart-button {
+    width: 100%;
+    margin: 5px 0; /* Espaciado entre los botones */
+    font-size: 1.2rem; /* Aumentar el tamaño de fuente para mejor visibilidad en móviles */
+    padding: 12px; /* Ajuste de padding para pantallas más pequeñas */
+  }
+}
+
+
+/* HEADER */
+
+/* Estilos generales para el encabezado */
+.header-inicio {
+  display: flex;
+  justify-content: space-between;
+  /* Espacio entre el título y el botón */
+  align-items: center;
+  /* Centra verticalmente los elementos */
+  background-color: #171717;
+  /* Color de fondo */
+  color: #fff;
+  /* Color del texto */
+  padding: 1rem 3rem;
+  /* Espaciado interno */
+  min-height: 5vh;
+}
+
+/* Estilos para el título */
+.header-inicio h1 {
+  font-size: 1.4rem;
+  /* Tamaño del texto */
+  font-family: "Graduate", sans-serif;
+  /* Fuente personalizada */
+  color: var(--lila);
+}
+
+/* Estilos para la navegación
+.navegacion ul {
+  display: flex;
+  /* Muestra los elementos en fila */
+  /*list-style: none;
+  /* Elimina los puntos de la lista */
+  /*padding: 0;
+  /* Elimina el padding de la lista */
+  /*margin: 0;
+  /* Elimina el margen de la lista */
+/*} 
+
+/* Estilos para los elementos de la lista */
+.navegacion li {
+  margin: 0 1rem;
+  /* Espaciado entre los botones */
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navegacion ul {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  /* Mostrar el botón de menú hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Ocultar el menú de navegación inicialmente */
+  .navegacion ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--navbar);
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  /* Mostrar el menú cuando se active */
+  .navegacion ul.active {
+    display: flex;
+  }
+
+  /* Centrar los elementos del menú en pantallas pequeñas */
+  .navegacion li {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
+
+/* MAIN */
+
+.container {
+  margin: 2rem;
+}
+
+.section-info {
+  background-color: var(--seccion);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  min-height: 50vh;
+}
+
+/* Estilos generales para la sección */
+.section-info {
+  display: flex;
+  /* Usar flexbox para organizar los elementos en fila */
+  justify-content: space-between;
+  /* Espaciado entre los divs */
+  align-items: center;
+  /* Centra verticalmente los elementos */
+  flex-wrap: wrap;
+  /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+  gap: 20px;
+  /* Espaciado entre elementos */
+}
+
+/* Estilos para el div de texto */
+.info-text {
+  flex: 1;
+  /* Permite que este div tome el espacio disponible */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para el div de imagen */
+.info-image {
+  flex: 1;
+  /* Permite que este div tome el espacio disponible */
+  min-width: 300px;
+  /* Ancho mínimo para el div de imagen */
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Titulo */
+.titulo-info {
+  font-size: 2.3rem;
+  color: var(--navbar);
+  text-shadow: 0.2rem 0.2rem var(--lila);
+}
+
+/* Texto */
+.texto-info {
+  margin: 4rem;
+}
+
+/* Estilos para la imagen */
+.info-image img {
+  height: auto;
+  /* Mantiene la proporción de la imagen */
+  max-width: 50%;
+  /* La imagen no excederá el 100% del ancho de su contenedor */
+}
+
+.close-button {
+  width: 18%;
+  /* Ocupa todo el ancho del contenedor */
+  padding: 10px 20px;
+  /* Espaciado interno del botón */
+  border: none;
+  /* Sin borde */
+  border-radius: 5px;
+  /* Esquinas redondeadas */
+  color: var(--blanco);
+  /* Color del texto */
+  background-color: var(--btn-color);
+  /* Color de fondo */
+  cursor: pointer;
+  /* Cursor de mano al pasar por encima */
+  font-family: var(--fuentePrincipal);
+  /* Fuente principal */
+  font-size: 16px;
+  /* Tamaño de la fuente */
+  transition: background-color 0.3s;
+  /* Transición suave para el color de fondo */
+}
+
+/* Efecto al pasar el mouse */
+.close-button:hover {
+  background-color: #0056b3;
+  /* Color más oscuro al pasar el mouse */
+}
+
+
+.login-options button {
+  background: none;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  /* Espaciado entre elementos del grid */
+}
+
+.game {
+  border: 1px solid #000;
+  padding: 0.625rem;
+  /* Espaciado interno */
+  text-align: center;
+}
+
+.contact,
+.products {
+  margin-top: 1.875rem;
+  /* Espaciado superior */
+}
+
+.products table {
+  width: 100%;
+  border-collapse: collapse;
+  /* Colapsar bordes */
+}
+
+.products table,
+.products th,
+.products td {
+  border: 1px solid black;
+}
+
+.products th,
+.products td {
+  padding: 0.625rem;
+  /* Espaciado interno en celdas */
+  text-align: center;
+}
+
+.btn,
+.boton-index {
+  background-color: var(--btn-color);
+  color: var(--blanco);
+  padding: 0.625rem 1.25rem;
+  /* Espaciado */
+  text-decoration: none;
+  border-radius: 0.3125rem;
+  /* Bordes redondeados */
+}
+
+#footerContainer {
+  width: 100%;
+  background-color: #171717;
+  min-height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#footerContainer a {
+  margin: 0 1rem; /* Añade espacio entre los enlaces */
+  color: var(--blanco); /* Asegura que los enlaces sean blancos */
+  text-decoration: none; /* Remueve el subrayado */
+  font-family: var(--fuentePrincipal); /* Aplica la fuente principal */
+}
+#footerContainer a:hover {
+  color: var(--lila); /* Cambia de color al pasar el mouse */
+}
+
+/* Menú desplegable */
+#loginDropdown {
+  position: absolute;
+  /* Posición absoluta para que se superponga */
+  top: 50px;
+  /* Ajusta la posición según tu diseño */
+  right: 20px;
+  /* Ajusta según la posición deseada */
+  background-color: #434343;
+  /* Color de fondo para que sea visible */
+  border: 1px solid #ddd;
+  /* Borde para visualizar el contenedor */
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombras para mejor visibilidad */
+  z-index: 1000;
+  /* Asegura que esté al frente */
+}
+
+/* Estilos para los inputs */
+.login-form input {
+  font-family: "Graduate", sans-serif;
+  width: 100%;
+  /* Ancho completo del contenedor */
+  padding: 10px;
+  /* Espaciado interno */
+  margin: 8px 0;
+  /* Espaciado vertical */
+  border: 1px solid #ccc;
+  /* Borde gris claro */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  box-sizing: border-box;
+  /* Para incluir padding y border en el ancho total */
+  font-size: 16px;
+  /* Tamaño de fuente */
+}
+#footerContainer {
+  width: 100%;
+  background-color: #171717;
+  min-height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Añadir espaciado y estilos para los enlaces dentro del footer */
+#footerContainer a {
+  margin: 0 1rem; /* Añade espacio entre los enlaces */
+  color: var(--blanco); /* Asegura que los enlaces sean blancos */
+  text-decoration: none; /* Remueve el subrayado */
+  font-family: var(--fuentePrincipal); /* Aplica la fuente principal */
+}
+
+#footerContainer a:hover {
+  color: var(--lila); /* Cambia de color al pasar el mouse */
+}
+
+
+
+.admin-dashboard {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.admin-dashboard input {
+  font-family: "Graduate", sans-serif;
+  width: 150px; /* Ancho completo del contenedor */
+  height: auto;
+  padding: 10px; /* Espaciado interno */
+  margin: 8px 0; /* Espaciado vertical */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 4px; /* Bordes redondeados */
+  box-sizing: border-box; /* Para incluir padding y border en el ancho total */
+  font-size: 16px; /* Tamaño de fuente */
+}
+.admin-dashboard h3{
+  text-align: center;
+}
+.admin-dashboard label{
+  font-family: "Graduate", sans-serif;
+  font-size: 16px;
+  /* Tamaño de fuente */
+  cursor: pointer;
+  /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease;
+  /* Efecto suave para el color de fondo */
+}
+
+.admin-dashboard h1{
+  color: var(--lila);
+  text-shadow: 0.4rem 0.4rem var(--negro);
+}
+
+
+.gameForm-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Asegura que el contenido se centre verticalmente */
+  border: 2px solid #fff; /* Cambia border-color a border para que se muestre el borde */
+  border-radius: 20px;
+  width: 500px;
+  height: 500px; /* Define una altura para crear un cuadrado */
+  background-color: rgba(255, 255, 255, 0.1); /* Color de fondo para ver el cuadrado */
+  margin: auto; /* Asegura que el contenedor esté centrado en su padre */
+}
+
+#gameForm-button{
+  color: #fff;
+  width: 150px;
+  height: 30px;
+  margin-left: 150px;
+  font-family: "Graduate", sans-serif;
+  background-color: #4f0568;
+}
+#gameForm-button::hover {
+  background-color: #79089f;
+/* Efecto hover para el botón */
+}
+.login-form button:hover {
+  background-color: #4f0568;
+  /* Color más oscuro al pasar el mouse */
+}
+
+/* Efecto focus para los inputs */
+.login-form input:focus {
+  border-color: #79089f;
+  /* Cambia el color del borde al enfocarse */
+  outline: none;
+  /* Sin borde adicional */
+}
+
+
+/* Estilo para hacer el botón más llamativo */
+#loginButton {
+  cursor: pointer;
+}
+
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0.625rem 0.3125rem;
+  /* Espaciado */
+  flex-wrap: wrap;
+  /* Ajustar en múltiples líneas */
+}
+
+.icon-elemento {
+  list-style: none;
+}
+
+.icono {
+  color: white;
+  font-size: 2rem;
+  /* Tamaño de los iconos */
+  display: inline-block;
+  margin: 0 0.625rem;
+  /* Espaciado */
+  transition: 0.5s;
+  /* Transición suave */
+  opacity: 0.5;
+  /* Opacidad inicial */
+}
+
+/* Añadir una pequeña animación al pasar el mouse */
+.icono:hover {
+  opacity: 1;
+  /* Cambiar opacidad */
+  transform: translateY(-0.3125rem);
+  /* Efecto de desplazamiento */
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.625rem 0;
+  /* Espaciado */
+  flex-wrap: wrap;
+  /* Ajustar en múltiples líneas */
+}
+
+.menu-elementos {
+  list-style: none;
+}
+
+.game-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  /* Espaciado entre las tarjetas */
+  padding: 2rem;
+  justify-items: center;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 columnas */
+  gap: 1.5rem;
+  /* Espaciado entre tarjetas */
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.game-card {
+  width: 460px;
+  /* Ancho fijo */
+  background-color: var(--seccion);
+  /* Color de fondo */
+  border-radius: 0.5rem;
+  /* Bordes redondeados */
+  overflow: hidden;
+  /* Oculta cualquier contenido que sobresalga */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  /* Sombra */
+  text-align: center;
+  /* Centra el texto */
+  padding: 1rem;
+  /* Espacio interno */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+  /* Animación suave al pasar el ratón */
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  /* Efecto de elevación al pasar el ratón */
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4);
+  /* Sombra */
+}
+
+
+.game-card img {
+  width: 460px;
+  height: 215px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.game-title {
+  font-size: 1.5rem;
+  color: var(--lila);
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.game-description {
+  font-size: 0.875rem;
+  color: var(--secundario);
+  /* Color secundario */
+  text-transform: lowercase;
+  /* Texto en minúscula */
+  margin: 0.5rem 0;
+}
+
+.game-price {
+  font-size: 1.2rem;
+  color: var(--primario);
+  margin: 0.5rem 0;
+}
+
+/* Media Queries para hacer la sección responsiva */
+@media (max-width: 768px) {
+  .section-info {
+    flex-direction: column;
+    /* Cambia a columna en pantallas pequeñas */
+    align-items: flex-start;
+    /* Alinea los elementos al inicio */
+  }
+
+  .info-text,
+  .info-image {
+    width: 100%;
+    /* Ambos divs ocupan el 100% en pantallas pequeñas */
+    min-width: 100%;
+    /* Evita el ancho mínimo en pantallas pequeñas */
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff; 
+}
+
+.dropdown-menu {
+  position: absolute; 
+  right: 40px;
+  top: 65px;
+  background-color: white; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  z-index: 99; 
+}
+
+.dropdown-menu ul {
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px; 
+}
+
+.dropdown-menu li a {
+  text-decoration: none; 
+  color: #333; 
+  display: block; 
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ccc; 
+}
+
+.products {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton-index, .boton-checkout {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton-index {
+  background-color: #007bff;
+  color: white;
+}
+
+.boton-checkout {
+  background-color: #28a745;
+  color: white;
+}
+
+
+
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+ /* CHANGE-PASSWORD */
+
+  /* Contenedor principal de cambio de contraseña */
+.change-password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--fondo);
+  color: var(--blanco);
+}
+
+.change-password-container h2 {
+  font-size: 2rem;
+  color: var(--primario);
+  font-family: var(--fuentePrincipal);
+  margin-bottom: 1rem;
+}
+
+/* Formulario de cambio de contraseña */
+.change-password-form {
+  background-color: var(--seccion);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.change-password-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+.change-password-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: var(--fuentePrincipal);
+}
+
+.change-password-form input:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+.change-password-form button {
+  width: 100%;
+  background-color: var(--primario);
+  color: var(--blanco);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.change-password-form button:hover {
+  background-color: var(--lila);
+}
+
+/* Estilo del enlace de regreso al inicio */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--primario);
+  text-decoration: underline;
+}
+
+.back-link:hover {
+  color: var(--lila);
+}
+
+/* RESET-PASSWORD */
+
+.reset-password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--fondo);
+  color: var(--blanco);
+}
+
+.section-reset {
+  background-color: var(--seccion);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.reset-password-container h2 {
+  font-size: 2rem;
+  color: var(--primario);
+  font-family: var(--fuentePrincipal);
+  margin-bottom: 1rem;
+}
+
+.section-reset p {
+  font-size: 1rem;
+  color: var(--blanco);
+  margin-bottom: 1.5rem;
+}
+
+#resetPasswordForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+#resetPasswordForm input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: var(--fuentePrincipal);
+}
+
+#resetPasswordForm input:focus {
+  border-color: var(--btn-color);
+  outline: none;
+}
+
+#resetPasswordForm button {
+  width: 100%;
+  background-color: var(--primario);
+  color: var(--blanco);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#resetPasswordForm button:hover {
+  background-color: var(--lila);
+}
+
+/* Estilo del enlace de regreso al inicio */
+.section-reset p a {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--primario);
+  text-decoration: underline;
+}
+
+.section-reset p a:hover {
+  color: var(--lila);
+}
+
+
+
+
+
+
+

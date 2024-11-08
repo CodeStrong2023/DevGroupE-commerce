@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Group ECommerce de Videojuegos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
+    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <link rel="stylesheet" href="./src/styles/cart.css">
+</head>
+<body>
+  <header class="header-inicio">
+    <h1><a href="/" style="text-decoration: none;">DevGroup Games</a></h1>
+    
+    <!-- Botón de menú hamburguesa para pantallas pequeñas -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+    <nav class="navegacion" role="navigation" aria-label="Categorías de Juegos">
+        <ul id="navMenu">
+            <li><a href="./src/pages/todos.html" style="text-decoration: none;">Todos</a></li>
+            <li><a href="./src/pages/Aventura.html" style="text-decoration: none;">Aventura</a></li>
+            <li><a href="./src/pages/deportes.html" style="text-decoration: none;">Deporte</a></li>
+            <li><a href="./src/pages/Arcade.html" style="text-decoration: none;">Arcade</a></li>
+            <li><a href="./src/pages/Estrategia.html" style="text-decoration: none;">Estrategia</a></li>
+            <li><a href="./src/pages/Combate.html" style="text-decoration: none;">Combate</a></li>
+        </ul>
+    </nav>
+
+    <!-- Botón de Iniciar Sesión y el resto de tus botones de usuario/carrito aquí -->
+     <!-- Botón de Iniciar Sesión -->
+     <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
+
+     <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
+     <button id="userButton" class="login-button" style="display: none;"></button>
+     <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+         <ul>
+             <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
+             <li><a href="./src/pages/reset-password.html">Cambiar Contraseña</a></li>
+             <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
+         </ul>
+     </div>
+     
+     <div class="login-container" id="loginDropdown" style="display: none;">
+         <div id="formContent">
+             <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
+             <div class="main">
+                 <h1>Iniciar Sesión</h1>
+                 <form class="login-form" id="loginForm">
+                     <label for="username">Usuario:</label>
+                     <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+                     <label for="password">Contraseña:</label>
+                     <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                     <div class="wrap">
+                         <button type="submit">Iniciar Sesión</button>
+                     </div>
+                 </form>
+                 <div class="options">
+                     <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
+                     <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- Icono del carrito de compras -->
+     <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
+         <i class="bi bi-cart"></i> <!-- Asegúrate de usar un ícono de carrito de Bootstrap Icons -->
+     </button>
+
+     <!-- Popup del carrito -->
+     <div id="cartPopup" class="cart-popup" style="display: none;">
+         <div class="popup-content">
+             <button class="close-button" onclick="closeCartPopup()">&times;</button>
+             <h2>Carrito de Compras</h2>
+             <table class="cart-items">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>SubTotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los productos se agregarán aquí dinámicamente -->
+                </tbody>
+            </table>
+            <p class="total-price">Total: $0.00</p>
+            <button class="go-to-cart-button" onclick="pay()">Finalizar compra</button>
+         </div>
+     </div>
+     
+  </header>
+
+
+    <main class="container">
+        <section class="section-info">
+            <div class="info-text">
+                <h2 class="titulo-info">Juegos de la semana</h2>
+                <p class="texto-info">
+                    Esta es una descripción detallada de la sección. Aquí puedes incluir
+                    más información relevante sobre el contenido que deseas mostrar.
+                </p>
+            </div>
+            <div class="info-image">
+                <img src="/public/cart-shopping-solid (1).svg" alt="Descripción de la imagen" loading="lazy"/>
+            </div>
+        </section>
+        
+        <section class="games-grid">
+            <div class="game-card">
+                <img src="src/images/Aventura/Black Myth Wukong/logo.jpg" alt="Imagen del juego" />
+                <h3>Black Myth: Wukong</h3>
+                <p>Black Myth: Wukong es un RPG de acción inspirado en la mitología china. Encarnarás al Predestinado, que ha de embarcarse
+                en un viaje repleto de peligros y maravillas para descubrir la verdad oculta acerca de una gloriosa leyenda del pasado.</p>
+                <p>Precio: $59.99 USD</p>
+            </div>
+            <div class="game-card">
+                <img src="src/images/Aventura/Resident Evil 4/logo.jpg" alt="Imagen del juego" />
+                <h3>Resident Evil 4</h3>
+                <p>Sobrevivir es solo el principio. Con una mecánica de juego modernizada, una historia reimaginada y unos gráficos
+                espectacularmente detallados, Resident Evil 4 supone el renacimiento de un gigante del mundo de los videojuegos.</p>
+                <p>Precio: $14.99 USD</p>
+            </div>
+            <div class="game-card">
+                <img src="src/images/Deporte/F1 24/logo.jpg" alt="Imagen del juego" />
+                <h3>F1® 24</h3>
+                <p>Únete a la parrilla y forma parte de los 20. Conduce como los mejores en EA SPORTS™ F1® 24, 
+                el videojuego oficial del 2024 FIA Formula One World Championship.</p>
+                <p>Precio: $69.99 USD</p>
+            </div>
+            <div class="game-card">
+                <img src="src/images/Aventura/Hogwarts Legacy/logo.jpg" alt="Imagen del juego" />
+                <h3>Hogwarts Legacy</h3>
+                <p>Hogwarts Legacy es un RPG inmersivo de acción en mundo abierto. Ahora puedes tomar el control de la acción y ser
+                el centro de tu propia aventura en el mundo mágico</p>
+                <p>Precio: $30.00 USD</p>
+            </div>
+        </section>
+    </main>
+    
+    <div id="footerContainer">
+        <footer class="footer">
+            <ul class="social-icon">
+                <li class="icon-elemento">
+                    <a href="" class="icono" aria-label="Instagram">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                </li>
+                <li class="icon-elemento">
+                    <a href="" class="icono">
+                        <ion-icon name="logo-youtube" aria-label="Youtube"></ion-icon>
+                    </a>
+                </li>
+                <li class="icon-elemento">
+                    <a href="" class="icono">
+                        <ion-icon name="mail-outline" aria-label="Mail"></ion-icon>
+                    </a>
+                </li>
+                <li class="icon-elemento">
+                    <a href="" class="icono">
+                        <ion-icon name="logo-whatsapp" aria-label="Whatsapp"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+          
+            <ul class="menu">
+                <li class="menu-elementos">
+                    <a href="" class="menu-icono"> Inicio </a>
+                </li>
+                <li class="menu-elementos">
+                    <a href="" class="menu-icono"> Sobre nosotros </a>
+                </li>
+                <li class="menu-elementos">
+                    <a href="" class="menu-icono"> Contacto </a>
+                </li>
+            </ul>
+            <p class="text">© 2024 DevGroup | Todos los derechos reservados</p>
+        </footer>      
+    </div>
+    
+    <script type="module" src="./src/components/login.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="./src/components/carrito.js"></script>
+</body>
+</html>
