@@ -120,7 +120,7 @@ const createCheckoutButton = (preferenceId) => {
       },
       render: {
         container: "#wallet_container",
-        label: "Pagar",
+        label: "Pagar con Mercado Pago",
         mode: "modal",
       },
     });

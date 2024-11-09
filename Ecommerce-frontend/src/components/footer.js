@@ -18,3 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(error => console.error('Error al cargar el footer:', error));
 });
+
+function openAboutUs() {
+    const aboutUsWindow = window.open("", "Sobre Nosotros", "width=600,height=400");
+    aboutUsWindow.document.write("<h2>Sobre Nosotros</h2><p>Texto descriptivo sobre la empresa o el equipo aquí...</p>");
+    aboutUsWindow.document.close();
+}
