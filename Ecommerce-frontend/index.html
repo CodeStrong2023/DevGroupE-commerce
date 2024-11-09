@@ -143,42 +143,49 @@
         <footer class="footer">
             <ul class="social-icon">
                 <li class="icon-elemento">
-                    <a href="" class="icono" aria-label="Instagram">
+                    <a href="https://www.instagram.com/leomessi?igsh=MmVjOTJ6Nnh1bncw" class="icono" aria-label="Instagram" target="_blank">
                         <ion-icon name="logo-instagram"></ion-icon>
                     </a>
                 </li>
                 <li class="icon-elemento">
-                    <a href="" class="icono">
-                        <ion-icon name="logo-youtube" aria-label="Youtube"></ion-icon>
+                    <a href="https://www.youtube.com/@arielbetancud" class="icono" aria-label="Youtube" target="_blank">
+                        <ion-icon name="logo-youtube"></ion-icon>
                     </a>
                 </li>
                 <li class="icon-elemento">
-                    <a href="" class="icono">
-                        <ion-icon name="mail-outline" aria-label="Mail"></ion-icon>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=new&to=dev.group.utn@gmail.com" class="icono" aria-label="Mail" target="_blank">
+                        <ion-icon name="mail-outline"></ion-icon>
                     </a>
                 </li>
                 <li class="icon-elemento">
-                    <a href="" class="icono">
-                        <ion-icon name="logo-whatsapp" aria-label="Whatsapp"></ion-icon>
+                    <a href="https://chat.whatsapp.com/GE5nVu9DVPI8sOxM3RVpI7" class="icono" aria-label="Whatsapp" target="_blank">
+                        <ion-icon name="logo-whatsapp"></ion-icon>
                     </a>
                 </li>
             </ul>
-          
+            
             <ul class="menu">
                 <li class="menu-elementos">
-                    <a href="" class="menu-icono"> Inicio </a>
+                    <a href="/" class="menu-icono">Inicio</a>
                 </li>
                 <li class="menu-elementos">
-                    <a href="" class="menu-icono"> Sobre nosotros </a>
+                    <a href="#" class="menu-icono" onclick="openAboutUs()">Sobre nosotros</a>
                 </li>
                 <li class="menu-elementos">
-                    <a href="" class="menu-icono"> Contacto </a>
+                    <a href="https://github.com/CodeStrong2023/DevGroupE-commerce/tree/main" class="menu-icono" target="_blank">Contacto</a>
                 </li>
             </ul>
+            
             <p class="text">© 2024 DevGroup | Todos los derechos reservados</p>
-        </footer>      
+        </footer>
+        <script>
+            function openAboutUs() {
+                const aboutUsWindow = window.open("", "Sobre Nosotros", "width=600,height=400");
+                aboutUsWindow.document.write("<h2>Sobre Nosotros</h2><p>Somos un equipo de estudiantes apasionados por la tecnología y el desarrollo de software, actualmente cursando la tecnicatura en programación. En nuestro proyecto final, hemos unido fuerzas para crear este e-commerce de juegos electrónicos, pensado especialmente para brindar una experiencia de compra única y personalizada a los gamers. Nos impulsa el entusiasmo por innovar y ofrecer un espacio donde los usuarios puedan encontrar sus títulos favoritos y descubrir nuevas opciones que se adapten a sus gustos. Cada uno de nosotros aporta habilidades y conocimientos en diversas áreas de programación, diseño y gestión de proyectos, y juntos buscamos construir una plataforma segura, accesible y centrada en la comunidad gamer. ¡Gracias por acompañarnos en este emocionante viaje!</p>");
+                aboutUsWindow.document.close();
+            }
+        </script>
     </div>
-    
     <script type="module" src="./src/components/login.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="./src/components/carrito.js"></script>
