@@ -634,6 +634,7 @@ h2 {
   grid-template-columns: repeat(2, 1fr);
   /* 2 columnas */
   gap: 1.5rem;
+  
   /* Espaciado entre tarjetas */
   justify-items: center;
   margin-top: 2rem;

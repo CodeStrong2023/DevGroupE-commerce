@@ -6,6 +6,7 @@
     <title>DevGroup Games</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/cart.css">
 
@@ -83,7 +84,7 @@
                    </tbody>
                </table>
                <p id="totalPrice"></p>
-               <button class="go-to-cart-button" onclick="pay()">Finalizar compra</button>
+               <button class="go-to-cart-button" id="wallet_container" onclick="processPayment()">Finalizar compra</button>
             </div>
         </div>
     </header>
