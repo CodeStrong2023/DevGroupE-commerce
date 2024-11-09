@@ -6,6 +6,7 @@
     <title>Dev Group ECommerce de Videojuegos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" href="./src/styles/styles.css" />
     <link rel="stylesheet" href="./src/styles/cart.css">
 </head>
@@ -70,26 +71,24 @@
 
      <!-- Popup del carrito -->
      <div id="cartPopup" class="cart-popup" style="display: none;">
-         <div class="popup-content">
-             <button class="close-button" onclick="closeCartPopup()">&times;</button>
-             <h2>Carrito de Compras</h2>
-             <table class="cart-items">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>SubTotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Los productos se agregarán aquí dinámicamente -->
-                </tbody>
-            </table>
-            <p class="total-price">Total: $0.00</p>
-            <button class="go-to-cart-button" onclick="pay()">Finalizar compra</button>
-         </div>
-     </div>
+        <div class="popup-content">
+            <button class="close-button" onclick="closeCartPopup()">&times;</button>
+            <h2>Carrito de Compras</h2>
+            <table class="cart-items">
+               <thead>
+                   <tr>
+                       <th>Producto</th>
+                       <th>Precio</th>
+                   </tr>
+               </thead>
+               <tbody id="cartItems">
+                   <!-- Los productos se agregarán aquí dinámicamente -->
+               </tbody>
+           </table>
+           <p id="totalPrice"></p>
+           <button class="go-to-cart-button" id="wallet_container" onclick="processPayment()">Finalizar compra</button>
+        </div>
+   
      
   </header>
 
