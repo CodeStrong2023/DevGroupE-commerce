@@ -1,5 +1,5 @@
 document.getElementById("changePasswordForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Evita la recarga de la página
+    event.preventDefault(); 
 
     // Obteniene el email del localStorage
     const email = localStorage.getItem("email");
@@ -21,10 +21,9 @@ document.getElementById("changePasswordForm").addEventListener("submit", async f
             body: JSON.stringify({email, currentPassword: currentPassword, newPassword: newPassword }),
         });
 
-        // Verifica si la solicitud fue exitosa
         if (response.ok) {
             alert("Contraseña restablecida con éxito");
-            window.location.href = "/"; // Redirige al inicio
+            window.location.href = "/"; 
         } else {
             const errorData = await response.json();
             alert(`Error: ${errorData.message || "No se pudo restablecer la contraseña"}`);
