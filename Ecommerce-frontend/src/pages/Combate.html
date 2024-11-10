@@ -26,10 +26,8 @@
             </ul>
         </nav>
 
-        <!-- Botón de Iniciar Sesión -->
         <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
 
-        <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
         <button id="userButton" class="login-button" style="display: none;"></button>
         <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
             <ul>
@@ -41,7 +39,7 @@
         
         <div class="login-container" id="loginDropdown" style="display: none;">
             <div id="formContent">
-                <button id="closeButton" class="close-button">&times;</button> <!-- Botón de cerrar -->
+                <button id="closeButton" class="close-button">&times;</button> 
                 <div class="main">
                     <h1>Iniciar Sesión</h1>
                     <form class="login-form" id="loginForm">
@@ -54,20 +52,18 @@
                         </div>
                     </form>
                     <div class="options">
-                        <p>No tienes cuenta? <a href="./src/pages/registro.html">Regístrate</a>.</p>
-                        <p><a href="./src/pages/forgot-password.html">¿Olvidaste la contraseña?</a></p>
+                        <p>¿No tienes cuenta? <a class= "other-options" href="./src/pages/registro.html">Regístrate</a></p>
+                        <p><a class= "other-options" href="./src/pages/forgot-password.html">Olvidé mi contraseña</a></p>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Icono del carrito de compras -->
         <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
-            <i class="bi bi-cart"></i> <!-- Asegúrate de usar un ícono de carrito de Bootstrap Icons -->
+            <i class="bi bi-cart"></i> 
         </button>
 
 
-        <!-- Popup del carrito -->
         <div id="cartPopup" class="cart-popup" style="display: none;">
             <div class="popup-content">
                 <button class="close-button" onclick="closeCartPopup()">&times;</button>
@@ -80,7 +76,6 @@
                        </tr>
                    </thead>
                    <tbody id="cartItems">
-                       <!-- Los productos se agregarán aquí dinámicamente -->
                    </tbody>
                </table>
                <p id="totalPrice"></p>
@@ -90,7 +85,6 @@
     </header>
     <main>
         <section class="games-grid" id="games-container">
-            <!-- Aquí se cargarán los juegos de deportes desde el JavaScript -->
         </div>
         </section>
     </main>

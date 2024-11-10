@@ -30,10 +30,9 @@ document.getElementById("resetPasswordForm").addEventListener("submit", async fu
             body: JSON.stringify({ token: token, newPassword: newPassword }),
         });
 
-        // Verificar si la solicitud fue exitosa
         if (response.ok) {
             alert("Contraseña restablecida con éxito.");
-            window.location.href = "/"; // Redirige al inicio
+            window.location.href = "/"; 
         } else {
             const errorData = await response.json();
             alert(`Error: ${errorData.message || "No se pudo restablecer la contraseña."}`);
