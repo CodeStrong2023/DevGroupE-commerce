@@ -9,11 +9,9 @@ import com.mercadopago.exceptions.MPApiException;
 import com.mercadopago.exceptions.MPException;
 import com.mercadopago.net.HttpStatus;
 import com.mercadopago.resources.preference.Preference;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +22,9 @@ public class MercadoPagoController {
     private String mercadoLibreToken;
 
     @RequestMapping(value= "api/mp", method = RequestMethod.POST)
-    public String gestList (@RequestBody UserBuyer userBuyer){
+    public ResponseEntity<String> gestList (@RequestBody UserBuyer userBuyer){
         if(userBuyer == null){
-            return "error jsons :/";
+            return ResponseEntity.badRequest().body("Datos inválidos en el JSON.");
         }
         String title = userBuyer.getTitle();
         int quantity = userBuyer.getQuantity();
@@ -66,8 +64,10 @@ public class MercadoPagoController {
             Preference preference = client.create(preferenceRequest);
 
             //Retornamos la referencia
-            return preference.getId();
-        }catch (MPException | MPApiException e){return e.toString();}
-    }
+            return ResponseEntity.ok(preference.getInitPoint()); //PROBAR CON GETID SI NO ANDA
+        }catch (MPException | MPApiException e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear la preferencia de pago.");
 
+        }
+    }
 }
