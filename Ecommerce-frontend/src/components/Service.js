@@ -2,7 +2,7 @@ import { crearCarrusel } from "./carousel";
 
 export async function fetchGamesByCategory(categoryId) {
     try {
-        const response = await fetch(`http://localhost:8080/games/category/${categoryId}`);
+        const response = await fetch(`https://devgroupe-commerce-ecommerce-backend.onrender.com/api/games/category/${categoryId}`);
         if (!response.ok) {
             throw new Error(`Error al obtener los juegos de la categoría ${categoryId}.`);
         }
