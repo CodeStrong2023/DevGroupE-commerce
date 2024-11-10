@@ -1,7 +1,7 @@
-import { fetchGamesByCategory, displayGames } from './ Service.js';
+import { fetchGamesByCategory, displayGames } from "./Service";
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchAdventureGames(3);
+    fetchAndDisplayGames(3);
 });
 
 async function fetchAndDisplayGames(categoryId) {
