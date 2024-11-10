@@ -84,5 +84,19 @@
   }
   
   .add-to-cart-button:hover {
-    background-color:#79089f; /* Color al pasar el cursor */
+    background-color:#79089f; 
   }
+
+ .go-to-cart-button {
+  color: white;
+  width: 100%;
+  padding: 10px;
+  font-family: "Graduate", sans-serif;
+  background-color: #79089f;
+
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+ }

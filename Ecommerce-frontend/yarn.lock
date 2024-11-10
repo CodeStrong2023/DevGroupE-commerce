@@ -117,6 +117,18 @@
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz"
   integrity sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==
 
+"@mercadopago/sdk-js@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/@mercadopago/sdk-js/-/sdk-js-0.0.3.tgz"
+  integrity sha512-kO48DNLHdfFAp3on12nuKdqNlEmw1x3+nM6wLd04BdWOXoFcAhkNMQV3AyUIanXdO/bB/dENakdacLT29297EQ==
+
+"@mercadopago/sdk-react@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.npmjs.org/@mercadopago/sdk-react/-/sdk-react-0.0.19.tgz"
+  integrity sha512-TpAACns5tp5geX/fPng7WBmGmnDGv5MGCBdCBTa4uXmen4TYJ+cSgNSgVGpynGRGgw7mNqRSF7pdon+K8BCNbA==
+  dependencies:
+    "@mercadopago/sdk-js" "^0.0.3"
+
 "@rollup/rollup-android-arm-eabi@4.21.2":
   version "4.21.2"
   resolved "https://registry.npmjs.org/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.21.2.tgz"
@@ -205,7 +217,8 @@
 "devgroupe-commerce@file:.":
   version "0.0.0"
   dependencies:
-    devgroupe-commerce "file:../../../../AppData/Local/Yarn/Cache/v6/npm-devgroupe-commerce-0.0.0-9d8dff8d-01c2-42a8-adb1-cfc4613258cc-1731102072220/node_modules/devgroupe-commerce"
+    "@mercadopago/sdk-react" "^0.0.19"
+    devgroupe-commerce "file:../../AppData/Local/Yarn/Cache/v6/npm-devgroupe-commerce-0.0.0-0818d5ba-4c4e-4ba1-b9f6-f1419fbdf6a4-1731184233997/node_modules/devgroupe-commerce"
 
 esbuild@^0.21.3:
   version "0.21.5"
@@ -292,7 +305,7 @@ source-map-js@^1.2.0:
 
 vite@^5.4.10:
   version "5.4.10"
-  resolved "https://registry.npmjs.org/vite/-/vite-5.4.10.tgz"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.10.tgz#d358a7bd8beda6cf0f3b7a450a8c7693a4f80c18"
   integrity sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==
   dependencies:
     esbuild "^0.21.3"

@@ -15,8 +15,6 @@
   --fuentePrincipal: "Graduate", sans-serif;
 }
 
-
-
 body {
   font-family: var(--fuentePrincipal);
   color: rgb(251, 251, 251);
@@ -98,67 +96,52 @@ h1 {
 }
 
 /* Estilos generales para los botones */
-.login-button, .cart-button {
+.login-button,
+.cart-button {
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
 }
 
-
-
 /* Estilos para el botón */
-.login-form button{
+.login-form button {
   width: 100%;
-  /* Ancho completo */
   padding: 10px;
-  /* Espaciado interno */
   font-family: "Graduate", sans-serif;
   background-color: #79089f;
-  /* Color de fondo */
   color: white;
-  /* Color del texto */
   border: none;
-  /* Sin borde */
   border-radius: 4px;
-  /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .login-button {
   width: 15%;
-  /* Ancho completo */
   padding: 10px;
-  /* Espaciado interno */
   font-family: "Graduate", sans-serif;
   background-color: var(--primario);
-  /* Color de fondo */
   color: white;
-  /* Color del texto */
   border: none;
-  /* Sin borde */
   border-radius: 4px;
-  /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-
-
 
 /* Hacer los botones responsivos */
 @media (max-width: 768px) {
   /* Alinear botones verticalmente y hacerlos ocupar todo el ancho */
-  .login-button, .cart-button {
+  .login-button,
+  .cart-button {
     width: 100%;
-    margin: 5px 0; /* Espaciado entre los botones */
-    font-size: 1.2rem; /* Aumentar el tamaño de fuente para mejor visibilidad en móviles */
-    padding: 12px; /* Ajuste de padding para pantallas más pequeñas */
+    margin: 5px 0;
+    font-size: 1.2rem;
+    padding: 12px;
   }
 }
-
 
 /* HEADER */
 
@@ -187,18 +170,6 @@ h1 {
   color: var(--lila);
 }
 
-/* Estilos para la navegación
-.navegacion ul {
-  display: flex;
-  /* Muestra los elementos en fila */
-  /*list-style: none;
-  /* Elimina los puntos de la lista */
-  /*padding: 0;
-  /* Elimina el padding de la lista */
-  /*margin: 0;
-  /* Elimina el margen de la lista */
-/*} 
-
 /* Estilos para los elementos de la lista */
 .navegacion li {
   margin: 0 1rem;
@@ -216,10 +187,28 @@ h1 {
 }
 
 .navegacion ul {
-  display: flex;
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding predeterminado */
+  margin: 0; /* Elimina el margen predeterminado */
+  display: flex; /* Para que los elementos se muestren en fila */
+  gap: 1rem; /* Espaciado entre los elementos */
 }
 
-@media (max-width: 768px) {
+.navegacion li a {
+  text-decoration: none; /* Quita la línea de subrayado */
+  color: inherit; /* Usa el color del texto que hereda */
+  font-weight: bold; /* Estiliza el texto */
+  padding: 0.5rem; /* Añade espacio alrededor del texto */
+  transition: color 0.3s ease; /* Transición para el hover */
+}
+
+.navegacion li a:hover {
+  color: var(
+    --primario
+  ); /* Cambia el color en hover (ajusta al color que desees) */
+}
+
+@media (max-width: 1020px) {
   /* Mostrar el botón de menú hamburguesa */
   .menu-toggle {
     display: block;
@@ -246,7 +235,6 @@ h1 {
     margin: 10px 0;
   }
 }
-
 
 /* MAIN */
 
@@ -346,7 +334,6 @@ h1 {
   background-color: #0056b3;
   /* Color más oscuro al pasar el mouse */
 }
-
 
 .login-options button {
   background: none;
@@ -489,8 +476,6 @@ h2 {
   color: var(--lila); /* Cambia de color al pasar el mouse */
 }
 
-
-
 .admin-dashboard {
   display: flex;
   justify-content: flex-end;
@@ -507,10 +492,10 @@ h2 {
   box-sizing: border-box; /* Para incluir padding y border en el ancho total */
   font-size: 16px; /* Tamaño de fuente */
 }
-.admin-dashboard h3{
+.admin-dashboard h3 {
   text-align: center;
 }
-.admin-dashboard label{
+.admin-dashboard label {
   font-family: "Graduate", sans-serif;
   font-size: 16px;
   /* Tamaño de fuente */
@@ -520,25 +505,24 @@ h2 {
   /* Efecto suave para el color de fondo */
 }
 
-.admin-dashboard h1{
+.admin-dashboard h1 {
   color: var(--lila);
   text-shadow: 0.4rem 0.4rem var(--negro);
 }
 
-
 .gameForm-container {
   display: flex;
   justify-content: center;
-  align-items: center; /* Asegura que el contenido se centre verticalmente */
-  border: 2px solid #fff; /* Cambia border-color a border para que se muestre el borde */
+  align-items: center;
+  border: 2px solid #fff;
   border-radius: 20px;
   width: 500px;
-  height: 500px; /* Define una altura para crear un cuadrado */
-  background-color: rgba(255, 255, 255, 0.1); /* Color de fondo para ver el cuadrado */
-  margin: auto; /* Asegura que el contenedor esté centrado en su padre */
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: auto;
 }
 
-#gameForm-button{
+#gameForm-button {
   color: #fff;
   width: 150px;
   height: 30px;
@@ -548,27 +532,20 @@ h2 {
 }
 #gameForm-button::hover {
   background-color: #79089f;
-/* Efecto hover para el botón */
 }
 .login-form button:hover {
   background-color: #4f0568;
-  /* Color más oscuro al pasar el mouse */
 }
 
-/* Efecto focus para los inputs */
 .login-form input:focus {
   border-color: #79089f;
-  /* Cambia el color del borde al enfocarse */
   outline: none;
-  /* Sin borde adicional */
 }
 
-
-/* Estilo para hacer el botón más llamativo */
+/* Estilo botón */
 #loginButton {
   cursor: pointer;
 }
-
 
 .social-icon {
   display: flex;
@@ -576,9 +553,7 @@ h2 {
   align-items: center;
   position: relative;
   margin: 0.625rem 0.3125rem;
-  /* Espaciado */
   flex-wrap: wrap;
-  /* Ajustar en múltiples líneas */
 }
 
 .icon-elemento {
@@ -588,22 +563,16 @@ h2 {
 .icono {
   color: white;
   font-size: 2rem;
-  /* Tamaño de los iconos */
   display: inline-block;
   margin: 0 0.625rem;
-  /* Espaciado */
   transition: 0.5s;
-  /* Transición suave */
   opacity: 0.5;
-  /* Opacidad inicial */
 }
 
 /* Añadir una pequeña animación al pasar el mouse */
 .icono:hover {
   opacity: 1;
-  /* Cambiar opacidad */
   transform: translateY(-0.3125rem);
-  /* Efecto de desplazamiento */
 }
 
 .menu {
@@ -611,9 +580,7 @@ h2 {
   justify-content: center;
   align-items: center;
   margin: 0.625rem 0;
-  /* Espaciado */
   flex-wrap: wrap;
-  /* Ajustar en múltiples líneas */
 }
 
 .menu-elementos {
@@ -628,51 +595,37 @@ h2 {
   padding: 2rem;
   justify-items: center;
 }
-
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* 2 columnas */
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas grandes */
   gap: 1.5rem;
-  /* Espaciado entre tarjetas */
   justify-items: center;
   margin-top: 2rem;
 }
 
 .game-card {
   width: 460px;
-  /* Ancho fijo */
   background-color: var(--seccion);
-  /* Color de fondo */
   border-radius: 0.5rem;
-  /* Bordes redondeados */
   overflow: hidden;
-  /* Oculta cualquier contenido que sobresalga */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  /* Sombra */
   text-align: center;
-  /* Centra el texto */
   padding: 1rem;
-  /* Espacio interno */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   transition: transform 0.2s ease-in-out;
-  /* Animación suave al pasar el ratón */
 }
 
 .game-card:hover {
   transform: translateY(-5px);
-  /* Efecto de elevación al pasar el ratón */
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4);
-  /* Sombra */
 }
 
-
 .game-card img {
-  width: 460px;
-  height: 215px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 0.5rem 0.5rem 0 0;
 }
@@ -687,9 +640,7 @@ h2 {
 .game-description {
   font-size: 0.875rem;
   color: var(--secundario);
-  /* Color secundario */
   text-transform: lowercase;
-  /* Texto en minúscula */
   margin: 0.5rem 0;
 }
 
@@ -699,21 +650,25 @@ h2 {
   margin: 0.5rem 0;
 }
 
-/* Media Queries para hacer la sección responsiva */
-@media (max-width: 768px) {
-  .section-info {
-    flex-direction: column;
-    /* Cambia a columna en pantallas pequeñas */
-    align-items: flex-start;
-    /* Alinea los elementos al inicio */
+/* Responsividad */
+
+@media (max-width: 1024px) {
+  .games-grid {
+    grid-template-columns: 1fr; /* Una columna en pantallas medianas */
   }
 
-  .info-text,
-  .info-image {
-    width: 100%;
-    /* Ambos divs ocupan el 100% en pantallas pequeñas */
-    min-width: 100%;
-    /* Evita el ancho mínimo en pantallas pequeñas */
+  .game-card {
+    width: 80%; /* Reduce el ancho en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card {
+    width: 100%; /* Ancho completo en pantallas pequeñas */
   }
 }
 
@@ -725,38 +680,38 @@ h2 {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #fff; 
+  color: #fff;
 }
 
 .dropdown-menu {
-  position: absolute; 
+  position: absolute;
   right: 40px;
   top: 65px;
-  background-color: white; 
-  border: 1px solid #ccc; 
-  border-radius: 5px; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-  z-index: 99; 
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 99;
 }
 
 .dropdown-menu ul {
-  list-style: none; 
-  padding: 0; 
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
 .dropdown-menu li {
-  padding: 10px; 
+  padding: 10px;
 }
 
 .dropdown-menu li a {
-  text-decoration: none; 
-  color: #333; 
-  display: block; 
+  text-decoration: none;
+  color: #333;
+  display: block;
 }
 
 .dropdown-menu li a:hover {
-  background-color: #ccc; 
+  background-color: #ccc;
 }
 
 .products {
@@ -772,7 +727,8 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -791,7 +747,8 @@ th {
   cursor: pointer;
 }
 
-.boton-index, .boton-checkout {
+.boton-index,
+.boton-checkout {
   margin: 10px;
   padding: 10px 20px;
   border: none;
@@ -808,9 +765,6 @@ th {
   background-color: #28a745;
   color: white;
 }
-
-
-
 
 .carousel {
   position: relative;
@@ -847,9 +801,8 @@ th {
 .next-btn {
   right: 10px;
 }
- /* CHANGE-PASSWORD */
 
-  /* Contenedor principal de cambio de contraseña */
+/* Contenedor principal de cambio de contraseña */
 .change-password-container {
   display: flex;
   flex-direction: column;
@@ -916,7 +869,6 @@ th {
   background-color: var(--lila);
 }
 
-/* Estilo del enlace de regreso al inicio */
 .back-link {
   display: block;
   text-align: center;
@@ -1017,10 +969,3 @@ th {
 .section-reset p a:hover {
   color: var(--lila);
 }
-
-
-
-
-
-
-

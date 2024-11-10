@@ -1,11 +1,21 @@
 package com.devgroup.ecommerce.controllers;
 
 //import org.springframework.beans.factory.annotation.Autowired;
-import com.devgroup.ecommerce.dto.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.devgroup.ecommerce.dto.ChangePasswordDTO;
+import com.devgroup.ecommerce.dto.ForgotPasswordRequest;
+import com.devgroup.ecommerce.dto.LoginDTO;
+import com.devgroup.ecommerce.dto.ResetPasswordRequest;
+import com.devgroup.ecommerce.dto.UserDTO;
 import com.devgroup.ecommerce.models.User;
 import com.devgroup.ecommerce.security.JwtUtil;
 import com.devgroup.ecommerce.service.UserService;

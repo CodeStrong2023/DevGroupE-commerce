@@ -20,54 +20,49 @@ import java.util.List;
 
 @RestController
 public class MercadoPagoController {
+
     @Value("${codigo.mercadoLibre}")
     private String mercadoLibreToken;
 
-    @RequestMapping(value= "api/mp", method = RequestMethod.POST)
-    public String gestList (@RequestBody UserBuyer userBuyer){
-        if(userBuyer == null){
-            return "error jsons :/";
+    @PostMapping("/mp")
+    public ResponseEntity<String> createPreference(@RequestBody UserBuyer userBuyer) {
+        if (userBuyer == null) {
+            return ResponseEntity.badRequest().body("Error en los datos enviados.");
         }
-        String title = userBuyer.getTitle();
-        int quantity = userBuyer.getQuantity();
-        BigDecimal price = userBuyer.getUnit_price();
+
         try {
+            // Configuramos el token de acceso
             MercadoPagoConfig.setAccessToken(mercadoLibreToken);
 
-            // 1 - Preferencia de vta
-
+            // Creamos el item de preferencia de Mercado Pago
             PreferenceItemRequest itemRequest = PreferenceItemRequest.builder()
-                    .title(title)
-                    .quantity(quantity)
-                    .unitPrice(price)
+                    .title(userBuyer.getTitle())
+                    .quantity(userBuyer.getQuantity())
+                    .unitPrice(userBuyer.getUnit_price())
                     .currencyId("ARS")
                     .build();
+
             List<PreferenceItemRequest> items = new ArrayList<>();
             items.add(itemRequest);
 
-            // 2- Preferencia de control de sucesos
-
-            PreferenceBackUrlsRequest backUrls = PreferenceBackUrlsRequest
-                    .builder()
-                    .success("") //Donde se lo va reedirigir después de pagar NO SE PUEDE PONER UN LOCALHOST
-                    .pending("") //Hay una operación pendiendte
-                    .failure("") // Si hay un fallo se muestra un 404
+            // URLs de redirección de Mercado Pago
+            PreferenceBackUrlsRequest backUrls = PreferenceBackUrlsRequest.builder()
+                    .success("https://chatgpt.com/success")
+                    .pending("https://chatgpt.com/pending")
+                    .failure("https://chatgpt.com/failure")
                     .build();
 
-            //Juntamos las dos preferencias en una nueva
             PreferenceRequest preferenceRequest = PreferenceRequest.builder()
                     .items(items)
                     .backUrls(backUrls)
                     .build();
 
-            //Creamos un objeto del tipo cliente para comunicarse con MP
             PreferenceClient client = new PreferenceClient();
-
             Preference preference = client.create(preferenceRequest);
 
-            //Retornamos la referencia
-            return preference.getId();
-        }catch (MPException | MPApiException e){return e.toString();}
+            return ResponseEntity.ok(preference.getId());
+        } catch (MPException | MPApiException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear la preferencia de pago: " + e.getMessage());
+        }
     }
-
 }
