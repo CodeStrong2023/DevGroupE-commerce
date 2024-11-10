@@ -1,15 +1,16 @@
 package com.devgroup.ecommerce.service;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import com.devgroup.ecommerce.dto.GameReviewDTO;
 import com.devgroup.ecommerce.models.Game;
 import com.devgroup.ecommerce.models.GameReview;
 import com.devgroup.ecommerce.repository.GameRepository;
 import com.devgroup.ecommerce.repository.GameReviewRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class GameReviewService {
@@ -89,7 +90,7 @@ private GameReview convertToEntity(GameReviewDTO gameReviewDTO) {
         existingReview.setReviewText(gameReviewDTO.getReviewText());
         existingReview.setRating(gameReviewDTO.getRating());
         existingReview.setGame(gameReviewDTO.getGame());
-        // Guardar la entidad actualizada en la base de datos
+        // Guardamos la entidad actualizada en la base de datos
         GameReview updatedReview = gameReviewRepository.save(existingReview);
         // Retornar el DTO de la entidad actualizada
         return convertToDTO(updatedReview);

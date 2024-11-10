@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px; /* Espacio entre icono y texto (si deseas añadir texto) */
+    gap: 5px; 
   }
 
   #cartItems, #totalPrice {
@@ -72,8 +72,8 @@
     color: #79089f;
   }
   .add-to-cart-button {
-    background-color: #79089f; /* Color de fondo */
-    color: white; /* Color del texto */
+    background-color: #79089f; 
+    color: white; 
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -84,5 +84,19 @@
   }
   
   .add-to-cart-button:hover {
-    background-color:#79089f; /* Color al pasar el cursor */
+    background-color:#79089f; 
   }
+
+ .go-to-cart-button {
+  color: white;
+  width: 100%;
+  padding: 10px;
+  font-family: "Graduate", sans-serif;
+  background-color: #79089f;
+
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+ }
