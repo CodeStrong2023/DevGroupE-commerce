@@ -1,4 +1,4 @@
-import { fetchGamesByCategory, displayGames } from './Service.js';
+import { fetchGamesByCategory, displayGames } from "./Service";
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchAndDisplayGames(1); // Cargar juegos de la categoría 1 (Deportes)
@@ -7,4 +7,4 @@ document.addEventListener("DOMContentLoaded", () => {
 async function fetchAndDisplayGames(categoryId) {
     const games = await fetchGamesByCategory(categoryId);
     displayGames(games, "games-container");
-} 
+}
