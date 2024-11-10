@@ -73,7 +73,7 @@ async function processPayment() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(orderData), // Enviamos directamente el JSON
+      body: JSON.stringify(orderData), 
     });
 
     if (!response.ok) {

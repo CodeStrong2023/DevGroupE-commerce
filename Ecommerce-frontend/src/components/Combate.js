@@ -39,11 +39,10 @@ function displayGames(games) {
             const carousel = crearCarrusel(game.images);
             gameElement.appendChild(carousel);
         }
-         // Agregar botón "Añadir al Carrito"
          const addButton = document.createElement("button");
          addButton.textContent = "Añadir al Carrito";
-         addButton.classList.add("add-to-cart-button"); // Clase para estilos adicionales
-         addButton.onclick = () => addToCart(game); // Llamada a la función addToCart con el juego actual
+         addButton.classList.add("add-to-cart-button"); 
+         addButton.onclick = () => addToCart(game); 
          gameElement.appendChild(addButton);
  
          container.appendChild(gameElement);

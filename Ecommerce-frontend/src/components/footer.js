@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Asegúrate de usar la ruta correcta según la ubicación de tu archivo footer.js
     fetch('../components/footer.html')
       .then(response => {
         if (!response.ok) {
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.text();
       })
       .then(data => {
-        // Asegúrate de que el elemento con id "footerContainer" exista en el DOM
         const footerContainer = document.getElementById('footerContainer');
         if (footerContainer) {
           footerContainer.innerHTML = data;

@@ -1,10 +1,10 @@
 document.getElementById("changePasswordForm").addEventListener("submit", async function (event) {
     event.preventDefault(); // Evita la recarga de la página
 
-    // Obtener el email del localStorage
+    // Obteniene el email del localStorage
     const email = localStorage.getItem("email");
 
-    // Obtener los valores de las contraseñas
+    // Obteniene los valores de las contraseñas
     const currentPassword = document.getElementById("currentPassword").value;
     const newPassword = document.getElementById("newPassword").value;
     
@@ -12,7 +12,7 @@ document.getElementById("changePasswordForm").addEventListener("submit", async f
 
 
     try {
-        // Enviar la solicitud PUT al backend
+        // Envia la solicitud PUT al backend
         const response = await fetch(`http://localhost:8080/users/change-password`, {
             method: "PUT",
             headers: {
@@ -21,7 +21,7 @@ document.getElementById("changePasswordForm").addEventListener("submit", async f
             body: JSON.stringify({email, currentPassword: currentPassword, newPassword: newPassword }),
         });
 
-        // Verificar si la solicitud fue exitosa
+        // Verifica si la solicitud fue exitosa
         if (response.ok) {
             alert("Contraseña restablecida con éxito");
             window.location.href = "/"; // Redirige al inicio

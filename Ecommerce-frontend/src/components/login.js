@@ -14,8 +14,7 @@ export async function authenticateUser(username, password) {
             // Guarda el rol y el nombre en el localStorage
             localStorage.setItem("userRole", userData.role);
             localStorage.setItem("username", userData.username);
-            // Ejemplo de cómo guardar el ID en sessionStorage
-            localStorage.setItem("email", userData.email);  // 'userId' es el valor recibido del backend
+            localStorage.setItem("email", userData.email);  
 
             console.log(localStorage.getItem("email"));
 

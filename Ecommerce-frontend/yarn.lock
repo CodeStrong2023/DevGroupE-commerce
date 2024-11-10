@@ -218,7 +218,7 @@
   version "0.0.0"
   dependencies:
     "@mercadopago/sdk-react" "^0.0.19"
-    devgroupe-commerce "file:../../../../../../AppData/Local/Yarn/Cache/v6/npm-devgroupe-commerce-0.0.0-58a47d39-8b80-423a-b148-9a96c4312846-1731182101054/node_modules/devgroupe-commerce"
+    devgroupe-commerce "file:../../AppData/Local/Yarn/Cache/v6/npm-devgroupe-commerce-0.0.0-0818d5ba-4c4e-4ba1-b9f6-f1419fbdf6a4-1731184233997/node_modules/devgroupe-commerce"
 
 esbuild@^0.21.3:
   version "0.21.5"
@@ -305,7 +305,7 @@ source-map-js@^1.2.0:
 
 vite@^5.4.10:
   version "5.4.10"
-  resolved "https://registry.npmjs.org/vite/-/vite-5.4.10.tgz"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.10.tgz#d358a7bd8beda6cf0f3b7a450a8c7693a4f80c18"
   integrity sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==
   dependencies:
     esbuild "^0.21.3"
