@@ -149,31 +149,23 @@ h1 {
 .header-inicio {
   display: flex;
   justify-content: space-between;
-  /* Espacio entre el título y el botón */
   align-items: center;
-  /* Centra verticalmente los elementos */
   background-color: #171717;
-  /* Color de fondo */
   color: #fff;
-  /* Color del texto */
   padding: 1rem 3rem;
-  /* Espaciado interno */
   min-height: 5vh;
 }
 
 /* Estilos para el título */
 .header-inicio h1 {
   font-size: 1.4rem;
-  /* Tamaño del texto */
   font-family: "Graduate", sans-serif;
-  /* Fuente personalizada */
   color: var(--lila);
 }
 
 /* Estilos para los elementos de la lista */
 .navegacion li {
   margin: 0 1rem;
-  /* Espaciado entre los botones */
 }
 
 /* Botón de menú hamburguesa */
@@ -188,24 +180,24 @@ h1 {
 
 .navegacion ul {
   list-style: none; /* Elimina los puntos de la lista */
-  padding: 0; /* Elimina el padding predeterminado */
-  margin: 0; /* Elimina el margen predeterminado */
-  display: flex; /* Para que los elementos se muestren en fila */
-  gap: 1rem; /* Espaciado entre los elementos */
+  padding: 0; 
+  margin: 0; 
+  display: flex; 
+  gap: 1rem; 
 }
 
 .navegacion li a {
   text-decoration: none; /* Quita la línea de subrayado */
   color: inherit; /* Usa el color del texto que hereda */
   font-weight: bold; /* Estiliza el texto */
-  padding: 0.5rem; /* Añade espacio alrededor del texto */
+  padding: 0.5rem; 
   transition: color 0.3s ease; /* Transición para el hover */
 }
 
 .navegacion li a:hover {
   color: var(
     --primario
-  ); /* Cambia el color en hover (ajusta al color que desees) */
+  ); 
 }
 
 @media (max-width: 1020px) {
@@ -252,15 +244,10 @@ h1 {
 /* Estilos generales para la sección */
 .section-info {
   display: flex;
-  /* Usar flexbox para organizar los elementos en fila */
   justify-content: space-between;
-  /* Espaciado entre los divs */
   align-items: center;
-  /* Centra verticalmente los elementos */
   flex-wrap: wrap;
-  /* Permitir que los elementos se envuelvan en pantallas pequeñas */
   gap: 20px;
-  /* Espaciado entre elementos */
 }
 
 /* Estilos para el div de texto */
@@ -279,7 +266,6 @@ h1 {
   flex: 1;
   /* Permite que este div tome el espacio disponible */
   min-width: 300px;
-  /* Ancho mínimo para el div de imagen */
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -301,38 +287,25 @@ h1 {
 /* Estilos para la imagen */
 .info-image img {
   height: auto;
-  /* Mantiene la proporción de la imagen */
   max-width: 50%;
-  /* La imagen no excederá el 100% del ancho de su contenedor */
 }
 
 .close-button {
   width: 18%;
-  /* Ocupa todo el ancho del contenedor */
   padding: 10px 20px;
-  /* Espaciado interno del botón */
   border: none;
-  /* Sin borde */
   border-radius: 5px;
-  /* Esquinas redondeadas */
   color: var(--blanco);
-  /* Color del texto */
   background-color: var(--btn-color);
-  /* Color de fondo */
   cursor: pointer;
-  /* Cursor de mano al pasar por encima */
   font-family: var(--fuentePrincipal);
-  /* Fuente principal */
   font-size: 16px;
-  /* Tamaño de la fuente */
   transition: background-color 0.3s;
-  /* Transición suave para el color de fondo */
 }
 
 /* Efecto al pasar el mouse */
 .close-button:hover {
   background-color: #0056b3;
-  /* Color más oscuro al pasar el mouse */
 }
 
 .login-options button {
@@ -352,20 +325,17 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  /* Espaciado entre elementos del grid */
 }
 
 .game {
   border: 1px solid #000;
   padding: 0.625rem;
-  /* Espaciado interno */
   text-align: center;
 }
 
 .contact,
 .products {
   margin-top: 1.875rem;
-  /* Espaciado superior */
 }
 
 .products table {
@@ -383,7 +353,6 @@ h2 {
 .products th,
 .products td {
   padding: 0.625rem;
-  /* Espaciado interno en celdas */
   text-align: center;
 }
 
@@ -392,10 +361,8 @@ h2 {
   background-color: var(--btn-color);
   color: var(--blanco);
   padding: 0.625rem 1.25rem;
-  /* Espaciado */
   text-decoration: none;
   border-radius: 0.3125rem;
-  /* Bordes redondeados */
 }
 
 #footerContainer {
@@ -408,30 +375,24 @@ h2 {
   flex-direction: column;
 }
 #footerContainer a {
-  margin: 0 1rem; /* Añade espacio entre los enlaces */
-  color: var(--blanco); /* Asegura que los enlaces sean blancos */
-  text-decoration: none; /* Remueve el subrayado */
-  font-family: var(--fuentePrincipal); /* Aplica la fuente principal */
+  margin: 0 1rem;
+  color: var(--blanco); 
+  text-decoration: none; 
+  font-family: var(--fuentePrincipal); 
 }
 #footerContainer a:hover {
-  color: var(--lila); /* Cambia de color al pasar el mouse */
+  color: var(--lila); 
 }
 
 /* Menú desplegable */
 #loginDropdown {
   position: absolute;
-  /* Posición absoluta para que se superponga */
   top: 50px;
-  /* Ajusta la posición según tu diseño */
   right: 20px;
-  /* Ajusta según la posición deseada */
   background-color: #434343;
-  /* Color de fondo para que sea visible */
   border: 1px solid #ddd;
-  /* Borde para visualizar el contenedor */
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Sombras para mejor visibilidad */
   z-index: 1000;
   /* Asegura que esté al frente */
 }
@@ -440,19 +401,12 @@ h2 {
 .login-form input {
   font-family: "Graduate", sans-serif;
   width: 100%;
-  /* Ancho completo del contenedor */
   padding: 10px;
-  /* Espaciado interno */
   margin: 8px 0;
-  /* Espaciado vertical */
   border: 1px solid #ccc;
-  /* Borde gris claro */
   border-radius: 4px;
-  /* Bordes redondeados */
   box-sizing: border-box;
-  /* Para incluir padding y border en el ancho total */
   font-size: 16px;
-  /* Tamaño de fuente */
 }
 #footerContainer {
   width: 100%;
@@ -464,16 +418,18 @@ h2 {
   flex-direction: column;
 }
 
-/* Añadir espaciado y estilos para los enlaces dentro del footer */
+/* FOOTER */
+
+
 #footerContainer a {
-  margin: 0 1rem; /* Añade espacio entre los enlaces */
-  color: var(--blanco); /* Asegura que los enlaces sean blancos */
-  text-decoration: none; /* Remueve el subrayado */
-  font-family: var(--fuentePrincipal); /* Aplica la fuente principal */
+  margin: 0 1rem; 
+  color: var(--blanco); 
+  text-decoration: none; 
+  font-family: var(--fuentePrincipal);
 }
 
 #footerContainer a:hover {
-  color: var(--lila); /* Cambia de color al pasar el mouse */
+  color: var(--lila); 
 }
 
 .admin-dashboard {
@@ -483,14 +439,14 @@ h2 {
 }
 .admin-dashboard input {
   font-family: "Graduate", sans-serif;
-  width: 150px; /* Ancho completo del contenedor */
+  width: 150px; 
   height: auto;
-  padding: 10px; /* Espaciado interno */
-  margin: 8px 0; /* Espaciado vertical */
-  border: 1px solid #ccc; /* Borde gris claro */
-  border-radius: 4px; /* Bordes redondeados */
-  box-sizing: border-box; /* Para incluir padding y border en el ancho total */
-  font-size: 16px; /* Tamaño de fuente */
+  padding: 10px; 
+  margin: 8px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  font-size: 16px; 
 }
 .admin-dashboard h3 {
   text-align: center;
@@ -498,11 +454,8 @@ h2 {
 .admin-dashboard label {
   font-family: "Graduate", sans-serif;
   font-size: 16px;
-  /* Tamaño de fuente */
   cursor: pointer;
-  /* Cambia el cursor al pasar el mouse */
   transition: background-color 0.3s ease;
-  /* Efecto suave para el color de fondo */
 }
 
 .admin-dashboard h1 {
@@ -591,7 +544,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
-  /* Espaciado entre las tarjetas */
   padding: 2rem;
   justify-items: center;
 }
