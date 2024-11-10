@@ -16,7 +16,6 @@ export async function authenticateUser(username, password) {
             localStorage.setItem("username", userData.username);
             localStorage.setItem("email", userData.email);  
 
-            console.log(localStorage.getItem("email"));
 
             // Oculta el formulario de inicio de sesión
             const loginContainer = document.getElementById("loginDropdown");
@@ -37,8 +36,6 @@ export async function authenticateUser(username, password) {
             alert("Error: Credenciales inválidas");
         }
     } catch (error) {
-        console.error("Error al iniciar sesión:", error);
-        alert("Error al iniciar sesión");
     }
 }
 

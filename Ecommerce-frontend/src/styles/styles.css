@@ -576,8 +576,8 @@ h2 {
 }
 
 .game-card img {
-  width: 100%;
-  height: auto;
+  width: 460px;
+  height: 215px;
   object-fit: cover;
   border-radius: 0.5rem 0.5rem 0 0;
 }
