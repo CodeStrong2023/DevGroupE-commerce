@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gameForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        // Recoger y validar los datos
+        // Recoge y valida los datos
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const price = parseFloat(document.getElementById('price').value);

@@ -21,7 +21,7 @@ async function fetchSportsGames() {
 
 function displayGames(games) {
     const container = document.getElementById("games-container");
-    container.innerHTML = ""; // Limpiar cualquier contenido anterior
+    container.innerHTML = ""; 
 
     games.forEach(game => {
         const gameElement = document.createElement("div");
@@ -42,8 +42,8 @@ function displayGames(games) {
          // Agregar botón "Añadir al Carrito"
          const addButton = document.createElement("button");
          addButton.textContent = "Añadir al Carrito";
-         addButton.classList.add("add-to-cart-button"); // Clase para estilos adicionales
-         addButton.onclick = () => addToCart(game); // Llamada a la función addToCart con el juego actual
+         addButton.classList.add("add-to-cart-button"); 
+         addButton.onclick = () => addToCart(game); 
          gameElement.appendChild(addButton);
  
          container.appendChild(gameElement);

@@ -110,40 +110,28 @@ h1 {
 /* Estilos para el botón */
 .login-form button{
   width: 100%;
-  /* Ancho completo */
   padding: 10px;
-  /* Espaciado interno */
   font-family: "Graduate", sans-serif;
   background-color: #79089f;
-  /* Color de fondo */
   color: white;
-  /* Color del texto */
   border: none;
-  /* Sin borde */
   border-radius: 4px;
-  /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
 }
 
 .login-button {
   width: 15%;
-  /* Ancho completo */
   padding: 10px;
-  /* Espaciado interno */
   font-family: "Graduate", sans-serif;
   background-color: var(--primario);
-  /* Color de fondo */
   color: white;
-  /* Color del texto */
   border: none;
-  /* Sin borde */
   border-radius: 4px;
-  /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  transition: background-color 0.3s ease; /* Efecto suave para el color de fondo */
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
 }
 
 
@@ -153,9 +141,9 @@ h1 {
   /* Alinear botones verticalmente y hacerlos ocupar todo el ancho */
   .login-button, .cart-button {
     width: 100%;
-    margin: 5px 0; /* Espaciado entre los botones */
-    font-size: 1.2rem; /* Aumentar el tamaño de fuente para mejor visibilidad en móviles */
-    padding: 12px; /* Ajuste de padding para pantallas más pequeñas */
+    margin: 5px 0;
+    font-size: 1.2rem; 
+    padding: 12px; 
   }
 }
 
@@ -529,13 +517,13 @@ h2 {
 .gameForm-container {
   display: flex;
   justify-content: center;
-  align-items: center; /* Asegura que el contenido se centre verticalmente */
-  border: 2px solid #fff; /* Cambia border-color a border para que se muestre el borde */
+  align-items: center; 
+  border: 2px solid #fff; 
   border-radius: 20px;
   width: 500px;
-  height: 500px; /* Define una altura para crear un cuadrado */
-  background-color: rgba(255, 255, 255, 0.1); /* Color de fondo para ver el cuadrado */
-  margin: auto; /* Asegura que el contenedor esté centrado en su padre */
+  height: 500px; 
+  background-color: rgba(255, 255, 255, 0.1); 
+  margin: auto; 
 }
 
 #gameForm-button{
@@ -548,23 +536,18 @@ h2 {
 }
 #gameForm-button::hover {
   background-color: #79089f;
-/* Efecto hover para el botón */
 }
 .login-form button:hover {
   background-color: #4f0568;
-  /* Color más oscuro al pasar el mouse */
 }
 
-/* Efecto focus para los inputs */
 .login-form input:focus {
   border-color: #79089f;
-  /* Cambia el color del borde al enfocarse */
   outline: none;
-  /* Sin borde adicional */
 }
 
 
-/* Estilo para hacer el botón más llamativo */
+/* Estilo botón */
 #loginButton {
   cursor: pointer;
 }
@@ -576,9 +559,7 @@ h2 {
   align-items: center;
   position: relative;
   margin: 0.625rem 0.3125rem;
-  /* Espaciado */
   flex-wrap: wrap;
-  /* Ajustar en múltiples líneas */
 }
 
 .icon-elemento {
@@ -588,22 +569,16 @@ h2 {
 .icono {
   color: white;
   font-size: 2rem;
-  /* Tamaño de los iconos */
   display: inline-block;
   margin: 0 0.625rem;
-  /* Espaciado */
   transition: 0.5s;
-  /* Transición suave */
   opacity: 0.5;
-  /* Opacidad inicial */
 }
 
 /* Añadir una pequeña animación al pasar el mouse */
 .icono:hover {
   opacity: 1;
-  /* Cambiar opacidad */
   transform: translateY(-0.3125rem);
-  /* Efecto de desplazamiento */
 }
 
 .menu {
@@ -611,9 +586,7 @@ h2 {
   justify-content: center;
   align-items: center;
   margin: 0.625rem 0;
-  /* Espaciado */
   flex-wrap: wrap;
-  /* Ajustar en múltiples líneas */
 }
 
 .menu-elementos {
@@ -632,7 +605,6 @@ h2 {
 .games-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* 2 columnas */
   gap: 1.5rem;
   
   /* Espaciado entre tarjetas */
@@ -642,32 +614,24 @@ h2 {
 
 .game-card {
   width: 460px;
-  /* Ancho fijo */
   background-color: var(--seccion);
-  /* Color de fondo */
   border-radius: 0.5rem;
-  /* Bordes redondeados */
   overflow: hidden;
-  /* Oculta cualquier contenido que sobresalga */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  /* Sombra */
   text-align: center;
-  /* Centra el texto */
   padding: 1rem;
-  /* Espacio interno */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   transition: transform 0.2s ease-in-out;
-  /* Animación suave al pasar el ratón */
+
 }
 
 .game-card:hover {
   transform: translateY(-5px);
-  /* Efecto de elevación al pasar el ratón */
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4);
-  /* Sombra */
+
 }
 
 
@@ -688,9 +652,7 @@ h2 {
 .game-description {
   font-size: 0.875rem;
   color: var(--secundario);
-  /* Color secundario */
   text-transform: lowercase;
-  /* Texto en minúscula */
   margin: 0.5rem 0;
 }
 
@@ -704,17 +666,17 @@ h2 {
 @media (max-width: 768px) {
   .section-info {
     flex-direction: column;
-    /* Cambia a columna en pantallas pequeñas */
+
     align-items: flex-start;
-    /* Alinea los elementos al inicio */
+
   }
 
   .info-text,
   .info-image {
     width: 100%;
-    /* Ambos divs ocupan el 100% en pantallas pequeñas */
+
     min-width: 100%;
-    /* Evita el ancho mínimo en pantallas pequeñas */
+  
   }
 }
 
@@ -848,7 +810,7 @@ th {
 .next-btn {
   right: 10px;
 }
- /* CHANGE-PASSWORD */
+
 
   /* Contenedor principal de cambio de contraseña */
 .change-password-container {
@@ -917,7 +879,7 @@ th {
   background-color: var(--lila);
 }
 
-/* Estilo del enlace de regreso al inicio */
+
 .back-link {
   display: block;
   text-align: center;

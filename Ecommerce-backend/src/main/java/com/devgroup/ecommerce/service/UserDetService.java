@@ -1,14 +1,15 @@
 package com.devgroup.ecommerce.service;
 
-import com.devgroup.ecommerce.repository.UserRepository;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import com.devgroup.ecommerce.models.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import com.devgroup.ecommerce.models.User;
+import com.devgroup.ecommerce.repository.UserRepository;
 
 @Service
 public class UserDetService implements UserDetailsService {
@@ -26,12 +27,12 @@ public class UserDetService implements UserDetailsService {
             throw new UsernameNotFoundException("Usuario no encontrado con el nombre de usuario: " + username);
         }
 
-        // Convertir User a un objeto que implemente UserDetails
+        // Convierte User a un objeto que implemente UserDetails
         User user = userOptional.get();
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getUsername())
-                .password(user.getPassword())  // La contraseña ya debe estar cifrada en la base de datos
-                .roles("USER")  // Aquí puedes asignar roles; en este ejemplo se asigna un rol fijo
+                .password(user.getPassword())  
+                .roles("USER")  
                 .build();
     }
 }

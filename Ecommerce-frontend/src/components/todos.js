@@ -26,7 +26,7 @@ async function fetchGamesFromAllCategories() {
             })
             .catch(error => {
                 console.error(`Error en la categoría ${id}:`, error);
-                return []; // Retorna un array vacío si hay error en una categoría
+                return []; // va a retornar un array vacío si hay error en una categoría
             })
     );
 
