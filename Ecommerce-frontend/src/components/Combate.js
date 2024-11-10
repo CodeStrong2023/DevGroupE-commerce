@@ -7,4 +7,4 @@ document.addEventListener("DOMContentLoaded", () => {
 async function fetchAndDisplayGames(categoryId) {
     const games = await fetchGamesByCategory(categoryId);
     displayGames(games, "games-container");
-}
+} 

@@ -25,8 +25,7 @@ export function displayGames(games, containerId) {
             <h2>${game.title}</h2>
             <p>${game.description}</p>
             <p><strong>Precio:</strong> ${game.price} USD</p>
-            <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>
-        `;
+            <p><strong>Fecha de publicación:</strong> ${new Date(game.releaseDate).toLocaleDateString()}</p>`;
 
         if (game.images && Array.isArray(game.images) && game.images.length > 0) {
             const carousel = crearCarrusel(game.images);
@@ -42,4 +41,4 @@ export function displayGames(games, containerId) {
 
         container.appendChild(gameElement);
     });
-}
+} 
