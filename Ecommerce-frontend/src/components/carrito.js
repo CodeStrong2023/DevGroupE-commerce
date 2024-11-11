@@ -44,14 +44,16 @@ function updateCart() {
     row.innerHTML = `
       <td>${product.title}</td>
       <td>$${product.price.toFixed(2)}</td>
-      <td><button class="btn remove-from-cart" data-product-id="${product.id}">Eliminar</button></td>
+      <td><button class="btn remove-from-cart" data-product-id="${
+        product.id
+      }">Eliminar</button></td>
     `;
     cartTableBody.appendChild(row);
   });
 
   const total = cart.reduce((sum, product) => sum + product.price, 0);
   totalPriceElement.textContent = `Total: $${total.toFixed(2)}`;
-  localStorage.setItem('total-carrito', total);
+  localStorage.setItem("total-carrito", total);
 
   cartTableBody.querySelectorAll(".remove-from-cart").forEach((button) => {
     button.addEventListener("click", removeFromCart);
@@ -59,22 +61,25 @@ function updateCart() {
 }
 
 async function processPayment() {
-  total = localStorage.getItem('total-carrito');
+  total = localStorage.getItem("total-carrito");
   try {
     const orderData = {
-      title: "VARIOS",        // Título genérico para múltiples productos
-      quantity: 1,            // Cantidad fija para el total acumulado
-      unit_price: total       // Total del carrito
+      title: "VARIOS", // Título genérico para múltiples productos
+      quantity: 1, // Cantidad fija para el total acumulado
+      unit_price: total, // Total del carrito
     };
 
     console.log(orderData);
-    const response = await fetch("http://localhost:8080/mp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(orderData), 
-    });
+    const response = await fetch(
+      `https://devgroupe-commerce.up.railway.app/mp`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -92,8 +97,6 @@ async function processPayment() {
   }
 }
 
-
-
 function removeFromCart(event) {
   const button = event.target;
   const productId = parseInt(button.getAttribute("data-product-id"));
@@ -110,9 +113,12 @@ const createCheckoutButton = (preferenceId) => {
 
   if (walletContainer) {
     walletContainer.innerHTML = "";
-    const mp = new window.MercadoPago("APP_USR-22e6ef29-e6b7-49f3-aa7e-c8d85937802e", {
-      locale: "es-AR",
-    });
+    const mp = new window.MercadoPago(
+      "APP_USR-22e6ef29-e6b7-49f3-aa7e-c8d85937802e",
+      {
+        locale: "es-AR",
+      }
+    );
 
     mp.checkout({
       preference: {

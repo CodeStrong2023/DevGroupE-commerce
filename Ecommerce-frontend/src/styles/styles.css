@@ -921,3 +921,12 @@ th {
 .section-reset p a:hover {
   color: var(--lila);
 }
+
+.about-us {
+  color: var(--primario);
+  background-color: black;
+}
+
+.other-options {
+  color: var(--lila);
+}
