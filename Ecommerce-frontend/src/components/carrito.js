@@ -1,3 +1,5 @@
+const backendurl = import.meta.env.BACKEND_URL;
+
 function openCartPopup() {
   const popup = document.getElementById("cartPopup");
   if (popup) {
@@ -70,16 +72,13 @@ async function processPayment() {
     };
 
     console.log(orderData);
-    const response = await fetch(
-      "https://devgroupe-commerce.up.railway.app/mp",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderData),
-      }
-    );
+    const response = await fetch(`${backendurl}/mp`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderData),
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

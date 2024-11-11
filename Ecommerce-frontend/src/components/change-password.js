@@ -1,3 +1,5 @@
+const backendurl = import.meta.env.BACKEND_URL;
+
 document
   .getElementById("changePasswordForm")
   .addEventListener("submit", async function (event) {
@@ -12,20 +14,17 @@ document
 
     try {
       // Envia la solicitud PUT al backend
-      const response = await fetch(
-        `https://devgroupe-commerce.up.railway.app/users/change-password`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            currentPassword: currentPassword,
-            newPassword: newPassword,
-          }),
-        }
-      );
+      const response = await fetch(`${backendurl}/users/change-password`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          currentPassword: currentPassword,
+          newPassword: newPassword,
+        }),
+      });
 
       if (response.ok) {
         alert("Contraseña restablecida con éxito");

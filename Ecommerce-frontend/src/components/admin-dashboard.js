@@ -1,3 +1,5 @@
+const backendurl = import.meta.env.BACKEND_URL;
+
 document.addEventListener("DOMContentLoaded", () => {
   // Verifica si el usuario tiene permiso de acceso (solo ADMIN)
   const userRole = localStorage.getItem("userRole");
@@ -46,13 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
         releaseDate,
         images
       );
-      const response = await fetch(
-        "https://devgroupe-commerce.up.railway.app/games",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch(`${backendurl}/games`, {
+        method: "POST",
+        body: formData,
+      });
 
       if (response.ok) {
         alert("Juego guardado con éxito");

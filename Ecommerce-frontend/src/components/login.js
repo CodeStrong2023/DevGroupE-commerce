@@ -1,13 +1,12 @@
+const backendurl = import.meta.env.BACKEND_URL;
+
 export async function authenticateUser(username, password) {
   try {
-    const response = await fetch(
-      "https://devgroupe-commerce.up.railway.app/users/login",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      }
-    );
+    const response = await fetch(`${backendurl}/users/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
 
     if (response.ok) {
       const userData = await response.json();
