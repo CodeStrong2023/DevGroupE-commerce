@@ -71,7 +71,7 @@ async function processPayment() {
 
     console.log(orderData);
     const response = await fetch(
-      "https://devgroupe-commerce.up.railway.app/mp",
+      "http://devgroupe-commerce.up.railway.app:8080/mp",
       {
         method: "POST",
         headers: {

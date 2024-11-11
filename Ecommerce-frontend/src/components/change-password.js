@@ -13,7 +13,7 @@ document
     try {
       // Envia la solicitud PUT al backend
       const response = await fetch(
-        `https://devgroupe-commerce.up.railway.app/users/change-password`,
+        `http://devgroupe-commerce.up.railway.app:8080/users/change-password`,
         {
           method: "PUT",
           headers: {
