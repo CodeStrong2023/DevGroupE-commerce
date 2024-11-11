@@ -1,4 +1,4 @@
-const backendurl = import.meta.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function openCartPopup() {
   const popup = document.getElementById("cartPopup");
@@ -72,7 +72,7 @@ async function processPayment() {
     };
 
     console.log(orderData);
-    const response = await fetch(`${backendurl}/mp`, {
+    const response = await fetch(`${backendUrl}/mp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

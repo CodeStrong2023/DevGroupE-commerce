@@ -1,4 +1,4 @@
-const backendurl = import.meta.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 document
   .getElementById("changePasswordForm")
@@ -14,7 +14,7 @@ document
 
     try {
       // Envia la solicitud PUT al backend
-      const response = await fetch(`${backendurl}/users/change-password`, {
+      const response = await fetch(`${backendUrl}/users/change-password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

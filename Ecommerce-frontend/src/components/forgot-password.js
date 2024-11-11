@@ -1,4 +1,4 @@
-const backendurl = import.meta.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 document
   .getElementById("resetPasswordForm")
@@ -26,7 +26,7 @@ document
 
     try {
       // Enviar la solicitud POST al backend
-      const response = await fetch(`${backendurl}/users/reset-password`, {
+      const response = await fetch(`${backendUrl}/users/reset-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

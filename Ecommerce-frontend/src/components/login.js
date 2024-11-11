@@ -1,8 +1,8 @@
-const backendurl = import.meta.env.BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export async function authenticateUser(username, password) {
   try {
-    const response = await fetch(`${backendurl}/users/login`, {
+    const response = await fetch(`${backendUrl}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
