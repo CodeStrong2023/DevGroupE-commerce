@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         images
       );
       const response = await fetch(
-        "http://devgroupe-commerce.up.railway.app:8080/games",
+        "https://devgroupe-commerce.up.railway.app/games",
         {
           method: "POST",
           body: formData,

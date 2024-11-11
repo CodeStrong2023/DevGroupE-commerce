@@ -1,7 +1,7 @@
 export async function authenticateUser(username, password) {
   try {
     const response = await fetch(
-      "http://devgroupe-commerce.up.railway.app:8080/users/login",
+      "https://devgroupe-commerce.up.railway.app/users/login",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

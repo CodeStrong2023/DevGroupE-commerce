@@ -25,7 +25,7 @@ document
     try {
       // Enviar la solicitud POST al backend
       const response = await fetch(
-        "http://devgroupe-commerce.up.railway.app:8080/users/reset-password",
+        "https://devgroupe-commerce.up.railway.app/users/reset-password",
         {
           method: "POST",
           headers: {

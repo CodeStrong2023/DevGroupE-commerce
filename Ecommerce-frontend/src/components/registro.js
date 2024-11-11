@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "http://devgroupe-commerce.up.railway.app:8080/users/register",
+        "https://devgroupe-commerce.up.railway.app/users/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
