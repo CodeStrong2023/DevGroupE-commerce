@@ -1,4 +1,4 @@
-import { crearCarrusel } from "./carousel";
+import { crearCarrusel } from "./carousel.js";
 
 export async function fetchGamesByCategory(categoryId) {
   try {
