@@ -62,7 +62,7 @@ function showWelcomeMessage(username, role) {
         <ul>
             <li><a href="#" id="logoutButton" style='color: #9b86f4;'>Cerrar Sesión</a></li>
             <li><a href="/src/pages/change-password.html" style='color: #9b86f4;'>Cambiar Contraseña</a></li>
-            <li><a href="/src/pages/${role.toLowerCase()}-dashboard.html" class="panel" style='color: #9b86f4;'>Ir al Dashboard</a></li>
+            <li><a href="/src/pages/admin-dashboard.html" class="panel" style='color: #9b86f4;'>Ir al Dashboard</a></li>
         </ul>
     `;
   welcomeButton.insertAdjacentElement("afterend", dropdownMenu);
