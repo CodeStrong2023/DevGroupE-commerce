@@ -1,5 +1,3 @@
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
 document
   .getElementById("resetPasswordForm")
   .addEventListener("submit", async function (event) {
@@ -26,13 +24,16 @@ document
 
     try {
       // Enviar la solicitud POST al backend
-      const response = await fetch(`${backendUrl}/users/reset-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token: token, newPassword: newPassword }),
-      });
+      const response = await fetch(
+        `https://devgroupe-commerce.up.railway.app/users/reset-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token: token, newPassword: newPassword }),
+        }
+      );
 
       if (response.ok) {
         alert("Contraseña restablecida con éxito.");

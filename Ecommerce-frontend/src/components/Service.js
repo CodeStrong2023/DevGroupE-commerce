@@ -3,7 +3,7 @@ import { crearCarrusel } from "./carousel";
 export async function fetchGamesByCategory(categoryId) {
   try {
     const response = await fetch(
-      `http://devgroupe-commerce.up.railway.app:8080/games/category/${categoryId}`
+      `https://devgroupe-commerce.up.railway.app/games/category/${categoryId}`
     );
     if (!response.ok) {
       throw new Error(

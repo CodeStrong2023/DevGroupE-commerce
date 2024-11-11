@@ -1,5 +1,3 @@
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
 document.addEventListener("DOMContentLoaded", () => {
   const registerForm = document.getElementById("registerForm");
   const backButton = document.getElementById("backButton");
@@ -13,11 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("regPassword").value;
 
     try {
-      const response = await fetch(`${backendUrl}/users/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
-      });
+      const response = await fetch(
+        `https://devgroupe-commerce.up.railway.app/users/register`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password }),
+        }
+      );
 
       if (response.ok) {
         messageElement.textContent =
