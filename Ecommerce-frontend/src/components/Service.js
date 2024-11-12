@@ -33,9 +33,16 @@ export function displayGames(games, containerId) {
               game.releaseDate
             ).toLocaleDateString()}</p>`;
 
+    // Verificación de imágenes
     if (game.images && Array.isArray(game.images) && game.images.length > 0) {
       const carousel = crearCarrusel(game.images);
-      gameElement.appendChild(carousel);
+      if (carousel) {
+        gameElement.appendChild(carousel);
+      } else {
+        console.warn(`No se pudo crear el carrusel para el juego: ${game.title}`);
+      }
+    } else {
+      console.warn(`No hay imágenes disponibles para el juego: ${game.title}`);
     }
 
     // Agregar el botón de "Añadir al Carrito"
