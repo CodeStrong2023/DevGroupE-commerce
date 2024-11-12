@@ -1,22 +1,5 @@
-// Función asincrónica que obtiene las imágenes desde un servidor
-async function fetchImagesFromServer() {
-  try {
-    const response = await fetch("https://example.com/images");
-    if (!response.ok) {
-      throw new Error("Error al obtener las imágenes.");
-    }
-    const data = await response.json();
-    return data.images; // Supongamos que la respuesta tiene un campo 'images' con las URLs
-  } catch (error) {
-    console.error("Error al cargar las imágenes:", error);
-    return []; // En caso de error, retornar un arreglo vacío
-  }
-}
-
-// Función principal para crear el carrusel de manera asincrónica
-export async function crearCarruselAsincronico() {
-  const images = await fetchImagesFromServer(); // Esperar la carga de imágenes
-
+export function crearCarrusel(images) {
+  
   if (images.length === 0) {
     console.error("No se obtuvieron imágenes.");
     return;
