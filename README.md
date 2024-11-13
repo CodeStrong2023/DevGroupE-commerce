@@ -1,6 +1,6 @@
 # 🎮 DevGroup Games - E-commerce de Videojuegos
 
-![Banner](https://devgroupgames.netlify.app) 
+![Banner](./images/banner-devgroup-games.png) 
 
 ## 🧩 Descripción del Proyecto
 
