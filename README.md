@@ -1,6 +1,6 @@
 # 🎮 DevGroup Games - E-commerce de Videojuegos
 
-![Banner](./src/images/banner-devgroup-games.png) 
+![Banner](Ecommerce-frontend/src/images/banner-devgroup-games.png) 
 
 ## 🧩 Descripción del Proyecto
 
