@@ -1,21 +1,22 @@
 package com.devgroup.ecommerce.service;
 
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.devgroup.ecommerce.dto.LoginDTO;
 import com.devgroup.ecommerce.dto.UserDTO;
 import com.devgroup.ecommerce.exceptions.InvalidCredentialsException;
 import com.devgroup.ecommerce.exceptions.UserNotFoundException;
 import com.devgroup.ecommerce.models.User;
 import com.devgroup.ecommerce.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.util.UUID;
 
 
 @Service
@@ -77,11 +78,11 @@ public class UserService {
 
         // Generar un token único para el restablecimiento de contraseña
         String token = UUID.randomUUID().toString();
-        user.setResetToken(token); // Asegúrate de tener este campo en tu modelo User
+        user.setResetToken(token); 
         userRepository.save(user);
 
         // Enviar el correo con el token
-        String resetLink = "http://localhost:3001/reset-password?token=" + token; // Cambia la URL según sea necesario
+        String resetLink = "http://localhost:5173/src/pages/reset-password?token=" + token; // Cambia la URL según sea necesario
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
         message.setSubject("Restablecer contraseña");
@@ -91,7 +92,7 @@ public class UserService {
         System.out.println("Token enviado a: " + email);
     }
 
-    // Restablecer contraseña usando el token
+    // Restablece contraseña usando el token
     public void resetPassword(String token, String newPassword) {
         User user = userRepository.findByResetToken(token)
                 .orElseThrow(() -> new IllegalArgumentException("Token inválido o expirado."));
@@ -104,13 +105,23 @@ public class UserService {
         System.out.println("Contraseña actualizada con éxito.");
     }
 
-    public void changePassword(Integer userId, String currentPassword, String newPassword) {
-        User user = getUser(userId);
+    public void changePassword(String email, String currentPassword, String newPassword) {
+        // Buscar al usuario por su correo electrónico
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("No se encontró un usuario con ese correo."));
+    
+        // Verifica si la contraseña actual coincide
         if (!passwordEncoder.matches(currentPassword, user.getPassword())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La contraseña actual no es correcta.");
         }
+    
+        // Actualiza la contraseña y limpiar cualquier token de restablecimiento existente
         user.setPassword(passwordEncoder.encode(newPassword));
+        user.setResetToken(null); 
         userRepository.save(user);
+    
+        System.out.println("Contraseña cambiada con éxito para el usuario: " + email);
     }
+    
 
 }

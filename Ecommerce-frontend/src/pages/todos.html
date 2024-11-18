@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevGroup Games</title>
+    <script src="../components/todos.js" rel="preload"></script>
+    <script src="../components/carrito.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/cart.css">
-
     <script defer src="../components/footer.js"></script>
 </head>
 <body>
@@ -26,12 +27,14 @@
             </ul>
         </nav>
 
+        <!-- Botón de Iniciar Sesión -->
         <button id="loginButton" class="login-button" onclick="toggleLogin()">Iniciar Sesión</button>
 
+        <!-- Botón que muestra el nombre del usuario (inicialmente oculto) -->
         <button id="userButton" class="login-button" style="display: none;"></button>
         <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
             <ul>
-                <li><a href="#" id="logoutButton">Cerrar Sesión</a></li>
+                <li><a href="#" id="logoutButton" onclick="logout()">Cerrar Sesión</a></li>
                 <li><a href="./change-password.html">Cambiar Contraseña</a></li>
                 <li><a href="/src/pages/dashboard.html">Ir al Dashboard</a></li>
             </ul>
@@ -59,10 +62,12 @@
             </div>
         </div>
         
+        <!-- Icono del carrito de compras -->
         <button aria-label="Carrito de compras" class="cart-button" onclick="openCartPopup()">
-            <i class="bi bi-cart"></i> 
+            <i class="bi bi-cart"></i> <!-- Asegúrate de usar un ícono de carrito de Bootstrap Icons -->
         </button>
 
+        <!-- Popup del carrito -->
         <div id="cartPopup" class="cart-popup" style="display: none;">
             <div class="popup-content">
                 <button class="close-button" onclick="closeCartPopup()">&times;</button>
@@ -75,6 +80,7 @@
                        </tr>
                    </thead>
                    <tbody id="cartItems">
+                       <!-- Los productos se agregarán aquí dinámicamente -->
                    </tbody>
                </table>
                <p id="totalPrice"></p>
@@ -84,14 +90,62 @@
     </header>
     <main>
         <section class="games-grid" id="games-container">
-        </div>
+            <!-- Aquí se cargarán los juegos de todos desde el JavaScript -->
         </section>
     </main>
-    <script type="module" src="../components/deportes.js"></script>
-</body>
-<div id="footerContainer"></div>
-<script src="../components/carrito.js"></script>
+
+    <div id="footerContainer">
+        <footer class="footer">
+            <ul class="social-icon">
+                <li class="icon-elemento">
+                    <a href="https://www.instagram.com/leomessi?igsh=MmVjOTJ6Nnh1bncw" class="icono" aria-label="Instagram" target="_blank">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                </li>
+                <li class="icon-elemento">
+                    <a href="https://www.youtube.com/@arielbetancud" class="icono" aria-label="Youtube" target="_blank">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                    </a>
+                </li>
+                <li class="icon-elemento">
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=new&to=dev.group.utn@gmail.com" class="icono" aria-label="Mail" target="_blank">
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="icon-elemento">
+                    <a href="https://chat.whatsapp.com/GE5nVu9DVPI8sOxM3RVpI7" class="icono" aria-label="Whatsapp" target="_blank">
+                        <ion-icon name="logo-whatsapp"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+            
+            <ul class="menu">
+                <li class="menu-elementos">
+                    <a href="/" class="menu-icono">Inicio</a>
+                </li>
+                <li class="menu-elementos">
+                    <a href="#" class="menu-icono" onclick="openAboutUs()">Sobre nosotros</a>
+                </li>
+                <li class="menu-elementos">
+                    <a href="https://github.com/CodeStrong2023/DevGroupE-commerce/tree/main" class="menu-icono" target="_blank">Contacto</a>
+                </li>
+            </ul>
+            
+            <p class="text">© 2024 DevGroup | Todos los derechos reservados</p>
+        </footer>
+        <script>
+            function openAboutUs() {
+                const aboutUsWindow = window.open("", "Sobre Nosotros", "width=600,height=400");
+                aboutUsWindow.document.write("<h2>Sobre Nosotros</h2><p>Somos un equipo de estudiantes apasionados por la tecnología y el desarrollo de software, actualmente cursando la tecnicatura en programación. En nuestro proyecto final, hemos unido fuerzas para crear este e-commerce de juegos electrónicos, pensado especialmente para brindar una experiencia de compra única y personalizada a los gamers. Nos impulsa el entusiasmo por innovar y ofrecer un espacio donde los usuarios puedan encontrar sus títulos favoritos y descubrir nuevas opciones que se adapten a sus gustos. Cada uno de nosotros aporta habilidades y conocimientos en diversas áreas de programación, diseño y gestión de proyectos, y juntos buscamos construir una plataforma segura, accesible y centrada en la comunidad gamer. ¡Gracias por acompañarnos en este emocionante viaje!</p>");
+                aboutUsWindow.document.close();
+            }
+        </script>
+    </div>
+
+<script type="module" src="../components/todos.js"></script>
+<script defer src="../components/footer.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type="module" src="../components/login.js"></script>
+</body>
 </html>
